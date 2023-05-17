@@ -6,13 +6,18 @@ import { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import app from '../firebaseConfig';
 
-const InicioSesion: React.FC = () => {
+type InicioSesionProps = {
+  setIsAuthenticated: (value: boolean) => void;
+};
+
+const InicioSesion: React.FC<InicioSesionProps> = ({ setIsAuthenticated }) => {
   const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
 
   const handleRegistro = () => {
     history.push('/registro');
@@ -22,10 +27,13 @@ const InicioSesion: React.FC = () => {
     setIsLoading(true); // Habilitar el estado de carga
     try {
       const auth = getAuth(app);
+      console.log('Before signInWithEmailAndPassword');
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log('After signInWithEmailAndPassword');
       const userId = userCredential.user.uid;
+      setIsAuthenticated(true); // Actualizar el estado de autenticación
       setToastMessage('Inicio de sesión correcto');
-      history.push('/home');
+      history.push("/");
     } catch (error) {
       setToastMessage('Credenciales incorrectas');
     } finally {
@@ -54,8 +62,9 @@ const InicioSesion: React.FC = () => {
       const auth = getAuth(app);
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
+      setIsAuthenticated(true);
       setToastMessage('Inicio de sesión con Google exitoso');
-      history.push('/home');
+      history.push("/");
     } catch (error) {
       setToastMessage('Error al iniciar sesión con Google');
     } finally {

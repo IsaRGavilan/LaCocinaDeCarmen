@@ -6,8 +6,11 @@ import { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import app from '../firebaseConfig';
 
+type RegistroProps = {
+  setIsAuthenticated: (value: boolean) => void;
+};
 
-const Registro: React.FC = () => {
+const Registro: React.FC<RegistroProps> = ({ setIsAuthenticated }) => {
 
   const history = useHistory(); // Obtiene el objeto de historial de navegación
 
@@ -58,8 +61,9 @@ const Registro: React.FC = () => {
     try {
       const auth = getAuth(app);
       await createUserWithEmailAndPassword(auth, email, password);
+      setIsAuthenticated(true);
       setToastMessage('Registro correcto');
-      history.push('/home'); // Redirige al componente Home después de iniciar sesión correctamente
+      history.push('/'); // Redirige al componente Home después de iniciar sesión correctamente
     } catch (error) {
       setToastMessage('El correo electrónico ya está registrado.');
     }finally{
@@ -74,8 +78,9 @@ const Registro: React.FC = () => {
       const auth = getAuth(app);
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
+      setIsAuthenticated(true);
       setToastMessage('Registro con Google exitoso.');
-      history.push('/home');
+      history.push('/');
     } catch (error) {
       setToastMessage('Error al registrar con Google.');
     } finally {

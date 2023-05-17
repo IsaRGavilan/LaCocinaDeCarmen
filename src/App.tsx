@@ -1,7 +1,7 @@
-import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonIcon, IonLabel, IonPage, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact } from '@ionic/react';
+import { BrowserRouter, Redirect, Route } from 'react-router-dom';
+import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -28,22 +28,27 @@ import Perfil from './pages/Perfil';
 import Buscador from './pages/Buscador';
 import Lista from './pages/Lista';
 import Inicio from './pages/Inicio';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import Home from './pages/Home';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonPage>
+const App: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  return(
+<IonApp>
   <IonReactRouter>
         <IonRouterOutlet>
-          <Route exact path="/registro">
-            <Registro />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/registro" />
-          </Route>
-          <Route exact path="/inicioSesion">
-            <InicioSesion/>
-          </Route>
+            <ProtectedRoute exact path="/perfil" component={Perfil} isAuthenticated={isAuthenticated}/>
+            <Route path="/inicioSesion">
+              <InicioSesion setIsAuthenticated={setIsAuthenticated}/>
+            </Route>
+            <Route path="/registro">
+              <Registro setIsAuthenticated={setIsAuthenticated}/>
+            </Route>
+
+          <ProtectedRoute exact path="/" component={Home} isAuthenticated={isAuthenticated} />
           <Route exact path="/inicio">
             <Inicio/>
           </Route>
@@ -56,12 +61,10 @@ const App: React.FC = () => (
           <Route exact path="/lista">
             <Lista />
           </Route>
-          <Route exact path="/perfil">
-          <Perfil />
-        </Route>
         </IonRouterOutlet>
       </IonReactRouter>
-</IonPage>
+  </IonApp>
   );
+};
 
 export default App;
