@@ -1,22 +1,25 @@
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/react';
-import React from 'react'
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonSplitPane } from '@ionic/react';
+import React from 'react';
+import SideMenu from '../../src/components/Menu/SideMenu';
 import '../../src/css/Buscador.css';
 
 const Buscador = () => {
   return (
-    <div>
-      <IonPage>
-    <IonHeader>
-      <IonToolbar>
-        <IonTitle>Buscador</IonTitle>
-      </IonToolbar>
-    </IonHeader>
-    <IonContent>
-        <h1>holae stas en el buscador</h1>
-    </IonContent>
-  </IonPage>
-    </div>
-  )
-}
+      <IonSplitPane contentId="main-content">
+        <SideMenu />
+        <IonPage id="main-content">
+          <IonHeader>
+            <IonToolbar>
+              <IonTitle>Buscador</IonTitle>
+              <IonMenuButton slot="start" />
+            </IonToolbar>
+          </IonHeader>
+          <IonContent>
+            <h1>Estás en el buscador</h1>
+          </IonContent>
+        </IonPage>
+      </IonSplitPane>
+  );
+};
 
 export default Buscador;

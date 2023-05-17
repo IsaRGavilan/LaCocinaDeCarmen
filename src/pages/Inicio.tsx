@@ -5,7 +5,6 @@ import '../../src/css/Inicio.css';
 
 const Inicio = () => {
   return (
-    <IonPage>
       <IonSplitPane contentId="main-content">
         <SideMenu />
         <IonPage id="main-content">
@@ -20,7 +19,6 @@ const Inicio = () => {
           </IonContent>
         </IonPage>
       </IonSplitPane>
-    </IonPage>
   );
 };
 

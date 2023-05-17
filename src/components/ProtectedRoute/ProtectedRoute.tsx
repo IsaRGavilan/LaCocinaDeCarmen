@@ -8,6 +8,7 @@ type ProtectedRouteProps = {
   } & RouteProps;
   
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ component: Component, isAuthenticated, ...rest }) => {
+  console.log('ProtectedRoute - isAuthenticated:', isAuthenticated);
   return (
     <Route
       {...rest}

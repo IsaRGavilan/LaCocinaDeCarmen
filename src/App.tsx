@@ -30,6 +30,7 @@ import Buscador from './pages/Buscador';
 import Lista from './pages/Lista';
 import Inicio from './pages/Inicio';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import SideMenu from './components/Menu/SideMenu';
 
 setupIonicReact();
 
@@ -46,6 +47,7 @@ const App: React.FC = () => {
             <Route path="/registro">
               <Registro setIsAuthenticated={setIsAuthenticated} />
             </Route>
+            <ProtectedRoute exact path="/" component={Inicio} isAuthenticated={isAuthenticated}/>
             <ProtectedRoute exact path="/inicio" component={Inicio} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/favoritos" component={Favoritos} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/buscador" component={Buscador} isAuthenticated={isAuthenticated} />
