@@ -1,0 +1,48 @@
+/* SideMenu.css */
+ion-menu{
+  width: auto;
+}
+.menu-title {
+    font-size: 24px;
+    color: rgb(236, 158, 95);
+  }
+  
+  .menu-list {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    will-change: transform;
+    overflow-y: hidden !important;
+  }
+  
+  .menu-list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../../assets/menu.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px);
+    z-index: -1;
+    background-repeat: no-repeat;
+  }
+  
+  .menu-item {
+    padding: 0;
+    margin-bottom: 8px;
+    border-radius: 8px;
+  }
+  
+  .menu-icon {
+    color: #F2A391;
+  }
+  
+  .menu-label {
+    color: #F2A391;
+    background-color: transparent; /* O elimina esta propiedad si no se necesita */
+    padding: 0; /* O ajusta el valor de relleno según sea necesario */
+  }
+  

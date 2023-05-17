@@ -1,6 +1,7 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonSplitPane } from '@ionic/react';
 import React from 'react';
 import SideMenu from '../../src/components/Menu/SideMenu';
+import '../../src/css/Inicio.css';
 
 const Inicio = () => {
   return (
@@ -10,7 +11,7 @@ const Inicio = () => {
         <IonPage id="main-content">
           <IonHeader>
             <IonToolbar>
-              <IonTitle>Inicio</IonTitle>
+              <IonTitle>Página principal</IonTitle>
               <IonMenuButton slot="start" />
             </IonToolbar>
           </IonHeader>
