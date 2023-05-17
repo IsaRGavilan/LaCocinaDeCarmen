@@ -9,7 +9,7 @@ import Buscador from './pages/Buscador';
 import Lista from './pages/Lista';
 import Inicio from './pages/Inicio';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { home, heart, search, cart, person } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
@@ -35,38 +35,51 @@ import './App.css';
 setupIonicReact();
 
 const App: React.FC = () => {
+  
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
     <IonApp>
       <IonReactRouter>
         <IonSplitPane contentId="main">
-          <IonMenu contentId="main">
+        {isAuthenticated && (
+          <IonMenu contentId="main" menuId="sidebar-menu" side="start" className="web-menu">
             <IonContent>
               <IonList className='menu-list'>
+              <IonMenuToggle defaultChecked={true}>
                   <IonItem className='menu-item' routerLink="/inicio" routerDirection="none">
                     <IonIcon icon={home} className='menu-icon'/>
                     <IonLabel className='menu-label'>Inicio</IonLabel>
                   </IonItem>
+                  </IonMenuToggle>
+                  <IonMenuToggle defaultChecked={true}>
                   <IonItem className='menu-item' routerLink="/favoritos" routerDirection="none">
                     <IonIcon icon={heart} className='menu-icon'/>
                     <IonLabel className='menu-label'>Favoritos</IonLabel>
                   </IonItem>
+                  </IonMenuToggle>
+                  <IonMenuToggle defaultChecked={true}>
                   <IonItem className='menu-item' routerLink="/buscador" routerDirection="none">
                     <IonIcon icon={search} className='menu-icon'/>
                     <IonLabel className='menu-label'>Buscador</IonLabel>
                   </IonItem>
+                  </IonMenuToggle>
+                  <IonMenuToggle defaultChecked={true}>
                   <IonItem className='menu-item' routerLink="/lista" routerDirection="none">
                     <IonIcon icon={cart} className='menu-icon'/>
                     <IonLabel className='menu-label'>Lista de la compra</IonLabel>
                   </IonItem>
+                  </IonMenuToggle>
+                  <IonMenuToggle defaultChecked={true}>
                   <IonItem className='menu-item' routerLink="/perfil" routerDirection="none">
                     <IonIcon icon={person} className='menu-icon'/>
                     <IonLabel className='menu-label'>Perfil</IonLabel>
                   </IonItem>
+                  </IonMenuToggle>
               </IonList>
             </IonContent>
           </IonMenu>
+          )}
           <IonRouterOutlet id="main">
             <Route path="/inicioSesion">
               <InicioSesion setIsAuthenticated={setIsAuthenticated} />
