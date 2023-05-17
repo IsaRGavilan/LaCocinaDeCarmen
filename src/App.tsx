@@ -1,8 +1,16 @@
-import { BrowserRouter, Redirect, Route } from 'react-router-dom';
-import { IonApp, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar, setupIonicReact } from '@ionic/react';
+import { Route } from 'react-router-dom';
+import { IonApp, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonMenuToggle, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import Registro from './pages/Registro';
+import InicioSesion from './pages/InicioSesion';
+import Favoritos from './pages/Favoritos';
+import Perfil from './pages/Perfil';
+import Buscador from './pages/Buscador';
+import Lista from './pages/Lista';
+import Inicio from './pages/Inicio';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { useState } from 'react';
-import { personCircle } from 'ionicons/icons';
+import { home, heart, search, cart, person } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -22,15 +30,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import Registro from './pages/Registro';
-import InicioSesion from './pages/InicioSesion';
-import Favoritos from './pages/Favoritos';
-import Perfil from './pages/Perfil';
-import Buscador from './pages/Buscador';
-import Lista from './pages/Lista';
-import Inicio from './pages/Inicio';
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
-import SideMenu from './components/Menu/SideMenu';
+import './App.css';
 
 setupIonicReact();
 
@@ -40,6 +40,33 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
+        <IonSplitPane contentId="main">
+          <IonMenu contentId="main">
+            <IonContent>
+              <IonList className='menu-list'>
+                  <IonItem className='menu-item' routerLink="/inicio" routerDirection="none">
+                    <IonIcon icon={home} className='menu-icon'/>
+                    <IonLabel className='menu-label'>Inicio</IonLabel>
+                  </IonItem>
+                  <IonItem className='menu-item' routerLink="/favoritos" routerDirection="none">
+                    <IonIcon icon={heart} className='menu-icon'/>
+                    <IonLabel className='menu-label'>Favoritos</IonLabel>
+                  </IonItem>
+                  <IonItem className='menu-item' routerLink="/buscador" routerDirection="none">
+                    <IonIcon icon={search} className='menu-icon'/>
+                    <IonLabel className='menu-label'>Buscador</IonLabel>
+                  </IonItem>
+                  <IonItem className='menu-item' routerLink="/lista" routerDirection="none">
+                    <IonIcon icon={cart} className='menu-icon'/>
+                    <IonLabel className='menu-label'>Lista de la compra</IonLabel>
+                  </IonItem>
+                  <IonItem className='menu-item' routerLink="/perfil" routerDirection="none">
+                    <IonIcon icon={person} className='menu-icon'/>
+                    <IonLabel className='menu-label'>Perfil</IonLabel>
+                  </IonItem>
+              </IonList>
+            </IonContent>
+          </IonMenu>
           <IonRouterOutlet id="main">
             <Route path="/inicioSesion">
               <InicioSesion setIsAuthenticated={setIsAuthenticated} />
@@ -47,13 +74,16 @@ const App: React.FC = () => {
             <Route path="/registro">
               <Registro setIsAuthenticated={setIsAuthenticated} />
             </Route>
-            <ProtectedRoute exact path="/" component={Inicio} isAuthenticated={isAuthenticated}/>
+            <Route exact path="/">
+              {isAuthenticated ? <Inicio /> : <InicioSesion setIsAuthenticated={setIsAuthenticated} />}
+            </Route>
             <ProtectedRoute exact path="/inicio" component={Inicio} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/favoritos" component={Favoritos} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/buscador" component={Buscador} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/lista" component={Lista} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/perfil" component={Perfil} isAuthenticated={isAuthenticated} />
           </IonRouterOutlet>
+        </IonSplitPane>
       </IonReactRouter>
     </IonApp>
   );

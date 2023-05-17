@@ -26,13 +26,11 @@ const InicioSesion: React.FC<InicioSesionProps> = ({ setIsAuthenticated }) => {
     setIsLoading(true); // Habilitar el estado de carga
     try {
       const auth = getAuth(app);
-      console.log('Before signInWithEmailAndPassword');
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      console.log('After signInWithEmailAndPassword');
       const userId = userCredential.user.uid;
       setIsAuthenticated(true); // Actualizar el estado de autenticación
       setToastMessage('Inicio de sesión correcto');
-      history.push("/inicio");
+      history.push("/");
     } catch (error) {
       setToastMessage('Credenciales incorrectas');
     } finally {
@@ -63,7 +61,7 @@ const InicioSesion: React.FC<InicioSesionProps> = ({ setIsAuthenticated }) => {
       await signInWithPopup(auth, provider);
       setIsAuthenticated(true);
       setToastMessage('Inicio de sesión con Google exitoso');
-      history.push("/inicio");
+      history.push("/");
     } catch (error) {
       setToastMessage('Error al iniciar sesión con Google');
     } finally {

@@ -63,7 +63,7 @@ const Registro: React.FC<RegistroProps> = ({ setIsAuthenticated }) => {
       await createUserWithEmailAndPassword(auth, email, password);
       setIsAuthenticated(true);
       setToastMessage('Registro correcto');
-      history.push('/inicio'); // Redirige al componente Inicio después de iniciar sesión correctamente
+      history.push("/");
     } catch (error) {
       setToastMessage('El correo electrónico ya está registrado.');
     }finally{
@@ -80,7 +80,7 @@ const Registro: React.FC<RegistroProps> = ({ setIsAuthenticated }) => {
       await signInWithPopup(auth, provider);
       setIsAuthenticated(true);
       setToastMessage('Registro con Google exitoso.');
-      history.push('/inicio');
+      history.push("/");
     } catch (error) {
       setToastMessage('Error al registrar con Google.');
     } finally {
