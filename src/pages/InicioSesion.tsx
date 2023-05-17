@@ -32,7 +32,7 @@ const InicioSesion: React.FC<InicioSesionProps> = ({ setIsAuthenticated }) => {
       const userId = userCredential.user.uid;
       setIsAuthenticated(true); // Actualizar el estado de autenticación
       setToastMessage('Inicio de sesión correcto');
-      history.push("/home");
+      history.push("/inicio");
     } catch (error) {
       setToastMessage('Credenciales incorrectas');
     } finally {
@@ -63,7 +63,7 @@ const InicioSesion: React.FC<InicioSesionProps> = ({ setIsAuthenticated }) => {
       await signInWithPopup(auth, provider);
       setIsAuthenticated(true);
       setToastMessage('Inicio de sesión con Google exitoso');
-      history.push("/home");
+      history.push("/inicio");
     } catch (error) {
       setToastMessage('Error al iniciar sesión con Google');
     } finally {

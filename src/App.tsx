@@ -30,7 +30,6 @@ import Buscador from './pages/Buscador';
 import Lista from './pages/Lista';
 import Inicio from './pages/Inicio';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
-import Home from './pages/Home';
 
 setupIonicReact();
 
@@ -47,18 +46,11 @@ const App: React.FC = () => {
             <Route path="/registro">
               <Registro setIsAuthenticated={setIsAuthenticated} />
             </Route>
-            <ProtectedRoute exact path="/home" component={Home} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/inicio" component={Inicio} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/favoritos" component={Favoritos} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/buscador" component={Buscador} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/lista" component={Lista} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/perfil" component={Perfil} isAuthenticated={isAuthenticated} />
-            <Route exact path="/favoritos">
-              <Favoritos />
-            </Route>
-            <Route exact path="/buscador">
-              <Buscador />
-            </Route>
-            <Route exact path="/lista">
-              <Lista />
-            </Route>
           </IonRouterOutlet>
       </IonReactRouter>
     </IonApp>

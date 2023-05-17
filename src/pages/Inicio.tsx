@@ -1,21 +1,26 @@
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/react';
-import React from 'react'
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonSplitPane } from '@ionic/react';
+import React from 'react';
+import SideMenu from '../../src/components/Menu/SideMenu';
 
 const Inicio = () => {
   return (
-    <div>
-      <IonPage>
-    <IonHeader>
-      <IonToolbar>
-        <IonTitle>Inicio</IonTitle>
-      </IonToolbar>
-    </IonHeader>
-    <IonContent>
-        <h1>holae stas en inicio</h1>
-    </IonContent>
-  </IonPage>
-    </div>
-  )
-}
+    <IonPage>
+      <IonSplitPane contentId="main-content">
+        <SideMenu />
+        <IonPage id="main-content">
+          <IonHeader>
+            <IonToolbar>
+              <IonTitle>Inicio</IonTitle>
+              <IonMenuButton slot="start" />
+            </IonToolbar>
+          </IonHeader>
+          <IonContent>
+            <h1>Estás en el inicio</h1>
+          </IonContent>
+        </IonPage>
+      </IonSplitPane>
+    </IonPage>
+  );
+};
 
 export default Inicio;
