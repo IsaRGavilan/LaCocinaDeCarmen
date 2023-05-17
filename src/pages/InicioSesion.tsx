@@ -18,7 +18,6 @@ const InicioSesion: React.FC<InicioSesionProps> = ({ setIsAuthenticated }) => {
   const [toastMessage, setToastMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-
   const handleRegistro = () => {
     history.push('/registro');
   };
@@ -33,7 +32,7 @@ const InicioSesion: React.FC<InicioSesionProps> = ({ setIsAuthenticated }) => {
       const userId = userCredential.user.uid;
       setIsAuthenticated(true); // Actualizar el estado de autenticación
       setToastMessage('Inicio de sesión correcto');
-      history.push("/");
+      history.push("/home");
     } catch (error) {
       setToastMessage('Credenciales incorrectas');
     } finally {
@@ -64,7 +63,7 @@ const InicioSesion: React.FC<InicioSesionProps> = ({ setIsAuthenticated }) => {
       await signInWithPopup(auth, provider);
       setIsAuthenticated(true);
       setToastMessage('Inicio de sesión con Google exitoso');
-      history.push("/");
+      history.push("/home");
     } catch (error) {
       setToastMessage('Error al iniciar sesión con Google');
     } finally {

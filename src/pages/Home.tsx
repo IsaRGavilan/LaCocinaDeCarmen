@@ -11,7 +11,7 @@ const Home = () => {
       </IonToolbar>
     </IonHeader>
     <IonContent>
-        <h1>holae stas en home</h1>
+        <h1>holae stas en el home</h1>
     </IonContent>
   </IonPage>
     </div>
