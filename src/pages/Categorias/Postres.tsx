@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonSplitPane } from '@ionic/react';
 import React from 'react';
-import '../../cssCategorias/Postres.css';
+import '../../css/cssCategorias/Postres.css';
 
 const Postres = () => {
   return (

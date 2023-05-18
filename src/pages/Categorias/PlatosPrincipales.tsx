@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonCard, IonCardHeader, IonCardTitle, IonIcon } from '@ionic/react';
 import React from 'react';
-import '../../cssCategorias/PlatosPrincipales.css';
+import '../../css/cssCategorias/PlatosPrincipales.css';
 import { Link } from 'react-router-dom';
 import pescados from '../../assets/pescados.jpg';
 import pure from '../../assets/pure.jpg';

@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonSplitPane } from '@ionic/react';
 import React from 'react';
-import '../../css/Buscador.css';
+import '../../css/cssGenerales/Buscador.css';
 
 const Buscador = () => {
   return (

@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonSplitPane, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
 import React from 'react';
-import '../../css/Inicio.css';
+import '../../css/cssGenerales/Inicio.css';
 import CocinaTipica from '../../assets/CocinaTipica.jpg';
 import entrantes from '../../assets/entrantes.jpg';
 import postres from '../../assets/postres.jpg';

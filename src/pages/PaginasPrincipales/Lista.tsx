@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonSplitPane } from '@ionic/react';
 import React from 'react';
-import '../../css/Lista.css';
+import '../../css/cssGenerales/Lista.css';
 
 const Lista = () => {
   return (

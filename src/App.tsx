@@ -36,6 +36,13 @@ import Entrantes from './pages/Categorias/Entrantes';
 import Caldos from './pages/Categorias/Caldos';
 import Postres from './pages/Categorias/Postres';
 import CocinaTipica from './pages/Categorias/CocinaTipica';
+import Carnes from './pages/Categorias/PlatosPrincipales/Carnes';
+import Legumbres from './pages/Categorias/PlatosPrincipales/Legumbres';
+import Pastas from './pages/Categorias/PlatosPrincipales/Pastas';
+import Pescados from './pages/Categorias/PlatosPrincipales/Pescados';
+import Pures from './pages/Categorias/PlatosPrincipales/Pures';
+import Sopas from './pages/Categorias/PlatosPrincipales/Sopas';
+import Verduras from './pages/Categorias/PlatosPrincipales/Verduras';
 
 setupIonicReact();
 
@@ -105,6 +112,13 @@ const App: React.FC = () => {
             <ProtectedRoute exact path="/caldos" component={Caldos} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/postres" component={Postres} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/cocinaTipica" component={CocinaTipica} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/carnes" component={Carnes} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/legumbres" component={Legumbres} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/pastas" component={Pastas} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/pescados" component={Pescados} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/pures" component={Pures} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/sopas" component={Sopas} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/verduras" component={Verduras} isAuthenticated={isAuthenticated} />
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
