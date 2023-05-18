@@ -1,10 +1,10 @@
 import { IonContent, IonHeader, IonPage, IonInput, IonButton, IonCheckbox, IonToast } from '@ionic/react';
-import '../css/Registro.css';
-import google from '../assets/google.png';
+import './Registro.css';
+import google from '../../assets/google.png';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import app from '../firebaseConfig';
+import app from '../../firebaseConfig';
 
 type RegistroProps = {
   setIsAuthenticated: (value: boolean) => void;

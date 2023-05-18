@@ -1,21 +1,21 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonSplitPane } from '@ionic/react';
 import React from 'react';
-import '../../src/css/Perfil.css';
+import '../../css/Buscador.css';
 
-const Perfil = () => {
+const Buscador = () => {
   return (
         <IonPage id="main-content" className="main-page">
           <IonHeader className="custom-header">
             <IonToolbar className="custom-toolbar">
-            <IonTitle className="main-title">Perfil</IonTitle>
+            <IonTitle className="main-title">Buscador</IonTitle>
               <IonMenuButton slot="start" />
             </IonToolbar>
           </IonHeader>
           <IonContent className="custom-content">
-            <h1>Estás en perfil</h1>
+            <h1>Estás en el buscador</h1>
           </IonContent>
         </IonPage>
   );
 };
 
-export default Perfil;
+export default Buscador;

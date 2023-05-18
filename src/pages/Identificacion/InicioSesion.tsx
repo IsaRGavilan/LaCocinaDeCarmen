@@ -1,10 +1,10 @@
 import { IonContent, IonHeader, IonPage, IonInput, IonButton, IonToast } from '@ionic/react';
-import '../css/InicioSesion.css';
-import google from '../assets/google.png';
+import './InicioSesion.css';
+import google from '../../assets/google.png';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import app from '../firebaseConfig';
+import app from '../../firebaseConfig';
 
 type InicioSesionProps = {
   setIsAuthenticated: (value: boolean) => void;

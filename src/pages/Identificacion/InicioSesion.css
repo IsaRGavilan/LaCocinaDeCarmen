@@ -1,4 +1,4 @@
-.registro-container {
+.inicio-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,19 +6,19 @@
     height: 100vh;
     position: relative;
   }
-
-  .registro-container::after {
+  
+  .inicio-container::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../assets/fondoRegistro.jpg");
+    background-image: url("../../assets/fondoRegistro.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    filter: blur(4px);
+    filter: blur(4px); /* Ajusta el valor de desenfoque según tus preferencias */
     z-index: -1;
   }
   
@@ -44,12 +44,6 @@
     margin-bottom: 15px;
     border: solid bl;
 
-  }
-  
-  #checkbox {
-    margin-top: 15px;
-    font-weight: bold;
-    color: #090703;
   }
   
   #texto {
