@@ -1,0 +1,55 @@
+table {
+    width: 100%;
+  }
+  
+  td {
+    text-align: center;
+  }
+  
+  .titulo-inicio{
+    font-size: 35px;
+    color: #74472f;
+    text-align: center;
+  }
+  
+  .card{
+    height:21vh;
+    width: 90%;
+    border: solid #74472f 1.5px;
+    transition: transform 0.4s ease;
+  }
+  
+  .card:hover,
+  .card:focus {
+    transform: scale(0.95);
+  }
+  
+  .title{
+    margin-top: -7%;
+    color: #74472f;
+  }
+  
+  .link{
+    text-decoration: none;
+  }
+
+  .image{
+    width: 100%;
+    height: 65%;
+  }
+
+ .back-icon{
+    color: #74472f;
+    font-size: 1cm;
+    margin-left: 20%;
+    margin-right: 50px;
+    margin-top: 15%;
+ }
+
+ .contenedor-icono-titulo {
+    display: flex;
+    align-items: center;
+    color: #74472f;
+    margin-bottom: 2%;
+  }
+  
