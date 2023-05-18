@@ -25,7 +25,7 @@ const Inicio = () => {
               <td>
               <Link to='/platosPrincipales' className='link'>
                 <IonCard className='card'>
-                <img alt="Platos principales" src={platosprincipales} />
+                <img alt="Platos principales" src={platosprincipales} className='imagen'/>
                 <IonCardHeader>
                   <IonCardTitle className='titulo-card'>Platos principales</IonCardTitle>
                 </IonCardHeader>
@@ -35,7 +35,7 @@ const Inicio = () => {
               <td>
               <Link to='/entrantes' className='link'>
               <IonCard className='card'>
-                <img alt="Entrantes y ensaladas" src={entrantes} />
+                <img alt="Entrantes y ensaladas" src={entrantes} className='imagen'/>
                 <IonCardHeader>
                   <IonCardTitle className='titulo-card'>Entrantes y ensaladas</IonCardTitle>
                 </IonCardHeader>
@@ -47,7 +47,7 @@ const Inicio = () => {
               <td>
               <Link to='/caldos' className='link'>
               <IonCard className='card'>
-                <img alt="Caldos y salsas" src={caldos} />
+                <img alt="Caldos y salsas" src={caldos} className='imagen'/>
                 <IonCardHeader>
                   <IonCardTitle>Caldos y salsas</IonCardTitle>
                 </IonCardHeader>
@@ -57,7 +57,7 @@ const Inicio = () => {
               <td>
               <Link to='/postres' className='link'>
               <IonCard className='card'>
-                <img alt="Postres" src={postres}/>
+                <img alt="Postres" src={postres} className='imagen'/>
                 <IonCardHeader>
                   <IonCardTitle>Postres</IonCardTitle>
                 </IonCardHeader>
@@ -69,7 +69,7 @@ const Inicio = () => {
               <td colSpan={2} style={{ textAlign: 'center' }}>
               <Link to='/cocinaTipica' className='link'>
               <IonCard className='ultimaCarta'>
-                <img alt="Cocina tipica española" src={CocinaTipica}/>
+                <img alt="Cocina tipica española" src={CocinaTipica} className='imagen'/>
                 <IonCardHeader>
                   <IonCardTitle>Cocina típica española</IonCardTitle>
                 </IonCardHeader>

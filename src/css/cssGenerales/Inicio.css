@@ -67,3 +67,7 @@ td {
 .link{
   text-decoration: none;
 }
+
+.imagen{
+  border-bottom: #74472f solid 1px;
+}

@@ -2,6 +2,23 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, Io
 import React from 'react';
 import '../../css/cssCategorias/CocinaTipica.css';
 import { Link } from 'react-router-dom';
+import andalucia from '../../assets/imagenesCocinaTipica/andalucia.png';
+import aragon from '../../assets/imagenesCocinaTipica/aragon.png';
+import asturias from '../../assets/imagenesCocinaTipica/asturias.png';
+import baleares from '../../assets/imagenesCocinaTipica/baleares.png';
+import canarias from '../../assets/imagenesCocinaTipica/canarias.jpg';
+import cantabria from '../../assets/imagenesCocinaTipica/cantabria.png';
+import castillaLeon from '../../assets/imagenesCocinaTipica/castillaLeon.png';
+import castillaMancha from '../../assets/imagenesCocinaTipica/castillaMancha.png';
+import catalunya from '../../assets/imagenesCocinaTipica/catalunya.png';
+import extremadura from '../../assets/imagenesCocinaTipica/extremadura.png';
+import galicia from '../../assets/imagenesCocinaTipica/galicia.png';
+import madrid from '../../assets/imagenesCocinaTipica/madrid.png';
+import murcia from '../../assets/imagenesCocinaTipica/murcia.png';
+import navarra from '../../assets/imagenesCocinaTipica/navarra.png';
+import paisVasco from '../../assets/imagenesCocinaTipica/paisVasco.png';
+import rioja from '../../assets/imagenesCocinaTipica/rioja.png';
+import valencia from '../../assets/imagenesCocinaTipica/valencia.png';
 
 const CocinaTipica = () => {
   return (
@@ -18,21 +35,21 @@ const CocinaTipica = () => {
             <tbody>
             <tr>
               <td>
-              <Link to='/carnes' className='link'>
+              <Link to='/andalucia' className='link'>
                 <IonCard className='card'>
-                <img alt="Carnes" src={carnes} className='image'/>
+                <img alt="Carnes" src={andalucia} className='image'/>
                 <IonCardHeader>
-                  <IonCardTitle className='title'>Carnes</IonCardTitle>
+                  <IonCardTitle className='title'>Andalucía</IonCardTitle>
                 </IonCardHeader>
                 </IonCard>
               </Link>
               </td>
               <td>
-              <Link to='/pescados' className='link'>
+              <Link to='/aragon' className='link'>
               <IonCard className='card'>
-                <img alt="Pescados" src={pescados} className='image'/>
+                <img alt="Pescados" src={aragon} className='image'/>
                 <IonCardHeader>
-                  <IonCardTitle className='title'>Pescados</IonCardTitle>
+                  <IonCardTitle className='title'>Aragón</IonCardTitle>
                 </IonCardHeader>
               </IonCard>
               </Link>
@@ -40,21 +57,21 @@ const CocinaTipica = () => {
             </tr>
             <tr>
               <td>
-              <Link to='/legumbres' className='link'>
+              <Link to='/asturias' className='link'>
               <IonCard className='card'>
-                <img alt="Legumbres y patatas" src={legumbres} className='image'/>
+                <img alt="Legumbres y patatas" src={asturias} className='image'/>
                 <IonCardHeader>
-                  <IonCardTitle className='title'>Legumbres y patatas</IonCardTitle>
+                  <IonCardTitle className='title'>Asturias</IonCardTitle>
                 </IonCardHeader>
               </IonCard>
               </Link>
               </td>
               <td>
-              <Link to='/pastas' className='link'>
+              <Link to='/baleares' className='link'>
               <IonCard className='card'>
-                <img alt="Pastas y arroces" src={pasta} className='image'/>
+                <img alt="Pastas y arroces" src={baleares} className='image'/>
                 <IonCardHeader>
-                  <IonCardTitle className='title'>Pastas y arroces</IonCardTitle>
+                  <IonCardTitle className='title'>Islas baleares</IonCardTitle>
                 </IonCardHeader>
               </IonCard>
               </Link>
@@ -62,21 +79,21 @@ const CocinaTipica = () => {
             </tr>
             <tr>
               <td>
-              <Link to='/pures' className='link'>
+              <Link to='/canarias' className='link'>
               <IonCard className='card'>
-                <img alt="Pures y potajes" src={pure} className='image'/>
+                <img alt="Pures y potajes" src={canarias} className='image'/>
                 <IonCardHeader>
-                  <IonCardTitle className='title'>Purés y potajes</IonCardTitle>
+                  <IonCardTitle className='title'>Islas Canarias</IonCardTitle>
                 </IonCardHeader>
               </IonCard>
               </Link>
               </td>
               <td>
-              <Link to='/sopas' className='link'>
+              <Link to='/cantabria' className='link'>
               <IonCard className='card'>
-                <img alt="Sopas y cremas" src={sopas} className='image'/>
+                <img alt="Sopas y cremas" src={cantabria} className='image'/>
                 <IonCardHeader>
-                  <IonCardTitle className='title'>Sopas y cremas</IonCardTitle>
+                  <IonCardTitle className='title'>Cantabria</IonCardTitle>
                 </IonCardHeader>
               </IonCard>
               </Link>
@@ -84,11 +101,11 @@ const CocinaTipica = () => {
             </tr>
             <tr>
             <td>
-              <Link to='/verduras' className='link'>
+              <Link to='/castillaLeon' className='link'>
               <IonCard className='card'>
-                <img alt="Verduras" src={verduras} className='image'/>
+                <img alt="Verduras" src={castillaLeon} className='image'/>
                 <IonCardHeader>
-                  <IonCardTitle className='title'>Verduras</IonCardTitle>
+                  <IonCardTitle className='title'>Castilla León</IonCardTitle>
                 </IonCardHeader>
               </IonCard>
               </Link>

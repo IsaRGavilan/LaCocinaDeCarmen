@@ -43,6 +43,23 @@ import Pescados from './pages/Categorias/PlatosPrincipales/Pescados';
 import Pures from './pages/Categorias/PlatosPrincipales/Pures';
 import Sopas from './pages/Categorias/PlatosPrincipales/Sopas';
 import Verduras from './pages/Categorias/PlatosPrincipales/Verduras';
+import Andalucia from './pages/Categorias/CocinaTipica/Andalucia';
+import Aragon from './pages/Categorias/CocinaTipica/Aragon';
+import Asturias from './pages/Categorias/CocinaTipica/Asturias';
+import Baleares from './pages/Categorias/CocinaTipica/Baleares';
+import Canarias from './pages/Categorias/CocinaTipica/Canarias';
+import CastillaLeon from './pages/Categorias/CocinaTipica/CastillaLeon';
+import CastillaMancha from './pages/Categorias/CocinaTipica/CastillaMancha';
+import Catalunya from './pages/Categorias/CocinaTipica/Catalunya';
+import Cantabria from './pages/Categorias/CocinaTipica/Cantabria';
+import Extremadura from './pages/Categorias/CocinaTipica/Extremadura';
+import Galicia from './pages/Categorias/CocinaTipica/Galicia';
+import Madrid from './pages/Categorias/CocinaTipica/Madrid';
+import Murcia from './pages/Categorias/CocinaTipica/Murcia';
+import Navarra from './pages/Categorias/CocinaTipica/Navarra';
+import PaisVasco from './pages/Categorias/CocinaTipica/PaisVasco';
+import Rioja from './pages/Categorias/CocinaTipica/Rioja';
+import Valencia from './pages/Categorias/CocinaTipica/Valencia';
 
 setupIonicReact();
 
@@ -107,11 +124,13 @@ const App: React.FC = () => {
             <ProtectedRoute exact path="/buscador" component={Buscador} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/lista" component={Lista} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/perfil" component={Perfil} isAuthenticated={isAuthenticated} />
+            
             <ProtectedRoute exact path="/platosPrincipales" component={PlatosPrincipales} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/entrantes" component={Entrantes} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/caldos" component={Caldos} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/postres" component={Postres} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/cocinaTipica" component={CocinaTipica} isAuthenticated={isAuthenticated} />
+
             <ProtectedRoute exact path="/carnes" component={Carnes} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/legumbres" component={Legumbres} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/pastas" component={Pastas} isAuthenticated={isAuthenticated} />
@@ -119,6 +138,24 @@ const App: React.FC = () => {
             <ProtectedRoute exact path="/pures" component={Pures} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/sopas" component={Sopas} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/verduras" component={Verduras} isAuthenticated={isAuthenticated} />
+
+            <ProtectedRoute exact path="/andalucia" component={Andalucia} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/aragon" component={Aragon} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/asturias" component={Asturias} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/baleares" component={Baleares} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/canarias" component={Canarias} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/castillaLeon" component={CastillaLeon} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/castillaMancha" component={CastillaMancha} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/catalunya" component={Catalunya} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/cantabria" component={Cantabria} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/extremadura" component={Extremadura} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/galicia" component={Galicia} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/madrid" component={Madrid} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/murcia" component={Murcia} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/navarra" component={Navarra} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/paisVasco" component={PaisVasco} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/rioja" component={Rioja} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/valencia" component={Valencia} isAuthenticated={isAuthenticated} />
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
