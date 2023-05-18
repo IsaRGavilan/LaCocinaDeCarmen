@@ -1,6 +1,6 @@
 import { IonContent, IonHeader, IonPage, IonInput, IonButton, IonCheckbox, IonToast } from '@ionic/react';
 import './Registro.css';
-import google from '../../assets/google.png';
+import google from '../../assets/imagenesGenerales/google.png';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';

@@ -38,18 +38,9 @@ table {
     height: 65%;
   }
 
- .back-icon{
+ .titulo-platos {
     color: #74472f;
-    font-size: 1cm;
-    margin-left: 20%;
-    margin-right: 50px;
-    margin-top: 15%;
- }
-
- .contenedor-icono-titulo {
-    display: flex;
-    align-items: center;
-    color: #74472f;
+    margin-left: 15%;
     margin-bottom: 2%;
   }
   

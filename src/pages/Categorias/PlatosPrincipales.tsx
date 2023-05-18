@@ -2,14 +2,13 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, Io
 import React from 'react';
 import '../../css/cssCategorias/PlatosPrincipales.css';
 import { Link } from 'react-router-dom';
-import pescados from '../../assets/pescados.jpg';
-import pure from '../../assets/pure.jpg';
-import legumbres from '../../assets/legumbres.jpg';
-import pasta from '../../assets/pasta.jpg';
-import sopas from '../../assets/sopas.jpg';
-import verduras from '../../assets/verduras.jpg';
-import carnes from '../../assets/carnes.jpg';
-import { arrowUndoOutline } from 'ionicons/icons';
+import pescados from '../../assets/imagenesPlatosPrincipales/pescados.jpg';
+import pure from '../../assets/imagenesPlatosPrincipales/pure.jpg';
+import legumbres from '../../assets/imagenesPlatosPrincipales/legumbres.jpg';
+import pasta from '../../assets/imagenesPlatosPrincipales/pasta.jpg';
+import sopas from '../../assets/imagenesPlatosPrincipales/sopas.jpg';
+import verduras from '../../assets/imagenesPlatosPrincipales/verduras.jpg';
+import carnes from '../../assets/imagenesPlatosPrincipales/carnes.jpg';
 
 const PlatosPrincipales = () => {
   return (
@@ -21,12 +20,9 @@ const PlatosPrincipales = () => {
             </IonToolbar>
           </IonHeader>
           <IonContent className="custom-content">
-          <div className='contenedor-icono-titulo'>
-          <Link to='/inicio' className='link'><IonIcon icon={arrowUndoOutline} className='back-icon' /></Link>
             <h1 className='titulo-platos'>Elige tu sección favorita...</h1>
-          </div>
-            <table>
-          <tbody>
+          <table>
+            <tbody>
             <tr>
               <td>
               <Link to='/carnes' className='link'>

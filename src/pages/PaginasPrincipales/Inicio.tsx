@@ -1,11 +1,11 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonSplitPane, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
 import React from 'react';
 import '../../css/cssGenerales/Inicio.css';
-import CocinaTipica from '../../assets/CocinaTipica.jpg';
-import entrantes from '../../assets/entrantes.jpg';
-import postres from '../../assets/postres.jpg';
-import platosprincipales from '../../assets/platosprincipales.jpg';
-import caldos from '../../assets/caldos.jpg';
+import CocinaTipica from '../../assets/imagenesCategorias/CocinaTipica.jpg';
+import entrantes from '../../assets/imagenesCategorias/entrantes.jpg';
+import postres from '../../assets/imagenesCategorias/postres.jpg';
+import platosprincipales from '../../assets/imagenesCategorias/platosprincipales.jpg'
+import caldos from '../../assets/imagenesCategorias/caldos.jpg';
 import { Link } from 'react-router-dom';
 
 const Inicio = () => {

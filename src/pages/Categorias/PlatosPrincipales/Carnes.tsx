@@ -1,4 +1,4 @@
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonSplitPane } from '@ionic/react';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton } from '@ionic/react';
 import React from 'react';
 import '../../../css/cssCategorias/cssPlatosPrincipales/Carnes.css';
 
@@ -12,7 +12,7 @@ const Carnes = () => {
             </IonToolbar>
           </IonHeader>
           <IonContent className="custom-content">
-            <h1>Estás en carnes</h1>
+            <h1>estas en carnes</h1>
           </IonContent>
         </IonPage>
   );
