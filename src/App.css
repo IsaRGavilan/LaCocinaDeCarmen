@@ -38,10 +38,15 @@ ion-menu {
 }
 
 .menu-icon {
-  color: #B58060;
+  color: #74472f;
   margin-right: 3%;
 }
 
-.menu-label {
-  color: #B58060;
+/* Cambia el color y la fuente del texto del menú */
+.menu .menu-item .menu-label {
+  color: #74472f;
+  font-size: 20px;
+  text-align: left;
+  margin-left: 2%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

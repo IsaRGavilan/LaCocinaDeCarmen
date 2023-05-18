@@ -1,5 +1,5 @@
 import { Route } from 'react-router-dom';
-import { IonApp, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonMenuToggle, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar, setupIonicReact } from '@ionic/react';
+import { IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonMenuToggle, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Registro from './pages/Registro';
 import InicioSesion from './pages/InicioSesion';
@@ -9,7 +9,7 @@ import Buscador from './pages/Buscador';
 import Lista from './pages/Lista';
 import Inicio from './pages/Inicio';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { home, heart, search, cart, person } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
@@ -43,7 +43,7 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonSplitPane contentId="main">
         {isAuthenticated && (
-          <IonMenu contentId="main" menuId="sidebar-menu" side="start" className="web-menu">
+          <IonMenu contentId="main" menuId="sidebar-menu" side="start" className='menu'>
             <IonContent>
               <IonList className='menu-list'>
               <IonMenuToggle defaultChecked={true}>

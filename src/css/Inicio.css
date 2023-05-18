@@ -1,23 +1,53 @@
+/* Estilos generales */
 .main-title {
-    color: white;
-    align-items: center;
-    text-align: center;
-    font-size: 28px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: white;
+  align-items: center;
+  text-align: center;
+  font-size: 28px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-  .custom-header {
-    background-color: #74472f;
-    border-bottom: 1px solid #ccc;
-    padding: 10px;
-  }
-
-  .custom-toolbar {
-    --background: #74472f; /* Cambia el color de fondo del toolbar */
-    --color: white; /* Cambia el color del texto del toolbar */
+.custom-header {
+  background-color: #74472f;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
 }
 
-.custom-content{
-    --background: #e0e0e0;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.custom-toolbar {
+  --background: #74472f;
+  --color: white;
+}
+
+.custom-content {
+  --background: #e0e0e0;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Estilos generales de la tabla */
+table {
+  width: 100%;
+}
+
+td {
+  text-align: center;
+}
+
+.titulo-inicio{
+  font-size: 35px;
+  color: #74472f;
+  text-align: center;
+}
+
+.card{
+  height:23vh;
+  width: 90%;
+  border: solid #74472f 1.5px;
+}
+
+.ultimaCarta{
+  border: solid #74472f 1.5px;
+}
+
+.titulo-card{
+  margin-top: -9%;
 }
