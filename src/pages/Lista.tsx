@@ -4,15 +4,15 @@ import '../../src/css/Lista.css';
 
 const Lista = () => {
   return (
-        <IonPage id="main-content">
-          <IonHeader>
-            <IonToolbar>
-              <IonTitle>Lista</IonTitle>
+        <IonPage id="main-content" className="main-page">
+          <IonHeader className="custom-header">
+            <IonToolbar className="custom-toolbar">
+            <IonTitle className="main-title">Lista de la compra</IonTitle>
               <IonMenuButton slot="start" />
             </IonToolbar>
           </IonHeader>
-          <IonContent>
-            <h1>Estás en la lista</h1>
+          <IonContent className="custom-content">
+            <h1>Estás en la lista de la compra</h1>
           </IonContent>
         </IonPage>
   );

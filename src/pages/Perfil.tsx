@@ -4,15 +4,15 @@ import '../../src/css/Perfil.css';
 
 const Perfil = () => {
   return (
-        <IonPage id="main-content">
-          <IonHeader>
-            <IonToolbar>
-              <IonTitle>Perfil</IonTitle>
+        <IonPage id="main-content" className="main-page">
+          <IonHeader className="custom-header">
+            <IonToolbar className="custom-toolbar">
+            <IonTitle className="main-title">Perfil</IonTitle>
               <IonMenuButton slot="start" />
             </IonToolbar>
           </IonHeader>
-          <IonContent>
-            <h1>Estás en el perfil</h1>
+          <IonContent className="custom-content">
+            <h1>Estás en perfil</h1>
           </IonContent>
         </IonPage>
   );

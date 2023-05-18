@@ -4,14 +4,14 @@ import '../../src/css/Inicio.css';
 
 const Inicio = () => {
   return (
-        <IonPage id="main-content">
-          <IonHeader>
-            <IonToolbar>
-              <IonTitle>Página principal</IonTitle>
+        <IonPage id="main-content" className="main-page">
+          <IonHeader className="custom-header">
+            <IonToolbar className="custom-toolbar">
+            <IonTitle className="main-title">Inicio</IonTitle>
               <IonMenuButton slot="start" />
             </IonToolbar>
           </IonHeader>
-          <IonContent>
+          <IonContent className="custom-content">
             <h1>Estás en el inicio</h1>
           </IonContent>
         </IonPage>

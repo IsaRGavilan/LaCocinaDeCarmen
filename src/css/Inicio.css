@@ -1,0 +1,23 @@
+.main-title {
+    color: white;
+    align-items: center;
+    text-align: center;
+    font-size: 28px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+  .custom-header {
+    background-color: #74472f;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+  }
+
+  .custom-toolbar {
+    --background: #74472f; /* Cambia el color de fondo del toolbar */
+    --color: white; /* Cambia el color del texto del toolbar */
+}
+
+.custom-content{
+    --background: #e0e0e0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
