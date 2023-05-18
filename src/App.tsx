@@ -31,6 +31,11 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import './App.css';
+import PlatosPrincipales from './pages/Categorias/PlatosPrincipales';
+import Entrantes from './pages/Categorias/Entrantes';
+import Caldos from './pages/Categorias/Caldos';
+import Postres from './pages/Categorias/Postres';
+import CocinaTipica from './pages/Categorias/CocinaTipica';
 
 setupIonicReact();
 
@@ -95,6 +100,11 @@ const App: React.FC = () => {
             <ProtectedRoute exact path="/buscador" component={Buscador} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/lista" component={Lista} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/perfil" component={Perfil} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/platosPrincipales" component={PlatosPrincipales} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/entrantes" component={Entrantes} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/caldos" component={Caldos} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/postres" component={Postres} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute exact path="/cocinaTipica" component={CocinaTipica} isAuthenticated={isAuthenticated} />
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
