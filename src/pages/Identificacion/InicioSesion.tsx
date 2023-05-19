@@ -4,7 +4,8 @@ import google from '../../assets/imagenesGenerales/google.png';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import app from '../../firebaseConfig';
+import firebaseConfig from '../../firebaseConfig';
+const { app } = firebaseConfig;
 
 type InicioSesionProps = {
   setIsAuthenticated: (value: boolean) => void;
