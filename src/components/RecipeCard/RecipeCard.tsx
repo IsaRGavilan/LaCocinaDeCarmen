@@ -2,10 +2,12 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, Io
 import React, { useEffect, useState } from 'react';
 import firebaseConfig from '../../../../LaCocinaDeCarmen/src/firebaseConfig';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { Link } from 'react-router-dom';
 
 // Definir el tipo para la prop 'recipe'
 interface RecipeCardProps {
     recipe: {
+      id: number;
       imagen: string;
       nombre: string;
       categoria: string;
@@ -20,6 +22,7 @@ interface RecipeCardProps {
 // Componente para mostrar una tarjeta de receta
 const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   return (
+    <Link to={`/receta/${recipe.id}`} className='link'>
     <IonCard>
       <img alt="Silhouette of mountains" src={recipe.imagen} />
       <IonCardHeader>
@@ -27,6 +30,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
       </IonCardHeader>
       <IonCardContent>{recipe.categoria}</IonCardContent>
     </IonCard>
+    </Link>
   );
 };
 
