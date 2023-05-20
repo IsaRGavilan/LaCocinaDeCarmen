@@ -1,5 +1,4 @@
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonSplitPane, IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
-import React from 'react';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
 import '../../css/cssCategorias/CocinaTipica.css';
 import { Link } from 'react-router-dom';
 import andalucia from '../../assets/imagenesCocinaTipica/andalucia.png';
@@ -37,7 +36,7 @@ const CocinaTipica = () => {
               <td>
               <Link to='/andalucia' className='link'>
                 <IonCard className='card'>
-                <img alt="Carnes" src={andalucia} className='image'/>
+                <img alt="andalucia" src={andalucia} className='image'/>
                 <IonCardHeader>
                   <IonCardTitle className='title'>Andalucía</IonCardTitle>
                 </IonCardHeader>
@@ -47,7 +46,7 @@ const CocinaTipica = () => {
               <td>
               <Link to='/aragon' className='link'>
               <IonCard className='card'>
-                <img alt="Pescados" src={aragon} className='image'/>
+                <img alt="aragon" src={aragon} className='image'/>
                 <IonCardHeader>
                   <IonCardTitle className='title'>Aragón</IonCardTitle>
                 </IonCardHeader>
@@ -59,7 +58,7 @@ const CocinaTipica = () => {
               <td>
               <Link to='/asturias' className='link'>
               <IonCard className='card'>
-                <img alt="Legumbres y patatas" src={asturias} className='image'/>
+                <img alt="asturias" src={asturias} className='image'/>
                 <IonCardHeader>
                   <IonCardTitle className='title'>Asturias</IonCardTitle>
                 </IonCardHeader>
@@ -69,7 +68,7 @@ const CocinaTipica = () => {
               <td>
               <Link to='/baleares' className='link'>
               <IonCard className='card'>
-                <img alt="Pastas y arroces" src={baleares} className='image'/>
+                <img alt="baleares" src={baleares} className='image'/>
                 <IonCardHeader>
                   <IonCardTitle className='title'>Islas baleares</IonCardTitle>
                 </IonCardHeader>
@@ -81,7 +80,7 @@ const CocinaTipica = () => {
               <td>
               <Link to='/canarias' className='link'>
               <IonCard className='card'>
-                <img alt="Pures y potajes" src={canarias} className='image'/>
+                <img alt="canarias" src={canarias} className='image'/>
                 <IonCardHeader>
                   <IonCardTitle className='title'>Islas Canarias</IonCardTitle>
                 </IonCardHeader>
@@ -91,7 +90,7 @@ const CocinaTipica = () => {
               <td>
               <Link to='/cantabria' className='link'>
               <IonCard className='card'>
-                <img alt="Sopas y cremas" src={cantabria} className='image'/>
+                <img alt="cantabria" src={cantabria} className='image'/>
                 <IonCardHeader>
                   <IonCardTitle className='title'>Cantabria</IonCardTitle>
                 </IonCardHeader>
@@ -103,9 +102,119 @@ const CocinaTipica = () => {
             <td>
               <Link to='/castillaLeon' className='link'>
               <IonCard className='card'>
-                <img alt="Verduras" src={castillaLeon} className='image'/>
+                <img alt="castillaLeon" src={castillaLeon} className='image'/>
                 <IonCardHeader>
-                  <IonCardTitle className='title'>Castilla León</IonCardTitle>
+                  <IonCardTitle className='title'>Castilla y León</IonCardTitle>
+                </IonCardHeader>
+              </IonCard>
+              </Link>
+              </td>
+              <td>
+              <Link to='/castillaMancha' className='link'>
+              <IonCard className='card'>
+                <img alt="castillaMancha" src={castillaMancha} className='image'/>
+                <IonCardHeader>
+                  <IonCardTitle className='title'>Castilla-La Mancha</IonCardTitle>
+                </IonCardHeader>
+              </IonCard>
+              </Link>
+              </td>
+            </tr>
+            <tr>
+            <td>
+              <Link to='/catalunya' className='link'>
+              <IonCard className='card'>
+                <img alt="catalunya" src={catalunya} className='image'/>
+                <IonCardHeader>
+                  <IonCardTitle className='title'>Castaluña</IonCardTitle>
+                </IonCardHeader>
+              </IonCard>
+              </Link>
+              </td>
+              <td>
+              <Link to='/extremadura' className='link'>
+              <IonCard className='card'>
+                <img alt="extremadura" src={extremadura} className='image'/>
+                <IonCardHeader>
+                  <IonCardTitle className='title'>Extremadura</IonCardTitle>
+                </IonCardHeader>
+              </IonCard>
+              </Link>
+              </td>
+            </tr>
+            <tr>
+            <td>
+              <Link to='/galicia' className='link'>
+              <IonCard className='card'>
+                <img alt="galicia" src={galicia} className='image'/>
+                <IonCardHeader>
+                  <IonCardTitle className='title'>Galicia</IonCardTitle>
+                </IonCardHeader>
+              </IonCard>
+              </Link>
+              </td>
+              <td>
+              <Link to='/madrid' className='link'>
+              <IonCard className='card'>
+                <img alt="madrid" src={madrid} className='image'/>
+                <IonCardHeader>
+                  <IonCardTitle className='title'>Madrid</IonCardTitle>
+                </IonCardHeader>
+              </IonCard>
+              </Link>
+              </td>
+            </tr>
+            <tr>
+            <td>
+              <Link to='/murcia' className='link'>
+              <IonCard className='card'>
+                <img alt="murcia" src={murcia} className='image'/>
+                <IonCardHeader>
+                  <IonCardTitle className='title'>Murcia</IonCardTitle>
+                </IonCardHeader>
+              </IonCard>
+              </Link>
+              </td>
+              <td>
+              <Link to='/navarra' className='link'>
+              <IonCard className='card'>
+                <img alt="navarra" src={navarra} className='image'/>
+                <IonCardHeader>
+                  <IonCardTitle className='title'>Navarra</IonCardTitle>
+                </IonCardHeader>
+              </IonCard>
+              </Link>
+              </td>
+            </tr>
+            <tr>
+            <td>
+              <Link to='/paisVasco' className='link'>
+              <IonCard className='card'>
+                <img alt="paisVasco" src={paisVasco} className='image'/>
+                <IonCardHeader>
+                  <IonCardTitle className='title'>País Vasco</IonCardTitle>
+                </IonCardHeader>
+              </IonCard>
+              </Link>
+              </td>
+              <td>
+              <Link to='/rioja' className='link'>
+              <IonCard className='card'>
+                <img alt="rioja" src={rioja} className='image'/>
+                <IonCardHeader>
+                  <IonCardTitle className='title'>Rioja</IonCardTitle>
+                </IonCardHeader>
+              </IonCard>
+              </Link>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <Link to='/valencia' className='link'>
+              <IonCard className='card'>
+                <img alt="valencia" src={valencia} className='image'/>
+                <IonCardHeader>
+                  <IonCardTitle className='title'>Valencia</IonCardTitle>
                 </IonCardHeader>
               </IonCard>
               </Link>
@@ -113,8 +222,8 @@ const CocinaTipica = () => {
             </tr>
           </tbody>
         </table>
-          </IonContent>
-        </IonPage>
+      </IonContent>
+    </IonPage>
   );
 };
 

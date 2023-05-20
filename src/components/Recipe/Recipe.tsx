@@ -3,7 +3,6 @@ import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import firebaseConfig from '../../firebaseConfig';
 import { useEffect, useState } from 'react';
 import { IonContent, IonPage } from '@ionic/react';
-import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
 
 interface RecipeProps {
@@ -56,7 +55,6 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
     // Genera el contenido del PDF utilizando los datos de la receta
     doc.setFontSize(18);
     doc.text(recipeData.nombre, 10, 20);
-    doc.addImage(recipeData.imagen, 'JPEG', 10, 30, 50, 50);
     doc.setFontSize(12);
     doc.text('INGREDIENTES:', 10, 90);
     doc.text(recipeData.ingredientes.join(', '), 10, 100);
@@ -65,11 +63,11 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
     doc.setFontSize(10);
     doc.text(`Dificultad: ${recipeData.dificultad}`, 10, 180);
     doc.text(`Tiempo de preparación: ${recipeData.tiempo} minutos`, 10, 190);
+    doc.addImage(img, 'JPEG', 10, 30, 50, 50);
   
     // Descarga el archivo PDF
-    doc.save('receta.pdf');
+    doc.save(`${recipeData.nombre}.pdf`);
   };
-  
   
   return (
 <IonPage>
