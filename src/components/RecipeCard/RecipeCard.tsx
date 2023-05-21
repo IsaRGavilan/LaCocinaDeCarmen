@@ -1,8 +1,9 @@
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import firebaseConfig from '../../../../LaCocinaDeCarmen/src/firebaseConfig';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
+import { heart } from 'ionicons/icons';
+import'./RecipeCard.css';
+
 
 // Definir el tipo para la prop 'recipe'
 interface RecipeCardProps {
@@ -21,16 +22,36 @@ interface RecipeCardProps {
 
 // Componente para mostrar una tarjeta de receta
 const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    // Verificar el estado de favorito en el almacenamiento local
+    const isRecipeFavorite = localStorage.getItem(`favorite_${recipe.id}`);
+    setIsFavorite(Boolean(isRecipeFavorite));
+  }, [recipe.id]);
+
+
+const handleFavoriteClick = () => {
+  const newIsFavorite = !isFavorite;
+  setIsFavorite(newIsFavorite);
+  localStorage.setItem(`favorite_${recipe.id}`, JSON.stringify(newIsFavorite));
+};
+
   return (
-    <Link to={`/receta/${recipe.id}`} className='link'>
     <IonCard>
-      <img alt="Silhouette of mountains" src={recipe.imagen} />
+      <Link to={`/receta/${recipe.id}`} className='link'>
+        <img alt="Imagen de receta" src={recipe.imagen} />
+      </Link>
       <IonCardHeader>
         <IonCardTitle>{recipe.nombre}</IonCardTitle>
       </IonCardHeader>
-      <IonCardContent>{recipe.categoria}</IonCardContent>
+      <IonCardContent>
+        {recipe.categoria}
+        <IonButton className={`botonFavoritos ${isFavorite ? '' : 'active'}`} onClick={handleFavoriteClick}>
+          <IonIcon icon={heart} />
+        </IonButton>
+      </IonCardContent>
     </IonCard>
-    </Link>
   );
 };
 

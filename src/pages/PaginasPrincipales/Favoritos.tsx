@@ -1,8 +1,8 @@
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonSplitPane } from '@ionic/react';
-import React from 'react';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton } from '@ionic/react';
 import '../../css/cssGenerales/Favoritos.css';
 
 const Favoritos = () => {
+
   return (
         <IonPage id="main-content" className="main-page">
           <IonHeader className="custom-header">

@@ -1,0 +1,8 @@
+.botonFavoritos{
+    --ion-color-primary: #74472f;
+    --ion-color-primary-contrast: #f5e2d6;
+}
+
+.botonFavoritos.active ion-icon{
+    color: red;
+}

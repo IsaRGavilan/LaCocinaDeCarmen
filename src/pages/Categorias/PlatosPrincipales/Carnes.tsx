@@ -5,6 +5,7 @@ import RecipeCard from '../../../components/RecipeCard/RecipeCard';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import firebaseConfig from '../../../firebaseConfig';
 
+
 const Carnes = () => {
 
   const [recipes, setRecipes] = useState<any[]>([]);
@@ -23,9 +24,9 @@ const Carnes = () => {
         console.log("Error al obtener los documentos:", error);
       }
     };
-
     fetchRecipes();
   }, []);
+
   return (
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header">
@@ -36,11 +37,12 @@ const Carnes = () => {
       </IonHeader>
       <IonContent className="custom-content">
         {recipes.map((recipe, index) => (
-          <RecipeCard key={index} recipe={recipe} />
+          <RecipeCard key={index} recipe={recipe}/>
         ))}
       </IonContent>
     </IonPage>
   );
 };
+
 
 export default Carnes;
