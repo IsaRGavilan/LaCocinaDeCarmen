@@ -30,7 +30,7 @@ const Caldos = () => {
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header">
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Carnes</IonTitle>
+          <IonTitle className="main-title">Caldos y salsas</IonTitle>
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
