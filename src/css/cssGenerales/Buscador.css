@@ -21,3 +21,29 @@
     --background: #e0e0e0;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+.searchBar{
+  margin-top: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.h1{
+  font-size: 30px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #74472f;
+  text-align: center;
+}
+
+.encabezado {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.icono{
+  font-size: 24px;
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #74472f;
+}

@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 const Perfil = () => {
   const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
   const [email, setEmail] = useState('');
   const history = useHistory();
 
@@ -14,6 +15,7 @@ const Perfil = () => {
     const auth = getAuth(firebaseConfig.app);
     await signOut(auth);
     setShowToast(true);
+    setToastMessage('Sesión cerrada correctamente.');
     history.push('/inicioSesion');
   };
 
@@ -40,7 +42,8 @@ const Perfil = () => {
       try {
         await deleteUser(user);
         setShowToast(true);
-        history.push('/inicioSesion');
+        setToastMessage('Cuenta eliminada correctamente.');
+        history.push('/registro');
       } catch (error) {
         console.error('Error al eliminar la cuenta:', error);
       }
@@ -59,19 +62,7 @@ const Perfil = () => {
         <h1>Estás en perfil</h1>
         <h1>Email: {email}</h1>
         <IonButton onClick={handleCerrarSesion} className='botonLogout'>Cerrar sesión</IonButton>
-        <IonToast
-          isOpen={showToast}
-          message="Sesión cerrada correctamente"
-          duration={3000}
-          onDidDismiss={() => setShowToast(false)}
-        />
         <IonButton className='botonEliminar' onClick={eliminarCuenta}>Eliminar cuenta</IonButton>
-        <IonToast
-          isOpen={showToast}
-          message="Cuenta eliminada correctamente"
-          duration={3000}
-          onDidDismiss={() => setShowToast(false)}
-        />
       </IonContent>
     </IonPage>
   );

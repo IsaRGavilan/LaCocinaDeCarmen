@@ -37,7 +37,7 @@ const Carnes = () => {
       </IonHeader>
       <IonContent className="custom-content">
         {recipes.map((recipe, index) => (
-          <RecipeCard key={index} recipe={recipe}/>
+          <RecipeCard key={index} recipe={recipe} isFavorite={false}/>
         ))}
       </IonContent>
     </IonPage>
