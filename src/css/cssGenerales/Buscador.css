@@ -77,3 +77,36 @@
   border-bottom: 1px solid black;
   padding-bottom: 10px;
 }
+
+.subdesplegable {
+  background-color: #D9CCC5;
+  margin-left: 20px;
+  border: 1px solid black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 150px;
+}
+
+.subdesplegable label {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+
+.subdesplegable label input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.subdesplegable label span {
+  display: inline-block;
+  padding: 2px 4px;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.checkbox{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
