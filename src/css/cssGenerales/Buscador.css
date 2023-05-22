@@ -47,3 +47,33 @@
   margin-left: 10px;
   color: #74472f;
 }
+
+.filters-body {
+  background-color: #D9CCC5;
+  margin-left: 30px;
+  border: 1px solid black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 190px;
+}
+
+.icon,
+.icon2 {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.icon2 {
+  margin-left: auto;
+}
+
+.filtros {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
