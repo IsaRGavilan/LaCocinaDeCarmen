@@ -5,6 +5,8 @@ import { downloadOutline, heart } from 'ionicons/icons';
 import'./RecipeCard.css';
 
 
+
+
 // Definir el tipo para la prop 'recipe'
 interface RecipeCardProps {
     recipe: {
@@ -20,22 +22,18 @@ interface RecipeCardProps {
     };
   }
 
+
 // Componente para mostrar una tarjeta de receta
 const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
-  useEffect(() => {
-    // Verificar el estado de favorito en el almacenamiento local
-    const isRecipeFavorite = localStorage.getItem(`favorite_${recipe.id}`);
-    setIsFavorite(Boolean(isRecipeFavorite));
-  }, [recipe.id]);
 
+  const handleFavoriteClick = () => {
+    const newIsFavorite = !isFavorite;
+    setIsFavorite(newIsFavorite);
+    localStorage.setItem(`favorite_${recipe.id}`, JSON.stringify(newIsFavorite));
+  };
 
-const handleFavoriteClick = () => {
-  const newIsFavorite = !isFavorite;
-  setIsFavorite(newIsFavorite);
-  localStorage.setItem(`favorite_${recipe.id}`, JSON.stringify(newIsFavorite));
-};
 
   return (
     <div className='contenedor-tarjeta'>
@@ -49,7 +47,7 @@ const handleFavoriteClick = () => {
       <IonCardContent className='content-tarjeta'>
         {recipe.categoria}
         <div className="contenedor-botones">
-        <IonButton className={`botonFavoritos ${isFavorite ? '' : 'active'}`} onClick={handleFavoriteClick}>
+        <IonButton className={`botonFavoritos ${isFavorite ? 'active' : ''}`} onClick={handleFavoriteClick}>
           <IonIcon icon={heart} className='icono-tarjeta'/>
         </IonButton>
         <IonButton className='botonDescarga'>

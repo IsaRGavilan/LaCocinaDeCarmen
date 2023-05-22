@@ -32,6 +32,8 @@ const InicioSesion: React.FC<InicioSesionProps> = ({ setIsAuthenticated }) => {
       setIsAuthenticated(true); // Actualizar el estado de autenticación
       setToastMessage('Inicio de sesión correcto');
       history.push("/");
+      console.log(userCredential.user.email);
+      
     } catch (error) {
       setToastMessage('Credenciales incorrectas');
     } finally {
