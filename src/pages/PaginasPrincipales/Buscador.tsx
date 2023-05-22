@@ -6,6 +6,7 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import firebaseConfig from '../../firebaseConfig';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 
+
 const Buscador = () => {
   const [recipes, setRecipes] = useState<any[]>([]);
   const [filteredRecipes, setFilteredRecipes] = useState<any[]>([]);
@@ -16,6 +17,7 @@ const Buscador = () => {
   const [mostrarDificultad, setMostrarDificultad] = useState(false);
   const [mostrarTipoComida, setMostrarTipoComida] = useState(false);
   const [checkboxes, setCheckboxes] = useState<{ [checkboxId: string]: boolean }>({});
+
 
   const toggleDesplegable = (desplegable: string) => {
     switch (desplegable) {
@@ -33,13 +35,16 @@ const Buscador = () => {
     }
   };
 
+
   const handleSearch = (event: CustomEvent<InputChangeEventDetail>) => {
     const searchTerm = event.detail.value?.toLowerCase() ?? '';
     setSearchTerm(searchTerm);
 
+
     const filtered = recipes.filter(recipe => recipe.nombre.toLowerCase().includes(searchTerm));
     setFilteredRecipes(filtered);
   };
+
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -56,9 +61,11 @@ const Buscador = () => {
     fetchRecipes();
   }, []);
 
+
   const handleFiltersClick = () => {
     setShowFilters(prevShowFilters => !prevShowFilters);
   };
+
 
   const handleCheckboxChange = (checkboxId: string) => {
     setCheckboxes(prevCheckboxes => ({
@@ -66,6 +73,7 @@ const Buscador = () => {
       [checkboxId]: !prevCheckboxes[checkboxId]
     }));
   };
+
 
   return (
     <IonPage id="main-content" className="main-page">
@@ -109,7 +117,7 @@ const Buscador = () => {
               </label>
             </div>
           )}
-    
+   
           <p className="filtros" onClick={() => toggleDesplegable('dificultad')}>
             <IonIcon icon={hammerOutline} className="icon" />
             Dificultad
@@ -131,7 +139,7 @@ const Buscador = () => {
               </label>
             </div>
           )}
-    
+   
           <p className="filtros" onClick={() => toggleDesplegable('tipoComida')}>
             <IonIcon icon={fastFoodOutline} className="icon" />
             Tipo de comida
