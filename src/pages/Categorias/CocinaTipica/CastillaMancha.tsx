@@ -1,19 +1,45 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton } from '@ionic/react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../../css/cssCategorias/cssCocinaTipica/CastillaMancha.css';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import firebaseConfig from '../../../firebaseConfig';
+import RecipeCard from '../../../components/RecipeCard/RecipeCard';
 
 const CastillaMancha = () => {
+
+  const [recipes, setRecipes] = useState<any[]>([]);
+  const [favorites, setFavorites] = useState<{ [recipeId: string]: boolean }>({});
+
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const firestore = getFirestore(firebaseConfig.app);
+        const recipesRef = collection(firestore, "recipes");
+        const querySnapshot = await getDocs(recipesRef);
+        const recipesData = querySnapshot.docs
+          .map((doc) => doc.data())
+          .filter((recipe) => recipe.categoria === "CastillaMancha");
+        setRecipes(recipesData);
+      } catch (error) {
+        console.log("Error al obtener los documentos:", error);
+      }
+    };
+    fetchRecipes();
+  }, []);
+
   return (
         <IonPage id="main-content" className="main-page">
           <IonHeader className="custom-header">
             <IonToolbar className="custom-toolbar">
-            <IonTitle className="main-title">Castilla la Mancha</IonTitle>
+            <IonTitle className="main-title">Castilla-La Mancha</IonTitle>
               <IonMenuButton slot="start" />
             </IonToolbar>
           </IonHeader>
-          <IonContent className="custom-content">
-            <h1>Estás en castilla la mancha</h1>
-          </IonContent>
+            <IonContent className="custom-content">
+                  {recipes.map((recipe, index) => (
+                    <RecipeCard key={index} recipe={recipe} isFavorite={favorites[recipe.id] || false}/>
+                  ))}
+            </IonContent>
         </IonPage>
   );
 };
