@@ -16,8 +16,17 @@ const Buscador = () => {
   const [mostrarTiempo, setMostrarTiempo] = useState(false);
   const [mostrarDificultad, setMostrarDificultad] = useState(false);
   const [mostrarTipoComida, setMostrarTipoComida] = useState(false);
-  const [checkboxes, setCheckboxes] = useState<{ [checkboxId: string]: boolean }>({});
-
+  const [checkboxes, setCheckboxes] = useState<{ [checkboxId: string]: boolean }>({
+    baja: false,
+    media: false,
+    alta: false,
+    menosDeMediaHora: false,
+    entreMediaHoraYUnaHora: false,
+    masDeUnaHora: false,
+    platoFuerte: false,
+    aperitivo: false,
+    dulce: false,
+  });
 
   const toggleDesplegable = (desplegable: string) => {
     switch (desplegable) {
@@ -35,16 +44,13 @@ const Buscador = () => {
     }
   };
 
-
   const handleSearch = (event: CustomEvent<InputChangeEventDetail>) => {
     const searchTerm = event.detail.value?.toLowerCase() ?? '';
     setSearchTerm(searchTerm);
 
-
     const filtered = recipes.filter(recipe => recipe.nombre.toLowerCase().includes(searchTerm));
     setFilteredRecipes(filtered);
   };
-
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -61,20 +67,53 @@ const Buscador = () => {
     fetchRecipes();
   }, []);
 
-
   const handleFiltersClick = () => {
     setShowFilters(prevShowFilters => !prevShowFilters);
   };
 
-
   const handleCheckboxChange = (checkboxId: string) => {
-    setCheckboxes(prevCheckboxes => ({
+    setCheckboxes((prevCheckboxes) => ({
       ...prevCheckboxes,
-      [checkboxId]: !prevCheckboxes[checkboxId]
+      [checkboxId]: !prevCheckboxes[checkboxId],
     }));
   };
 
-
+  useEffect(() => {
+    const filterRecipes = () => {
+      let filtered = recipes;
+  
+      if (checkboxes.baja) {
+        filtered = filtered.filter((recipe) => recipe.dificultad === "Baja");
+      }
+      if (checkboxes.media) {
+        filtered = filtered.filter((recipe) => recipe.dificultad === "Media");
+      }
+      if (checkboxes.alta) {
+        filtered = filtered.filter((recipe) => recipe.dificultad === "Alta");
+      }
+      if (checkboxes.menosDeMediaHora) {
+        filtered = filtered.filter((recipe) => recipe.tiempo < 30);
+      }
+      if (checkboxes.entreMediaHoraYUnaHora) {
+        filtered = filtered.filter((recipe) => recipe.tiempo >= 30 && recipe.tiempo <= 60);
+      }
+      if (checkboxes.masDeUnaHora) {
+        filtered = filtered.filter((recipe) => recipe.tiempo > 60);
+      }
+      if (checkboxes.platoFuerte) {
+        filtered = filtered.filter((recipe) => recipe.tipo === "Plato fuerte");
+      }
+      if (checkboxes.aperitivo) {
+        filtered = filtered.filter((recipe) => recipe.tipo === "Aperitivo");
+      }
+      if (checkboxes.dulce) {
+        filtered = filtered.filter((recipe) => recipe.tipo === "Dulce");
+      }
+      setFilteredRecipes(filtered);
+    };
+    filterRecipes();
+  }, [checkboxes, recipes]);
+  
   return (
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header">
@@ -163,9 +202,39 @@ const Buscador = () => {
           )}
         </div>
       )}
-      {(searchTerm === '' ? recipes : filteredRecipes).map((recipe, index) => (
-        <RecipeCard key={index} recipe={recipe} isFavorite={favorites[recipe.id] || false} />
-      ))}
+
+      {(searchTerm === '' ? filteredRecipes : filteredRecipes.filter(recipe => {
+        if (checkboxes.baja && recipe.dificultad !== 'Baja') {
+          return false;
+        }
+        if (checkboxes.media && recipe.dificultad !== 'Media') {
+          return false;
+        }
+        if (checkboxes.alta && recipe.dificultad !== 'Alta') {
+          return false;
+        }
+        if (checkboxes.menosDeMediaHora && recipe.tiempo >= 30) {
+          return false;
+        }
+        if (checkboxes.entreMediaHoraYUnaHora && (recipe.tiempo < 30 || recipe.tiempo > 60)) {
+          return false;
+        }
+        if (checkboxes.masDeUnaHora && recipe.tiempo <= 60) {
+          return false;
+        }
+        if (checkboxes.platoFuerte && recipe.tipo !== 'Plato fuerte') {
+          return false;
+        }
+        if (checkboxes.aperitivo && recipe.tipo !== 'Aperitivo') {
+          return false;
+        }
+        if (checkboxes.dulce && recipe.tipo !== 'Dulce') {
+          return false;
+        }
+        return true;
+        })).map((recipe, index) => (
+          <RecipeCard key={index} recipe={recipe} isFavorite={favorites[recipe.id] || false} />
+        ))}
       </IonContent>
     </IonPage>
   );

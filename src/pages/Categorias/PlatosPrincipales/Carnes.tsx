@@ -9,6 +9,7 @@ import firebaseConfig from '../../../firebaseConfig';
 const Carnes = () => {
 
   const [recipes, setRecipes] = useState<any[]>([]);
+  const [favorites, setFavorites] = useState<{ [recipeId: string]: boolean }>({});
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -37,7 +38,7 @@ const Carnes = () => {
       </IonHeader>
       <IonContent className="custom-content">
         {recipes.map((recipe, index) => (
-          <RecipeCard key={index} recipe={recipe} isFavorite={false}/>
+          <RecipeCard key={index} recipe={recipe} isFavorite={favorites[recipe.id] || false}/>
         ))}
       </IonContent>
     </IonPage>

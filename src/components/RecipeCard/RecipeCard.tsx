@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { downloadOutline, heart } from 'ionicons/icons';
 import'./RecipeCard.css';
 
-// Definir el tipo para la prop 'recipe'
 interface RecipeCardProps {
     recipe: {
       id: number;
