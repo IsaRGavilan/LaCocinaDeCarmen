@@ -5,9 +5,11 @@ import RecipeCard from '../../../components/RecipeCard/RecipeCard';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import firebaseConfig from '../../../firebaseConfig';
 
+
 const Pescados = () => {
 
   const [recipes, setRecipes] = useState<any[]>([]);
+  const [favorites, setFavorites] = useState<{ [recipeId: string]: boolean }>({});
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -23,9 +25,9 @@ const Pescados = () => {
         console.log("Error al obtener los documentos:", error);
       }
     };
-
     fetchRecipes();
   }, []);
+
   return (
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header">
@@ -36,11 +38,12 @@ const Pescados = () => {
       </IonHeader>
       <IonContent className="custom-content">
         {recipes.map((recipe, index) => (
-          <RecipeCard key={index} recipe={recipe} />
+          <RecipeCard key={index} recipe={recipe} isFavorite={favorites[recipe.id] || false}/>
         ))}
       </IonContent>
     </IonPage>
   );
 };
+
 
 export default Pescados;
