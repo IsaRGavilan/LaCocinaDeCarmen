@@ -5,8 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import firebaseConfig from '../../firebaseConfig';
-import { doc, getFirestore, setDoc } from 'firebase/firestore';
-const { app, firestore } = firebaseConfig;
+const { app } = firebaseConfig;
 
 type RegistroProps = {
   setIsAuthenticated: (value: boolean) => void;
@@ -62,25 +61,10 @@ const Registro: React.FC<RegistroProps> = ({ setIsAuthenticated }) => {
 
     try {
       const auth = getAuth(app);
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const userId = userCredential.user.uid; //Obtenemos el id del usuario generado automáticamente
-      console.log(userId);
+      await createUserWithEmailAndPassword(auth, email, password);
       setIsAuthenticated(true);
       setToastMessage('Registro correcto');
       history.push("/");
-
-    // Crear el documento en la colección "users" con el ID del usuario
-    await setDoc(doc(firestore, 'users', userId), {
-      email: email,
-      username: username,
-      password: password,
-      nombre: null,
-      apellido: null,
-      telefono: null,
-      fechaNac: null,
-      avatar: 'https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/avatares%2Favatardefecto.jpg?alt=media&token=047cfe44-85f9-42b8-b09f-11a9a85203c9',
-      favoriteRecipes: [],
-    });
     } catch (error) {
       setToastMessage('El correo electrónico ya está registrado.');
     }finally{
@@ -94,24 +78,7 @@ const Registro: React.FC<RegistroProps> = ({ setIsAuthenticated }) => {
     try {
       const auth = getAuth(app);
       const provider = new GoogleAuthProvider();
-      const userCredential = await signInWithPopup(auth, provider);
-      const userId = userCredential.user.uid;
-      // Obtener el nombre de usuario del usuario de Google
-      const username = userCredential.user.displayName;
-
-      // Crear el documento en la colección "users" con el ID del usuario
-      await setDoc(doc(firestore, 'users', userId), {
-        email: userCredential.user.email,
-        username: username,
-        password: password,
-        nombre: null,
-        apellido: null,
-        telefono: null,
-        fechaNac: null,
-        avatar: 'https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/avatares%2Favatardefecto.jpg?alt=media&token=047cfe44-85f9-42b8-b09f-11a9a85203c9',
-        favoriteRecipes: [],
-      });
-
+      await signInWithPopup(auth, provider);
       setIsAuthenticated(true);
       setToastMessage('Registro con Google exitoso.');
       history.push("/");
