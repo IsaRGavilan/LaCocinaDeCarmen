@@ -12,7 +12,11 @@
     border-radius: 10px;
     background-color: #D9CCC5;
   }
-  
+
+/* Estilos del enlace */
+.link {
+    text-decoration: none;
+}
   /* Estilos de la imagen */
   .imagen-tarjeta {
     width: 100%;

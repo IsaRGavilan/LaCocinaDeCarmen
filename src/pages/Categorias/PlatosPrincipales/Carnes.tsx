@@ -1,15 +1,15 @@
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import '../../../css/cssCategorias/cssPlatosPrincipales/Carnes.css';
-import RecipeCard from '../../../components/RecipeCard/RecipeCard';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import firebaseConfig from '../../../firebaseConfig';
+import RecipeCard from '../../../components/RecipeCard/RecipeCard';
 
 
 const Carnes = () => {
 
   const [recipes, setRecipes] = useState<any[]>([]);
-  const [favorites, setFavorites] = useState<{ [recipeId: string]: boolean }>({});
+  const [favoriteRecipes, setFavoriteRecipes] = useState<number[]>([]);
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -28,22 +28,29 @@ const Carnes = () => {
     fetchRecipes();
   }, []);
 
+  const handleFavoriteChange = (recipeId: number, isFavorite: boolean) => {
+    if (isFavorite) {
+      setFavoriteRecipes(prevState => [...prevState, recipeId]);
+    } else {
+      setFavoriteRecipes(prevState => prevState.filter(id => id !== recipeId));
+    }
+  };
+
   return (
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header">
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Carnes</IonTitle>
+          <IonTitle className="main-title">Caldos y salsas</IonTitle>
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
       <IonContent className="custom-content">
         {recipes.map((recipe, index) => (
-          <RecipeCard key={index} recipe={recipe} isFavorite={favorites[recipe.id] || false}/>
+          <RecipeCard key={index} recipe={recipe} isFavorite={favoriteRecipes.includes(recipe.id)} onFavoriteChange={handleFavoriteChange}/>
         ))}
       </IonContent>
     </IonPage>
   );
 };
-
 
 export default Carnes;
