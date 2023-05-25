@@ -124,7 +124,9 @@ const App: React.FC = () => {
             <ProtectedRoute exact path="/favoritos" component={Favoritos} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/buscador" component={Buscador} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/lista" component={Lista} isAuthenticated={isAuthenticated} />
-            <ProtectedRoute exact path="/perfil" component={Perfil} isAuthenticated={isAuthenticated} />
+            <Route path="/perfil">
+              <Perfil setIsAuthenticated={setIsAuthenticated} />
+            </Route>
             <ProtectedRoute exact path="/receta/:id" component={Recipe} isAuthenticated={isAuthenticated}/>
             
             <ProtectedRoute exact path="/platosPrincipales" component={PlatosPrincipales} isAuthenticated={isAuthenticated} />

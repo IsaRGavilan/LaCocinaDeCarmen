@@ -5,7 +5,11 @@ import { deleteUser, getAuth, onAuthStateChanged, signOut } from '@firebase/auth
 import firebaseConfig from '../../../src/firebaseConfig';
 import { useHistory } from 'react-router-dom';
 
-const Perfil = () => {
+type PerfilProps = {
+  setIsAuthenticated: (value: boolean) => void;
+};
+
+const Perfil: React.FC<PerfilProps> = ({ setIsAuthenticated }) => {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [email, setEmail] = useState('');
@@ -16,6 +20,7 @@ const Perfil = () => {
     await signOut(auth);
     setShowToast(true);
     setToastMessage('Sesión cerrada correctamente.');
+    setIsAuthenticated(false);
     history.push('/inicioSesion');
   };
 
@@ -64,6 +69,12 @@ const Perfil = () => {
         <IonButton onClick={handleCerrarSesion} className='botonLogout'>Cerrar sesión</IonButton>
         <IonButton className='botonEliminar' onClick={eliminarCuenta}>Eliminar cuenta</IonButton>
       </IonContent>
+      <IonToast
+        isOpen={showToast}
+        onDidDismiss={() => setShowToast(false)}
+        message={toastMessage}
+        duration={3000}
+      />
     </IonPage>
   );
 };
