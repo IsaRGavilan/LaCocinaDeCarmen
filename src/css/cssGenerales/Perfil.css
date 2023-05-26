@@ -45,3 +45,31 @@
   z-index: 9999;
   margin-bottom: 40px;
 }
+
+.avatar{
+  width: 35%;
+  margin-left: 30%;
+  margin-top: -7%;
+  margin-bottom: 4%;
+  border-radius: 50%;
+}
+
+.icon{
+  margin-top: -8%;
+  margin-left: -3%;
+}
+
+.campos{
+  margin-left: 13%;
+  font-size: large;
+  margin-top: 5%;
+}
+
+.titulo{
+  color: #74472f;
+}
+
+.texto{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-bottom: -3%;
+}

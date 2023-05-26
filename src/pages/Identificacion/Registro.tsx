@@ -77,7 +77,6 @@ const Registro: React.FC<RegistroProps> = ({ setIsAuthenticated }) => {
       nombre: null,
       apellido: null,
       telefono: null,
-      fechaNac: null,
       avatar: 'https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/avatares%2Favatardefecto.jpg?alt=media&token=047cfe44-85f9-42b8-b09f-11a9a85203c9',
       favoriteRecipes: [],
     });
