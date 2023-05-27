@@ -5,7 +5,6 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import firebaseConfig from '../../../firebaseConfig';
 import RecipeCard from '../../../components/RecipeCard/RecipeCard';
 
-
 const Carnes = () => {
 
   const [recipes, setRecipes] = useState<any[]>([]);
@@ -40,7 +39,7 @@ const Carnes = () => {
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header">
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Caldos y salsas</IonTitle>
+          <IonTitle className="main-title">Carnes</IonTitle>
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>

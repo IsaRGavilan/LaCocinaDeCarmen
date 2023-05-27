@@ -31,10 +31,10 @@
   bottom: 20px;
   right: 20px;
   z-index: 9999;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
-.botonEliminar {
+.botonGuardar {
   --ion-color-primary: #74472f;
   --ion-color-primary-contrast: #f5e2d6;
   cursor: pointer;
@@ -43,13 +43,13 @@
   bottom: 20px;
   left: 20px;
   z-index: 9999;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .avatar{
   width: 35%;
   margin-left: 30%;
-  margin-top: -7%;
+  margin-top: -4%;
   margin-bottom: 4%;
   border-radius: 50%;
 }
@@ -62,7 +62,7 @@
 .campos{
   margin-left: 13%;
   font-size: large;
-  margin-top: 5%;
+  margin-top: 8%;
 }
 
 .titulo{

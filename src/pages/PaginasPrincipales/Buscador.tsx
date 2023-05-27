@@ -241,7 +241,7 @@ const Buscador = () => {
         }
         return true;
         })).map((recipe, index) => (
-          <RecipeCard key={index} recipe={recipe}/>
+          <RecipeCard key={index} recipe={recipe} isFavorite={favoriteRecipes.includes(recipe.id)} onFavoriteChange={handleFavoriteChange}/>
         ))}
       </IonContent>
     </IonPage>

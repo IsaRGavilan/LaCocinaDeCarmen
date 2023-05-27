@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import firebaseConfig from '../../firebaseConfig';
-import { doc, getFirestore, setDoc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 const { app, firestore } = firebaseConfig;
 
 type RegistroProps = {
@@ -102,11 +102,9 @@ const Registro: React.FC<RegistroProps> = ({ setIsAuthenticated }) => {
       await setDoc(doc(firestore, 'users', userId), {
         email: userCredential.user.email,
         username: username,
-        password: password,
         nombre: null,
         apellido: null,
         telefono: null,
-        fechaNac: null,
         avatar: 'https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/avatares%2Favatardefecto.jpg?alt=media&token=047cfe44-85f9-42b8-b09f-11a9a85203c9',
         favoriteRecipes: [],
       });
