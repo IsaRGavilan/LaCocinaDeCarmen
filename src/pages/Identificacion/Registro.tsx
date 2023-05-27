@@ -71,9 +71,8 @@ const Registro: React.FC<RegistroProps> = ({ setIsAuthenticated }) => {
 
     // Crear el documento en la colección "users" con el ID del usuario
     await setDoc(doc(firestore, 'users', userId), {
-      email: email,
+      email: userCredential.user.email,
       username: username,
-      password: password,
       nombre: null,
       apellido: null,
       telefono: null,
