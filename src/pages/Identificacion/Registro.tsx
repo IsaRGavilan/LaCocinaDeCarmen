@@ -77,7 +77,7 @@ const Registro: React.FC<RegistroProps> = ({ setIsAuthenticated }) => {
       nombre: null,
       apellido: null,
       telefono: null,
-      avatar: 'https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/avatares%2Favatardefecto.jpg?alt=media&token=047cfe44-85f9-42b8-b09f-11a9a85203c9',
+      avatar: 'https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/avatares%2Favatardefecto.png?alt=media&token=bff9a490-bcf0-44cb-9f58-e0ed4b5b2eff',
       favoriteRecipes: [],
     });
     } catch (error) {
@@ -105,7 +105,7 @@ const Registro: React.FC<RegistroProps> = ({ setIsAuthenticated }) => {
         nombre: null,
         apellido: null,
         telefono: null,
-        avatar: 'https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/avatares%2Favatardefecto.jpg?alt=media&token=047cfe44-85f9-42b8-b09f-11a9a85203c9',
+        avatar: 'https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/avatares%2Favatardefecto.png?alt=media&token=bff9a490-bcf0-44cb-9f58-e0ed4b5b2eff',
         favoriteRecipes: [],
       });
 

@@ -6,13 +6,13 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-  .custom-header {
+.custom-header {
     background-color: #74472f;
     border-bottom: 1px solid #ccc;
     padding: 10px;
   }
 
-  .custom-toolbar {
+.custom-toolbar {
     --background: #74472f; /* Cambia el color de fondo del toolbar */
     --color: white; /* Cambia el color del texto del toolbar */
 }
@@ -46,17 +46,24 @@
   margin-bottom: 60px;
 }
 
-.avatar{
-  width: 35%;
+.avatar-container {
   margin-left: 30%;
-  margin-top: -4%;
-  margin-bottom: 4%;
+  margin-top: -5%;
+  width: 150px;
+  height: 145px;
   border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #74472f;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .icon{
-  margin-top: -8%;
-  margin-left: -3%;
+  margin-left: 60%;
 }
 
 .campos{
@@ -65,11 +72,28 @@
   margin-top: 8%;
 }
 
-.titulo{
-  color: #74472f;
-}
-
 .texto{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin-bottom: -3%;
+}
+
+.titulo-perfil{
+  color: #74472f;
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 12%;
+}
+
+.avatar-option {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #74472f;
+}
+
+.grid{
+  background-color: #e0e0e0;
 }
