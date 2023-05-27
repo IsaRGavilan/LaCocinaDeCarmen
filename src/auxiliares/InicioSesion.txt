@@ -31,6 +31,8 @@ const InicioSesion: React.FC<InicioSesionProps> = ({ setIsAuthenticated }) => {
       const userId = userCredential.user.uid;
       setIsAuthenticated(true); // Actualizar el estado de autenticación
       setToastMessage('Inicio de sesión correcto');
+      console.log(userId);
+      
       history.push("/");
     } catch (error) {
       setToastMessage('Credenciales incorrectas');

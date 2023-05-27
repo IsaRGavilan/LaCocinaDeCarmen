@@ -1,8 +1,8 @@
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle } from '@ionic/react';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import '../../css/cssCategorias/Caldos.css';
-import RecipeCard from '../../components/RecipeCard//RecipeCard';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import firebaseConfig from '../../firebaseConfig';
 
 const Caldos = () => {
