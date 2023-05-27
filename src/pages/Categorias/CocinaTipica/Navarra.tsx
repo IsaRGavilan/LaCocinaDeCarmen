@@ -5,10 +5,10 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import firebaseConfig from '../../../firebaseConfig';
 import RecipeCard from '../../../components/RecipeCard/RecipeCard';
 
-const Navarra= () => {
+const Navarra = () => {
 
   const [recipes, setRecipes] = useState<any[]>([]);
-  const [favorites, setFavorites] = useState<{ [recipeId: string]: boolean }>({});
+  const [favoriteRecipes, setFavoriteRecipes] = useState<number[]>([]);
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -27,6 +27,14 @@ const Navarra= () => {
     fetchRecipes();
   }, []);
 
+    const handleFavoriteChange = (recipeId: number, isFavorite: boolean) => {
+    if (isFavorite) {
+      setFavoriteRecipes(prevState => [...prevState, recipeId]);
+    } else {
+      setFavoriteRecipes(prevState => prevState.filter(id => id !== recipeId));
+    }
+  };
+
   return (
         <IonPage id="main-content" className="main-page">
           <IonHeader className="custom-header">
@@ -37,7 +45,7 @@ const Navarra= () => {
           </IonHeader>
             <IonContent className="custom-content">
                   {recipes.map((recipe, index) => (
-                    <RecipeCard key={index} recipe={recipe} isFavorite={favorites[recipe.id] || false}/>
+                    <RecipeCard key={index} recipe={recipe} isFavorite={favoriteRecipes.includes(recipe.id)} onFavoriteChange={handleFavoriteChange}/>
                   ))}
             </IonContent>
         </IonPage>
