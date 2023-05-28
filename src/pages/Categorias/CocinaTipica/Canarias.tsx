@@ -44,9 +44,14 @@ const Canarias = () => {
             </IonToolbar>
           </IonHeader>
             <IonContent className="custom-content">
-                  {recipes.map((recipe, index) => (
-                    <RecipeCard key={index} recipe={recipe} isFavorite={favoriteRecipes.includes(recipe.id)} handleFavoriteChange={handleFavoriteChange}/>
-                  ))}
+            {recipes.map((recipe) => (
+            <RecipeCard
+              key={recipe.id}
+              recipe={recipe}
+              isFavorite={favoriteRecipes.includes(recipe.id)}
+              handleFavoriteChange={handleFavoriteChange}
+            />
+          ))}
             </IonContent>
         </IonPage>
   );
