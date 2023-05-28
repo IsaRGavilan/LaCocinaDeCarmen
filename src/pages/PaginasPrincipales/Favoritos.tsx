@@ -1,5 +1,5 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton } from '@ionic/react';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../css/cssGenerales/Favoritos.css';
 import { collection, getDocs, doc, getDoc, getFirestore } from 'firebase/firestore';
 import firebaseConfig from '../../firebaseConfig';

@@ -17,7 +17,64 @@
     --color: white; /* Cambia el color del texto del toolbar */
 }
 
-.custom-content{
-    --background: #e0e0e0;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.texto-lista{
+  font-size: 27px;
+  text-align: center;
+  color: #74472f;
+  margin-top: 40px;
+}
+
+.input-lista{
+  padding: '8px';
+  font-size: 20px;
+  border: 2px solid #74472f;
+  border-radius: 5px;
+  width: 65%;
+  height: 50px;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.botonLista{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-left: 25px;
+  margin-bottom: 18px;
+  --ion-color-primary: #74472f;
+}
+
+.botonDescargarLista{
+  --ion-color-primary: #74472f;
+  margin-left: 40%;
+  margin-top: 10%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.iconTrash{
+  color: #74472f;
+}
+
+.custom-label{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#custom-item {
+  --border-color: #74472f; /* Cambia el color de borde de los elementos de la lista */
+  --inner-border-color: #74472f; /* Cambia el color de borde interno de los elementos de la lista */
+  --background: transparent;
+  margin-bottom: 10px;
+}
+
+#custom-label {
+  color: #74472f; /* Cambia el color de texto de los labels a rojo */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 20px;
+}
+
+#lista{
+  background-color: transparent;
+  margin-top: 20px;
+}
+
+#custom-item #checkbox:checked + #custom-label {
+  color: #74472f !important;
 }

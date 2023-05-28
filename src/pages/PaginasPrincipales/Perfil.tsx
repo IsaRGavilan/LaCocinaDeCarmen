@@ -5,7 +5,7 @@ import { getAuth, onAuthStateChanged, signOut } from '@firebase/auth';
 import firebaseConfig from '../../../src/firebaseConfig';
 import { useHistory } from 'react-router-dom';
 import { pencilOutline } from 'ionicons/icons';
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { getStorage, ref, listAll, getDownloadURL, getMetadata } from 'firebase/storage';
 
 type PerfilProps = {

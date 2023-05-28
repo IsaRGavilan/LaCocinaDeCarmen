@@ -69,7 +69,6 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
     doc.save(`${recipeData.nombre}.pdf`);
   };
   
-  
   return (
 <IonPage>
       <IonContent>

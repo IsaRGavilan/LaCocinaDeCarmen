@@ -136,27 +136,28 @@ const Lista = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="custom-content">
+        <h1 className='texto-lista'>¡Crea tu propia lista de la compra!</h1>
         <div className="input-container">
           <input
+            className='input-lista'
             type="text"
-            placeholder="Añadir elemento"
+            placeholder="Añade un producto..."
             value={currentItem}
             onChange={handleInputChange}
           />
-          <IonButton onClick={handleAddItem}>Añadir</IonButton>
+          <IonButton onClick={handleAddItem} className='botonLista'>Añadir</IonButton>
         </div>
-        <h1>Estás en la lista de la compra</h1>
-        <IonList>
+        <IonList id='lista'>
           {items.map((item, index) => (
-            <IonItem key={index}>
-              <IonCheckbox slot="start" value={item} checked={false} aria-label={item} />
-              <IonLabel>{item}</IonLabel>
-              <IonIcon slot="end" icon={trashOutline} onClick={() =>handleDeleteItem(index)}/>
+            <IonItem key={index} id='custom-item'>
+              <IonCheckbox slot="start" value={item} checked={false} aria-label={item} id='checkbox'/>
+              <IonLabel id='custom-label'>{item}</IonLabel>
+              <IonIcon slot="end" icon={trashOutline} onClick={() =>handleDeleteItem(index)} className='iconTrash'/>
             </IonItem>
           ))}
         </IonList>
-        <IonButton onClick={handleDownloadPDF}>
-          <IonIcon icon={downloadOutline} />
+        <IonButton onClick={handleDownloadPDF} className='botonDescargarLista'>
+          <IonIcon icon={downloadOutline} className='icon'/>
           Descargar lista
         </IonButton>
       </IonContent>
