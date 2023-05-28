@@ -39,7 +39,7 @@ const Carnes = () => {
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header">
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Carnes y salsas</IonTitle>
+          <IonTitle className="main-title">Carnes</IonTitle>
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
