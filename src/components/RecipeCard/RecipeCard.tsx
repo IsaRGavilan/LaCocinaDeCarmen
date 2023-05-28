@@ -1,11 +1,12 @@
 import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { downloadOutline, heart, heartOutline } from 'ionicons/icons';
 import'./RecipeCard.css';
 import firebaseConfig from '../../firebaseConfig';
 import { getAuth } from 'firebase/auth';
 import { doc, updateDoc, getDoc } from 'firebase/firestore'
+import jsPDF from 'jspdf';
 
 interface RecipeCardProps {
   recipe: {
@@ -29,6 +30,8 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, handleFavoriteChange })
   const [isFavorite, setIsFavorite] = useState(false);
   const auth = getAuth(firebaseConfig.app);
   const user = auth.currentUser;
+  const { id } = useParams<{ id: string }>();
+  const [recipeData, setRecipeData] = useState<any>(null);
 
   useEffect(() => {
     if (user) {
@@ -76,8 +79,28 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, handleFavoriteChange })
         console.error('Error updating favorite recipes:', error);
       }
     }
-
     handleFavoriteChange(recipe.id, !isFavorite);
+  };
+
+  const handleDownload = () => {
+    const doc = new jsPDF();
+    const img = new Image();
+    img.src = recipe.imagen;
+    // Genera el contenido del PDF utilizando los datos de la receta
+    doc.setFontSize(18);
+    doc.text(recipe.nombre, 10, 20);
+    doc.setFontSize(12);
+    doc.text('INGREDIENTES:', 10, 90);
+    doc.text(recipe.ingredientes.join(', '), 10, 100);
+    doc.text('PREPARACIÓN:', 10, 120);
+    doc.text(recipe.preparacion.join('\n'), 10, 130);
+    doc.setFontSize(10);
+    doc.text(`Dificultad: ${recipe.dificultad}`, 10, 180);
+    doc.text(`Tiempo de preparación: ${recipe.tiempo} minutos`, 10, 190);
+    doc.addImage(img, 'JPEG', 10, 30, 50, 50);
+
+    // Descarga el archivo PDF
+    doc.save(`${recipe.nombre}.pdf`);
   };
 
   return (
@@ -95,7 +118,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, handleFavoriteChange })
         <IonButton className='botonFavoritos' onClick={handleFavoriteClick}>
               <IonIcon icon={isFavorite ? heart : heartOutline} className={isFavorite ? 'icono-tarjeta-activo' : 'icono-tarjeta'} />
             </IonButton>
-            <IonButton className='botonDescarga'>
+            <IonButton className='botonDescarga' onClick={handleDownload}>
               <IonIcon
                 icon={downloadOutline}
                 className='icon'

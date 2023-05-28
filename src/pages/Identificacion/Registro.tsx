@@ -78,6 +78,7 @@ const Registro: React.FC<RegistroProps> = ({ setIsAuthenticated }) => {
       telefono: null,
       avatar: 'https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/avatares%2Favatardefecto.png?alt=media&token=bff9a490-bcf0-44cb-9f58-e0ed4b5b2eff',
       favoriteRecipes: [],
+      lista: [],
     });
     } catch (error) {
       setToastMessage('El correo electrónico ya está registrado.');
