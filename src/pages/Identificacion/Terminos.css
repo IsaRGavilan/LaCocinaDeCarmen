@@ -1,0 +1,45 @@
+.titulo-terminos{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+
+.h1-terminos{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    text-decoration: underline;
+}
+.parrafo{
+    margin-left: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+}
+
+.terminos {
+    --ion-background-color: transparent;
+    background-image: url("../../assets/imagenesGenerales/fondoterminos.jpg");
+    background-size: cover;
+    font-weight: bold;
+  }
+
+  .terminos::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: url("../../assets/imagenesGenerales/fondoterminos.jpg");
+    background-size: cover;
+    filter: blur(2px);
+  }
+
+  #icono{
+    font-size: 25px;
+    margin-top: 25px;
+    margin-bottom: -35px;
+    margin-left: 15px;
+  }

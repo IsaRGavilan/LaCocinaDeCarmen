@@ -61,6 +61,7 @@ import PaisVasco from './pages/Categorias/CocinaTipica/PaisVasco';
 import Rioja from './pages/Categorias/CocinaTipica/Rioja';
 import Valencia from './pages/Categorias/CocinaTipica/Valencia';
 import Recipe from './components/Recipe/Recipe';
+import Terminos from './pages/Identificacion/Terminos';
 
 setupIonicReact();
 
@@ -126,6 +127,7 @@ const App: React.FC = () => {
             <ProtectedRoute exact path="/lista" component={Lista} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/perfil" component={Perfil} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/receta/:id" component={Recipe} isAuthenticated={isAuthenticated}/>
+            <Route exact path="/terminos" component={Terminos}/>
             
             <ProtectedRoute exact path="/platosPrincipales" component={PlatosPrincipales} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/entrantes" component={Entrantes} isAuthenticated={isAuthenticated} />

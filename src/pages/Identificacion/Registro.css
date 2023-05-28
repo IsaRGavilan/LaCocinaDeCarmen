@@ -47,7 +47,8 @@
   }
   
   #checkbox {
-    margin-top: 15px;
+    margin-bottom: -30px;
+    margin-left: 10px;
     font-weight: bold;
     color: #090703;
   }
@@ -66,3 +67,15 @@
     margin-top: 20px;
   }
   
+  .terms{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 17px;
+    font-weight: bold;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .linkTerms{
+    color: #090703;
+  }

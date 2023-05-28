@@ -1,7 +1,7 @@
-import { IonContent, IonHeader, IonPage, IonInput, IonButton, IonCheckbox, IonToast } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonInput, IonButton, IonCheckbox, IonToast, IonLabel } from '@ionic/react';
 import './Registro.css';
 import google from '../../assets/imagenesGenerales/google.png';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import firebaseConfig from '../../firebaseConfig';
@@ -14,7 +14,7 @@ type RegistroProps = {
 
 const Registro: React.FC<RegistroProps> = ({ setIsAuthenticated }) => {
 
-  const history = useHistory(); // Obtiene el objeto de historial de navegación
+  const history = useHistory();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -134,7 +134,15 @@ const Registro: React.FC<RegistroProps> = ({ setIsAuthenticated }) => {
           <IonInput label="Contraseña" labelPlacement="floating" fill="outline" placeholder="Inserte su contraseña" type='password' id='inputs' value={password}
             onIonChange={(e) => setPassword(e.detail.value!)}></IonInput>
           <IonInput label="Comprobación contraseña" labelPlacement="floating" fill="outline" placeholder="Inserte su contraseña nuevamente" type='password' id='inputs' onIonChange={(e) => setConfirmPassword(e.detail.value!)}></IonInput>
-          <IonCheckbox id='checkbox' checked={termsAccepted} onIonChange={(e) => setTermsAccepted(e.detail.checked)}>Acepto los términos y condiciones de uso.</IonCheckbox>
+          <IonLabel className='terms'>
+          <Link to='/terminos' className='linkTerms'><span>Acepto los términos y condiciones de uso.</span></Link>
+          <IonCheckbox
+            id='checkbox'
+            checked={termsAccepted}
+            onIonChange={(e) => setTermsAccepted(e.detail.checked)}
+            slot='end'
+          />
+        </IonLabel>
           <IonButton expand="full" className="boton" onClick={handleRegistro} disabled={isLoading}>{isLoading ? 'Registrando...' : 'Registrarse'}</IonButton>
           <h3 id='texto'>¿Ya tienes cuenta? ¡Inicia sesión!</h3>
           <IonButton expand="full" className="boton" onClick={handleInicioSesion}>Iniciar sesión</IonButton>
