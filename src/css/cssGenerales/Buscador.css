@@ -60,13 +60,7 @@
 .icon2 {
   font-size: 20px;
   vertical-align: middle;
-}
-
-.icon {
   margin-right: 10px;
-}
-
-.icon2 {
   margin-left: auto;
 }
 
@@ -76,6 +70,7 @@
   margin: 10px;
   border-bottom: 1px solid black;
   padding-bottom: 10px;
+  margin-right: 300px;
 }
 
 .subdesplegable {

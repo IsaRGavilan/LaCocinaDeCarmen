@@ -39,13 +39,13 @@ const Entrantes = () => {
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header">
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Entrantes y ensaladas</IonTitle>
+          <IonTitle className="main-title">Entrantes y salsas</IonTitle>
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
       <IonContent className="custom-content">
         {recipes.map((recipe, index) => (
-          <RecipeCard key={index} recipe={recipe} isFavorite={favoriteRecipes.includes(recipe.id)} onFavoriteChange={handleFavoriteChange}/>
+          <RecipeCard key={index} recipe={recipe} isFavorite={favoriteRecipes.includes(recipe.id)} handleFavoriteChange={handleFavoriteChange}/>
         ))}
       </IonContent>
     </IonPage>

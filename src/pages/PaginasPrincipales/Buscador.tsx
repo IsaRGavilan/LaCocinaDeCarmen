@@ -6,12 +6,27 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import firebaseConfig from '../../firebaseConfig';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 
+interface RecipeCardProps {
+  recipe: {
+    id: number;
+    imagen: string;
+    nombre: string;
+    categoria: string;
+    dificultad: string;
+    ingredientes: string[];
+    preparacion: string[];
+    tiempo: number;
+    tipo: string;
+  };
+  isFavorite: boolean;
+  handleFavoriteChange: (recipeId: number, isFavorite: boolean) => void;
+}
+
 const Buscador = () => {
   const [recipes, setRecipes] = useState<any[]>([]);
   const [filteredRecipes, setFilteredRecipes] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [favorites, setFavorites] = useState<{ [recipeId: string]: boolean }>({});
-  const [favoriteRecipes, setFavoriteRecipes] = useState<number[]>([]);
   const [showFilters, setShowFilters] = useState(false);
   const [mostrarTiempo, setMostrarTiempo] = useState(false);
   const [mostrarDificultad, setMostrarDificultad] = useState(false);
@@ -114,12 +129,12 @@ const Buscador = () => {
   }, [checkboxes, recipes]);
  
   const handleFavoriteChange = (recipeId: number, isFavorite: boolean) => {
-    if (isFavorite) {
-      setFavoriteRecipes(prevState => [...prevState, recipeId]);
-    } else {
-      setFavoriteRecipes(prevState => prevState.filter(id => id !== recipeId));
-    }
+    setFavorites(prevFavorites => ({
+      ...prevFavorites,
+      [recipeId]: isFavorite,
+    }));
   };
+  
  
   return (
     <IonPage id="main-content" className="main-page">
@@ -210,38 +225,42 @@ const Buscador = () => {
         </div>
       )}
 
-
-      {(searchTerm === '' ? filteredRecipes : filteredRecipes.filter(recipe => {
-        if (checkboxes.baja && recipe.dificultad !== 'Baja') {
-          return false;
-        }
-        if (checkboxes.media && recipe.dificultad !== 'Media') {
-          return false;
-        }
-        if (checkboxes.alta && recipe.dificultad !== 'Alta') {
-          return false;
-        }
-        if (checkboxes.menosDeMediaHora && recipe.tiempo >= 30) {
-          return false;
-        }
-        if (checkboxes.entreMediaHoraYUnaHora && (recipe.tiempo < 30 || recipe.tiempo > 60)) {
-          return false;
-        }
-        if (checkboxes.masDeUnaHora && recipe.tiempo <= 60) {
-          return false;
-        }
-        if (checkboxes.platoFuerte && recipe.tipo !== 'Plato fuerte') {
-          return false;
-        }
-        if (checkboxes.aperitivo && recipe.tipo !== 'Aperitivo') {
-          return false;
-        }
-        if (checkboxes.dulce && recipe.tipo !== 'Dulce') {
-          return false;
-        }
-        return true;
-        })).map((recipe, index) => (
-          <RecipeCard key={index} recipe={recipe} isFavorite={favoriteRecipes.includes(recipe.id)} onFavoriteChange={handleFavoriteChange}/>
+  {(searchTerm === '' ? filteredRecipes : filteredRecipes.filter(recipe => {
+          if (checkboxes.baja && recipe.dificultad !== 'Baja') {
+            return false;
+          }
+          if (checkboxes.media && recipe.dificultad !== 'Media') {
+            return false;
+          }
+          if (checkboxes.alta && recipe.dificultad !== 'Alta') {
+            return false;
+          }
+          if (checkboxes.menosDeMediaHora && recipe.tiempo >= 30) {
+            return false;
+          }
+          if (checkboxes.entreMediaHoraYUnaHora && (recipe.tiempo < 30 || recipe.tiempo > 60)) {
+            return false;
+          }
+          if (checkboxes.masDeUnaHora && recipe.tiempo <= 60) {
+            return false;
+          }
+          if (checkboxes.platoFuerte && recipe.tipo !== 'Plato fuerte') {
+            return false;
+          }
+          if (checkboxes.aperitivo && recipe.tipo !== 'Aperitivo') {
+            return false;
+          }
+          if (checkboxes.dulce && recipe.tipo !== 'Dulce') {
+            return false;
+          }
+          return true;
+        })).map(recipe => (
+          <RecipeCard
+            key={recipe.id}
+            recipe={recipe}
+            isFavorite={favorites[recipe.id] || false}
+            handleFavoriteChange={handleFavoriteChange}
+          />
         ))}
       </IonContent>
     </IonPage>

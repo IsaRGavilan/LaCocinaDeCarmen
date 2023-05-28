@@ -2,8 +2,8 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton } f
 import React, { useEffect, useState } from 'react';
 import '../../../css/cssCategorias/cssPlatosPrincipales/Carnes.css';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import firebaseConfig from '../../../firebaseConfig';
 import RecipeCard from '../../../components/RecipeCard/RecipeCard';
+import firebaseConfig from '../../../firebaseConfig';
 
 const Carnes = () => {
 
@@ -39,13 +39,13 @@ const Carnes = () => {
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header">
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Carnes</IonTitle>
+          <IonTitle className="main-title">Carnes y salsas</IonTitle>
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
       <IonContent className="custom-content">
         {recipes.map((recipe, index) => (
-          <RecipeCard key={index} recipe={recipe} isFavorite={favoriteRecipes.includes(recipe.id)} onFavoriteChange={handleFavoriteChange}/>
+          <RecipeCard key={index} recipe={recipe} isFavorite={favoriteRecipes.includes(recipe.id)} handleFavoriteChange={handleFavoriteChange}/>
         ))}
       </IonContent>
     </IonPage>
