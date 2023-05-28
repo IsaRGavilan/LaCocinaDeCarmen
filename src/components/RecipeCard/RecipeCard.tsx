@@ -8,23 +8,23 @@ import { getAuth } from 'firebase/auth';
 import { doc, updateDoc, getDoc } from 'firebase/firestore'
 
 interface RecipeCardProps {
-    recipe: {
-      id: number;
-      imagen: string;
-      nombre: string;
-      categoria: string;
-      dificultad: string;
-      ingredientes: string[];
-      preparacion: string[];
-      tiempo: number;
-      tipo: string;
-    };
-    isFavorite: boolean;
-    handleFavoriteChange: (recipeId: number, isFavorite: boolean) => void;
-  }
+  recipe: {
+    id: number;
+    imagen: string;
+    nombre: string;
+    categoria: string;
+    dificultad: string;
+    ingredientes: string[];
+    preparacion: string[];
+    tiempo: number;
+    tipo: string;
+  };
+  handleFavoriteChange: (recipeId: number, isFavorite: boolean) => void;
+  isFavorite: boolean;
+}
 
 // Componente para mostrar una tarjeta de receta
-const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
+const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, handleFavoriteChange }) => {
 
   const [isFavorite, setIsFavorite] = useState(false);
   const auth = getAuth(firebaseConfig.app);
@@ -76,6 +76,8 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
         console.error('Error updating favorite recipes:', error);
       }
     }
+
+    handleFavoriteChange(recipe.id, !isFavorite);
   };
 
   return (

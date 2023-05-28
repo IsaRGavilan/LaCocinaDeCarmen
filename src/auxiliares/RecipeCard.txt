@@ -1,43 +1,85 @@
 import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { downloadOutline, heart } from 'ionicons/icons';
+import { downloadOutline, heart, heartOutline } from 'ionicons/icons';
 import'./RecipeCard.css';
+import firebaseConfig from '../../firebaseConfig';
+import { getAuth } from 'firebase/auth';
+import { doc, updateDoc, getDoc } from 'firebase/firestore'
 
 interface RecipeCardProps {
-    recipe: {
-      id: number;
-      imagen: string;
-      nombre: string;
-      categoria: string;
-      dificultad: string;
-      ingredientes: string[];
-      preparacion: string[];
-      tiempo: number;
-      tipo: string;
-    };
-    isFavorite: boolean;
-    onFavoriteChange: (recipeId: number, isFavorite: boolean) => void;
-  }
+  recipe: {
+    id: number;
+    imagen: string;
+    nombre: string;
+    categoria: string;
+    dificultad: string;
+    ingredientes: string[];
+    preparacion: string[];
+    tiempo: number;
+    tipo: string;
+  };
+  handleFavoriteChange: (recipeId: number, isFavorite: boolean) => void;
+  isFavorite: boolean;
+}
 
 // Componente para mostrar una tarjeta de receta
-const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, isFavorite, onFavoriteChange }) => {
-  const [isCardFavorite, setIsCardFavorite] = useState(isFavorite);
+const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, handleFavoriteChange }) => {
+
+  const [isFavorite, setIsFavorite] = useState(false);
+  const auth = getAuth(firebaseConfig.app);
+  const user = auth.currentUser;
 
   useEffect(() => {
-    const favoriteStatus = localStorage.getItem(`favorite_${recipe.id}`);
-    if (favoriteStatus) {
-      setIsCardFavorite(JSON.parse(favoriteStatus));
+    if (user) {
+      const fetchFavoriteRecipes = async () => {
+        try {
+          const userRef = doc(firebaseConfig.firestore, 'users', user.uid);
+          const userSnapshot = await getDoc(userRef);
+
+          if (userSnapshot.exists()) {
+            const userData = userSnapshot.data();
+
+            if (userData && Array.isArray(userData.favoriteRecipes)) {
+              setIsFavorite(userData.favoriteRecipes.includes(recipe.id));
+            }
+          }
+        } catch (error) {
+          console.error('Error fetching favorite recipes:', error);
+        }
+      };
+
+      fetchFavoriteRecipes();
     }
-  }, [recipe.id]);  
-  
-  const handleFavoriteClick = () => {
-    const newIsFavorite = !isCardFavorite;
-    setIsCardFavorite(newIsFavorite);
-    localStorage.setItem(`favorite_${recipe.id}`, JSON.stringify(newIsFavorite));
-    onFavoriteChange(recipe.id, newIsFavorite);
+  }, [user, recipe.id]);
+
+  const handleFavoriteClick = async () => {
+    setIsFavorite(!isFavorite);
+
+    if (user) {
+      try {
+        const userRef = doc(firebaseConfig.firestore, 'users', user.uid);
+        const userSnapshot = await getDoc(userRef);
+
+        if (userSnapshot.exists()) {
+          const userData = userSnapshot.data();
+
+          if (userData && Array.isArray(userData.favoriteRecipes)) {
+            const updatedFavoriteRecipes = isFavorite
+              ? userData.favoriteRecipes.filter((recipeId) => recipeId !== recipe.id)
+              : [...userData.favoriteRecipes, recipe.id];
+
+            await updateDoc(userRef, { favoriteRecipes: updatedFavoriteRecipes });
+          }
+        }
+      } catch (error) {
+        console.error('Error updating favorite recipes:', error);
+      }
+    }
+
+    handleFavoriteChange(recipe.id, !isFavorite);
   };
-  
+
   return (
     <div className='contenedor-tarjeta'>
     <IonCard className='tarjeta'>
@@ -50,15 +92,15 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, isFavorite, onFavoriteC
       <IonCardContent className='content-tarjeta'>
         {recipe.categoria}
         <div className="contenedor-botones">
-        <IonButton
-          className={`botonFavoritos ${isCardFavorite ? 'active' : ''}`}
-          onClick={handleFavoriteClick}
-        >
-          <IonIcon icon={heart} className='icono-tarjeta' />
-        </IonButton>
-        <IonButton className='botonDescarga'>
-          <IonIcon icon={downloadOutline} className='icono-tarjeta'/>
-        </IonButton>
+        <IonButton className='botonFavoritos' onClick={handleFavoriteClick}>
+              <IonIcon icon={isFavorite ? heart : heartOutline} className={isFavorite ? 'icono-tarjeta-activo' : 'icono-tarjeta'} />
+            </IonButton>
+            <IonButton className='botonDescarga'>
+              <IonIcon
+                icon={downloadOutline}
+                className='icon'
+              />
+            </IonButton>
         </div>
       </IonCardContent>
     </IonCard>

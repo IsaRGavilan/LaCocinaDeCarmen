@@ -45,7 +45,7 @@ const Madrid = () => {
           </IonHeader>
             <IonContent className="custom-content">
                   {recipes.map((recipe, index) => (
-                    <RecipeCard key={index} recipe={recipe} isFavorite={favoriteRecipes.includes(recipe.id)} onFavoriteChange={handleFavoriteChange}/>
+                    <RecipeCard key={index} recipe={recipe} isFavorite={favoriteRecipes.includes(recipe.id)} handleFavoriteChange={handleFavoriteChange}/>
                   ))}
             </IonContent>
         </IonPage>

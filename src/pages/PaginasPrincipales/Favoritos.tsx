@@ -1,79 +1,83 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton } from '@ionic/react';
-import { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import '../../css/cssGenerales/Favoritos.css';
-import { getAuth, onAuthStateChanged  } from 'firebase/auth';
-import { collection, doc, getDoc, getDocs, where, query as firestoreQuery, query } from 'firebase/firestore';
-import RecipeCard from '../../components/RecipeCard/RecipeCard';
+import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 import firebaseConfig from '../../firebaseConfig';
-
-interface User {
-  id: string;
-  nombre: string;
-  apellido: string;
-  avatar: string;
-  email: string;
-  telefono: string;
-  username: string;
-  favoriteRecipes: number[];
-}
+import RecipeCard from '../../components/RecipeCard/RecipeCard';
+import { getAuth } from 'firebase/auth';
 
 const Favoritos = () => {
-
   const [favoriteRecipes, setFavoriteRecipes] = useState<any[]>([]);
+
+  const handleFavoriteChange = (recipeId: number, isFavorite: boolean) => {
+    if (isFavorite) {
+      setFavoriteRecipes((prevRecipes) => prevRecipes.filter((recipe) => recipe.id !== recipeId));
+    }
+  };
 
   useEffect(() => {
     const fetchFavoriteRecipes = async () => {
       try {
         const auth = getAuth(firebaseConfig.app);
         const user = auth.currentUser;
-      
+
         if (user) {
           const userRef = doc(firebaseConfig.firestore, 'users', user.uid);
           const userSnapshot = await getDoc(userRef);
-          
+
           if (userSnapshot.exists()) {
-            const userData = userSnapshot.data() as User;
-            const userFavoriteRecipes = userData.favoriteRecipes;
-      
-            const recipesRef = collection(firebaseConfig.firestore, 'recipes');
-            const firestoreQuery = query(recipesRef, where('recipeId', 'in', userFavoriteRecipes));
-            const querySnapshot = await getDocs(firestoreQuery);
-      
-            const favoriteRecipesData: any[] = [];
-            querySnapshot.forEach((doc) => {
-              const recipeData = doc.data();
-              favoriteRecipesData.push(recipeData);
-            });
-      
-            setFavoriteRecipes(favoriteRecipesData);
+            const userData = userSnapshot.data();
+
+            if (userData && Array.isArray(userData.favoriteRecipes)) {
+              const favoriteRecipeIds = userData.favoriteRecipes;
+
+              // Obtener las recetas favoritas desde Firestore
+              const recipesCollection = collection(firebaseConfig.firestore, 'recipes');
+              const favoriteRecipesSnapshot = await getDocs(recipesCollection);
+
+              const favoriteRecipesData = favoriteRecipesSnapshot.docs
+                .filter((recipeDoc) => favoriteRecipeIds.includes(recipeDoc.id))
+                .map((recipeDoc) => ({
+                  id: recipeDoc.id,
+                  ...recipeDoc.data(),
+                }));
+
+              setFavoriteRecipes(favoriteRecipesData);
+            }
           }
         }
       } catch (error) {
         console.error('Error fetching favorite recipes:', error);
       }
-      
     };
-  
+
     fetchFavoriteRecipes();
   }, []);
-
-  console.log(favoriteRecipes);
-
+  
   return (
     <IonPage id="main-content" className="main-page">
-    <IonHeader className="custom-header">
-      <IonToolbar className="custom-toolbar">
-        <IonTitle className="main-title">Buscador</IonTitle>
-        <IonMenuButton slot="start" />
-      </IonToolbar>
-    </IonHeader>
-    <IonContent className="custom-content">
-      <h1>Estás en favoritos</h1>
-      {favoriteRecipes.map((recipe) => (
-        <RecipeCard key={recipe.id} recipe={recipe} />
-      ))}
-    </IonContent>
-  </IonPage>
+      <IonHeader className="custom-header">
+        <IonToolbar className="custom-toolbar">
+          <IonTitle className="main-title">Favoritos</IonTitle>
+          <IonMenuButton slot="start" />
+        </IonToolbar>
+      </IonHeader>
+      <IonContent className="custom-content">
+        <h1 className="h1">Mis recetas favoritas</h1>
+        {favoriteRecipes.length > 0 ? (
+          favoriteRecipes.map((recipe) => (
+            <RecipeCard
+              key={recipe.id}
+              recipe={recipe}
+              isFavorite={favoriteRecipes.includes(recipe.id)}
+              handleFavoriteChange={handleFavoriteChange}
+            />
+          ))
+        ) : (
+          <p>No tienes recetas favoritas.</p>
+        )}
+      </IonContent>
+    </IonPage>
   );
 };
 

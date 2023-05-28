@@ -42,6 +42,7 @@ const Buscador = () => {
     aperitivo: false,
     dulce: false,
   });
+  const [favoriteRecipes, setFavoriteRecipes] = useState<any[]>([]);
 
   const toggleDesplegable = (desplegable: string) => {
     switch (desplegable) {
@@ -258,7 +259,7 @@ const Buscador = () => {
           <RecipeCard
             key={recipe.id}
             recipe={recipe}
-            isFavorite={favorites[recipe.id] || false}
+            isFavorite={favoriteRecipes.includes(recipe.id)}
             handleFavoriteChange={handleFavoriteChange}
           />
         ))}

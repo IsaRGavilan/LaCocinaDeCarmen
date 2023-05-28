@@ -29,9 +29,9 @@ const Caldos = () => {
 
   const handleFavoriteChange = (recipeId: number, isFavorite: boolean) => {
     if (isFavorite) {
-      setFavoriteRecipes(prevState => [...prevState, recipeId]);
+      setFavoriteRecipes((prevRecipes) => prevRecipes.filter((recipe) => recipe !== recipeId));
     } else {
-      setFavoriteRecipes(prevState => prevState.filter(id => id !== recipeId));
+      setFavoriteRecipes((prevRecipes) => [...prevRecipes, recipeId]);
     }
   };
 
@@ -44,8 +44,13 @@ const Caldos = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="custom-content">
-        {recipes.map((recipe, index) => (
-          <RecipeCard key={index} recipe={recipe} isFavorite={favoriteRecipes.includes(recipe.id)} handleFavoriteChange={handleFavoriteChange}/>
+      {recipes.map((recipe) => (
+          <RecipeCard
+            key={recipe.id}
+            recipe={recipe}
+            isFavorite={favoriteRecipes.includes(recipe.id)}
+            handleFavoriteChange={handleFavoriteChange}
+          />
         ))}
       </IonContent>
     </IonPage>
