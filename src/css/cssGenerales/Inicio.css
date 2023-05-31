@@ -19,8 +19,8 @@
 }
 
 .custom-content {
-  --background: #e0e0e0;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  --background: linear-gradient(to bottom, #D9CCC5, #D9CCC5);
 }
 
 /* Estilos generales de la tabla */

@@ -30,8 +30,6 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, handleFavoriteChange })
   const [isFavorite, setIsFavorite] = useState(false);
   const auth = getAuth(firebaseConfig.app);
   const user = auth.currentUser;
-  const { id } = useParams<{ id: string }>();
-  const [recipeData, setRecipeData] = useState<any>(null);
 
   useEffect(() => {
     if (user) {
@@ -115,15 +113,15 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, handleFavoriteChange })
       <IonCardContent className='content-tarjeta'>
         {recipe.categoria}
         <div className="contenedor-botones">
-        <IonButton className='botonFavoritos' onClick={handleFavoriteClick}>
-              <IonIcon icon={isFavorite ? heart : heartOutline} className={isFavorite ? 'icono-tarjeta-activo' : 'icono-tarjeta'} />
-            </IonButton>
-            <IonButton className='botonDescarga' onClick={handleDownload}>
-              <IonIcon
-                icon={downloadOutline}
-                className='icon'
-              />
-            </IonButton>
+          <IonButton className='botonFavoritos' onClick={handleFavoriteClick}>
+            <IonIcon icon={isFavorite ? heart : heartOutline} className={isFavorite ? 'icono-tarjeta-activo' : 'icono-tarjeta'} />
+          </IonButton>
+          <IonButton className='botonDescarga' onClick={handleDownload}>
+            <IonIcon
+              icon={downloadOutline}
+              className='icon'
+            />
+          </IonButton>
         </div>
       </IonCardContent>
     </IonCard>

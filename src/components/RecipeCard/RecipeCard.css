@@ -10,7 +10,8 @@
     width: 300px;
     margin: 10px;
     border-radius: 10px;
-    background-color: #D9CCC5;
+    background-color: #e3c4ad;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.3);
   }
   
   /* Estilos de la imagen */

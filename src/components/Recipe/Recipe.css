@@ -1,0 +1,72 @@
+/*Diseño del contenido de la receta al abrirla*/
+.contentReceta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --color: #74472f;
+    --background: #e3c4ad;
+}
+
+/*Diseño del nombre de la receta en la cabecera*/
+.nombreReceta{
+    text-align: center;
+    font-size: 40px;
+    margin-top: -10px;
+}
+
+/*Diseño de la imagen de la receta*/
+.imagenReceta {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 2px solid #74472f;
+    border-radius: 10px;
+    margin-left: 80px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+  } 
+
+/*Diseño del icono para volver a la pantalla anterior*/
+.flecha{
+    font-size: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+/*Diseño del título de ingredientes y preparación*/
+.tituloReceta{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/*Diseño de los ingredientes al mostrarlos*/
+.ingredientes ul {
+    list-style-type: circle;
+  }  
+
+/*Diseño de la preparación al mostrarla*/
+.preparacion{
+    list-style-type: decimal;
+    text-align: start;
+    margin-left: 25px;
+}
+
+/*Para que haya entre paso y paso un poquito de espacio*/
+.preparacion li {
+    margin-bottom: 10px;
+}
+
+/*Diseño de la dificultad*/
+.dificultad, .tiempo{
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+/*Diseño del tiempo*/
+.tiempo{
+
+}
