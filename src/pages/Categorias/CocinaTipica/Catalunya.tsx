@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import '../../../css/cssCategorias/cssCocinaTipica/Catalunya.css';
+import '../../../css/cssCategorias/cssCocinaTipica/CocinaTipica.css';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import firebaseConfig from '../../../firebaseConfig';
 import RecipeCard from '../../../components/RecipeCard/RecipeCard';
@@ -43,7 +43,7 @@ const Catalunya = () => {
               <IonMenuButton slot="start" />
             </IonToolbar>
           </IonHeader>
-            <IonContent className="custom-content">
+            <IonContent id="contentCatalunya">
             {recipes.map((recipe) => (
             <RecipeCard
               key={recipe.id}
