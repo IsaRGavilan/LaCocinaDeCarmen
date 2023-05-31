@@ -18,7 +18,7 @@ const Pastas = () => {
         const querySnapshot = await getDocs(recipesRef);
         const recipesData = querySnapshot.docs
           .map((doc) => doc.data())
-          .filter((recipe) => recipe.categoria === "Pastas");
+          .filter((recipe) => recipe.categoria === "Pastas" || recipe.categoria === "Arroces");
         setRecipes(recipesData);
       } catch (error) {
         console.log("Error al obtener los documentos:", error);

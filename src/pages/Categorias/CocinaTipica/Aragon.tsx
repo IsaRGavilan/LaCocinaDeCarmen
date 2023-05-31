@@ -43,6 +43,7 @@ const Aragon = () => {
               <IonMenuButton slot="start" />
             </IonToolbar>
           </IonHeader>
+          <div id="contentAragon">
             <IonContent id="contentAragon">
             {recipes.map((recipe) => (
           <RecipeCard
@@ -53,6 +54,7 @@ const Aragon = () => {
           />
         ))}
             </IonContent>
+            </div>
         </IonPage>
   );
 };

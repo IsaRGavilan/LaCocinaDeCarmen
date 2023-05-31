@@ -1,4 +1,103 @@
 #contentAndalucia{
+    height: 100%;
+    width: 100%;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fsevilla.jpg?alt=media&token=596d822a-7473-4ed9-afba-4dc190e8706c&_gl=1*1atcmy*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzODA0Ni4yNi4xLjE2ODU1MzgwNTAuMC4wLjA.');
+    --background: var(--background);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#contentAragon{
+    height: 100%;
+    width: 100%;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fzaragoza.jpg?alt=media&token=15f2fa97-5f5b-4780-9378-fb32eb78d302&_gl=1*1xv6eoe*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzODA0Ni4yNi4xLjE2ODU1Mzg5NzIuMC4wLjA.');
+    --background: var(--background);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#contentAsturias{
+    height: 100%;
+    width: 100%;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fasturias.jpg?alt=media&token=e295ea4c-5f99-4fcf-9e73-f016fd7de9d2&_gl=1*fqjuhe*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzODA0Ni4yNi4xLjE2ODU1NDAwNzYuMC4wLjA.');
+    --background: var(--background);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#contentBaleares{
+    height: 100%;
+    width: 100%;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fmallorca.jpg?alt=media&token=4c8a9c8a-a6e3-44f4-835d-3190763c699d&_gl=1*1besip9*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzODA0Ni4yNi4xLjE2ODU1Mzg0NDQuMC4wLjA.');
+    --background: var(--background);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#contentCanarias{
+    height: 100%;
+    width: 100%;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fcanarias.jpg?alt=media&token=5224d1a3-2d2a-498b-b629-ec6460c6ac82&_gl=1*svdhwa*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzODA0Ni4yNi4xLjE2ODU1Mzk4NDguMC4wLjA.');
+    --background: var(--background);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#contentCantabria{
+    height: 100%;
+    width: 100%;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fcantabria.jpg?alt=media&token=893178c1-709c-429f-986d-3f96568c1f3f&_gl=1*1x0l4x6*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzODA0Ni4yNi4xLjE2ODU1NDEzNjguMC4wLjA.');
+    --background: var(--background);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#contentCastillaLeon{
     --background: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fandalucia.jpg?alt=media&token=1ba89a44-59c9-487f-ab9c-ba17669c4ada&_gl=1*1ff1xje*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzMDE2NC4yNC4xLjE2ODU1MzAxODguMC4wLjA.');
 }
 
+#contentCastillaMancha{
+    --background: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fandalucia.jpg?alt=media&token=1ba89a44-59c9-487f-ab9c-ba17669c4ada&_gl=1*1ff1xje*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzMDE2NC4yNC4xLjE2ODU1MzAxODguMC4wLjA.');
+}
+
+#contentCatalunya{
+    --background: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fandalucia.jpg?alt=media&token=1ba89a44-59c9-487f-ab9c-ba17669c4ada&_gl=1*1ff1xje*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzMDE2NC4yNC4xLjE2ODU1MzAxODguMC4wLjA.');
+}
+
+#contentExtremadura{
+    --background: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fandalucia.jpg?alt=media&token=1ba89a44-59c9-487f-ab9c-ba17669c4ada&_gl=1*1ff1xje*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzMDE2NC4yNC4xLjE2ODU1MzAxODguMC4wLjA.');
+}
+
+#contentGalicia{
+    --background: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fandalucia.jpg?alt=media&token=1ba89a44-59c9-487f-ab9c-ba17669c4ada&_gl=1*1ff1xje*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzMDE2NC4yNC4xLjE2ODU1MzAxODguMC4wLjA.');
+}
+
+#contentMadrid{
+    --background: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fandalucia.jpg?alt=media&token=1ba89a44-59c9-487f-ab9c-ba17669c4ada&_gl=1*1ff1xje*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzMDE2NC4yNC4xLjE2ODU1MzAxODguMC4wLjA.');
+}
+
+#contentMurcia{
+    --background: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fandalucia.jpg?alt=media&token=1ba89a44-59c9-487f-ab9c-ba17669c4ada&_gl=1*1ff1xje*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzMDE2NC4yNC4xLjE2ODU1MzAxODguMC4wLjA.');
+}
+
+#contentNavarra{
+    --background: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fandalucia.jpg?alt=media&token=1ba89a44-59c9-487f-ab9c-ba17669c4ada&_gl=1*1ff1xje*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzMDE2NC4yNC4xLjE2ODU1MzAxODguMC4wLjA.');
+}
+
+#contentPaisVasco{
+    --background: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fandalucia.jpg?alt=media&token=1ba89a44-59c9-487f-ab9c-ba17669c4ada&_gl=1*1ff1xje*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzMDE2NC4yNC4xLjE2ODU1MzAxODguMC4wLjA.');
+}
+
+#contentRioja{
+    --background: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fandalucia.jpg?alt=media&token=1ba89a44-59c9-487f-ab9c-ba17669c4ada&_gl=1*1ff1xje*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzMDE2NC4yNC4xLjE2ODU1MzAxODguMC4wLjA.');
+}
+
+#contentValencia{
+    --background: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2Fandalucia.jpg?alt=media&token=1ba89a44-59c9-487f-ab9c-ba17669c4ada&_gl=1*1ff1xje*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTUzMDE2NC4yNC4xLjE2ODU1MzAxODguMC4wLjA.');
+}

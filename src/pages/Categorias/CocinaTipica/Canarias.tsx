@@ -43,6 +43,7 @@ const Canarias = () => {
               <IonMenuButton slot="start" />
             </IonToolbar>
           </IonHeader>
+          <div id="contentCanarias">
             <IonContent id="contentCanarias">
             {recipes.map((recipe) => (
             <RecipeCard
@@ -53,6 +54,7 @@ const Canarias = () => {
             />
           ))}
             </IonContent>
+            </div>
         </IonPage>
   );
 };

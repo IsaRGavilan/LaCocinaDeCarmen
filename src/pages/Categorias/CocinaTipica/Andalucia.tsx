@@ -18,7 +18,7 @@ const Andalucia = () => {
         const querySnapshot = await getDocs(recipesRef);
         const recipesData = querySnapshot.docs
           .map((doc) => doc.data())
-          .filter((recipe) => recipe.categoria === "Andalucia");
+          .filter((recipe) => recipe.provincia === "Andalucia");
         setRecipes(recipesData);
       } catch (error) {
         console.log("Error al obtener los documentos:", error);
@@ -43,6 +43,7 @@ const Andalucia = () => {
               <IonMenuButton slot="start" />
             </IonToolbar>
           </IonHeader>
+          <div id='contentAndalucia'>
             <IonContent id="contentAndalucia">
             {recipes.map((recipe) => (
           <RecipeCard
@@ -53,6 +54,7 @@ const Andalucia = () => {
           />
         ))}
             </IonContent>
+            </div>
         </IonPage>
   );
 };

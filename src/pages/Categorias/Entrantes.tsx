@@ -18,7 +18,7 @@ const Entrantes = () => {
         const querySnapshot = await getDocs(recipesRef);
         const recipesData = querySnapshot.docs
           .map((doc) => doc.data())
-          .filter((recipe) => recipe.categoria === "Entrantes");
+          .filter((recipe) => recipe.categoria === "Entrantes" || recipe.categoria === "Ensaladas");
         setRecipes(recipesData);
       } catch (error) {
         console.log("Error al obtener los documentos:", error);
@@ -39,7 +39,7 @@ const Entrantes = () => {
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header">
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Entrantes y salsas</IonTitle>
+          <IonTitle className="main-title">Entrantes y ensaladas</IonTitle>
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
