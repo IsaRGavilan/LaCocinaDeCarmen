@@ -1,5 +1,5 @@
 import { Route } from 'react-router-dom';
-import { IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonMenuToggle, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
+import { IonApp, IonAvatar, IonContent, IonIcon, IonImg, IonItem, IonLabel, IonList, IonMenu, IonMenuToggle, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Registro from './pages/Identificacion/Registro';
 import InicioSesion from './pages/Identificacion/InicioSesion';
@@ -9,7 +9,7 @@ import Buscador from './pages/PaginasPrincipales/Buscador';
 import Lista from './pages/PaginasPrincipales/Lista';
 import Inicio from './pages/PaginasPrincipales/Inicio';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { home, heart, search, cart, person } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
@@ -62,12 +62,53 @@ import Rioja from './pages/Categorias/CocinaTipica/Rioja';
 import Valencia from './pages/Categorias/CocinaTipica/Valencia';
 import Recipe from './components/Recipe/Recipe';
 import Terminos from './pages/Identificacion/Terminos';
+import firebaseConfig from './firebaseConfig'; 
+import { getAuth, onAuthStateChanged } from '@firebase/auth';
+import { getFirestore, doc, onSnapshot } from 'firebase/firestore';
 
 setupIonicReact();
 
 const App: React.FC = () => {
   
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const [username, setUsername] = useState('');
+  const [avatar, setAvatar] = useState('');
+  const auth = getAuth(firebaseConfig.app);
+  const user = auth.currentUser;
+
+  useEffect(() => {
+    const auth = getAuth(firebaseConfig.app);
+    const db = getFirestore(firebaseConfig.app);
+    const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuthenticated(true);
+        setUsername(user.displayName || '');
+        setAvatar(user.photoURL || '');
+
+        const userDocRef = doc(db, 'users', user.uid);
+        const unsubscribeUser = onSnapshot(userDocRef, (snapshot) => {
+          if (snapshot.exists()) {
+            const userData = snapshot.data();
+            setUsername(userData.username || '');
+            setAvatar(userData.avatar || '');
+          }
+        });
+
+        return () => {
+          unsubscribeUser();
+        };
+      } else {
+        setIsAuthenticated(false);
+        setUsername('');
+        setAvatar('');
+      }
+    });
+
+    return () => {
+      unsubscribeAuth();
+    };
+  }, []);
 
   return (
     <IonApp>
@@ -77,6 +118,12 @@ const App: React.FC = () => {
           <IonMenu contentId="main" menuId="sidebar-menu" side="start" className='menu'>
             <IonContent>
               <IonList className='menu-list'>
+              <IonItem className='itemHeader'>
+                  <IonAvatar slot="start">
+                    <IonImg src={avatar} id='avatarUser'/>
+                  </IonAvatar>
+                  <IonLabel id='username'>{username}</IonLabel>
+                </IonItem>
               <IonMenuToggle defaultChecked={true}>
                   <IonItem className='menu-item' routerLink="/inicio" routerDirection="none">
                     <IonIcon icon={home} className='menu-icon'/>

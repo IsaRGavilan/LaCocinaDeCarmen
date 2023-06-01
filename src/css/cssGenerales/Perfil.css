@@ -62,8 +62,9 @@
   object-fit: cover;
 }
 
-.icon{
-  margin-left: 60%;
+.iconoAvatar{
+  font-size: 20px;
+  margin-left: 250px;
 }
 
 .campos{
@@ -96,4 +97,18 @@
 
 .grid{
   background-color: #e0e0e0;
+}
+
+.terminosPerfil {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  text-decoration: underline #74472f;
+}
+
+.terminosPerfil span {
+  color: #74472f;
+  font-size: 18px;
 }

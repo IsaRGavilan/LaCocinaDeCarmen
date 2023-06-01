@@ -8,14 +8,14 @@ const Terminos = () => {
 
     const history = useHistory();
 
-    const handleRegistro = () => {
-        history.push('/registro'); // Utiliza la función push para navegar a la ruta '/inicioSesion'
+    const handleGoBack = () => {
+      history.goBack();
     };
 
   return (
     <IonPage className='terminos'>
       <IonHeader>
-        <IonToolbar className='cabecera-terminos' onClick={handleRegistro}>
+        <IonToolbar className='cabecera-terminos' onClick={handleGoBack}>
             <IonIcon icon={arrowBackOutline} id='icono'/>
           <IonTitle className='titulo-terminos'>La Cocina de Carmen</IonTitle>
         </IonToolbar>

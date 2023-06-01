@@ -3,7 +3,7 @@ import '../../css/cssGenerales/Perfil.css';
 import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged, signOut } from '@firebase/auth';
 import firebaseConfig from '../../../src/firebaseConfig';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { pencilOutline } from 'ionicons/icons';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { getStorage, ref, listAll, getDownloadURL, getMetadata } from 'firebase/storage';
@@ -151,7 +151,7 @@ const Perfil: React.FC<PerfilProps> = ({ setIsAuthenticated }) => {
         <div className='avatar-container'>
         <IonImg src={selectedAvatar} className="avatar" id='perfil-avatar'/>
         </div>
-        <IonIcon icon={pencilOutline} className='icon' color='secondary' onClick={openPopover}/>
+        <IonIcon icon={pencilOutline} className='iconoAvatar' color='secondary' onClick={openPopover}/>
         <IonPopover
           isOpen={popoverState.showPopover}
           event={popoverState.event}
@@ -180,6 +180,7 @@ const Perfil: React.FC<PerfilProps> = ({ setIsAuthenticated }) => {
         </div>
         <IonButton onClick={handleCerrarSesion} className='botonLogout'>Cerrar sesión</IonButton>
         <IonButton onClick={guardarCambios} className='botonGuardar'>Guardar cambios</IonButton>
+        <Link to='/terminos' className='terminosPerfil'><span>Términos de privacidad y condiciones de uso.</span></Link>
       </IonContent>
       <IonToast
         isOpen={showToast}
