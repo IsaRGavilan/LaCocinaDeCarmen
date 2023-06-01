@@ -28,7 +28,7 @@ const CocinaTipica = () => {
               <IonMenuButton slot="start" />
             </IonToolbar>
           </IonHeader>
-          <IonContent className="custom-content">
+          <IonContent id="contentGeneral">
           <h1 className='titulo-platos'>Elige tu región favorita...</h1>
           <table>
             <tbody>

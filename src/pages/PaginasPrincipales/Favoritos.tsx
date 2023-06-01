@@ -66,7 +66,7 @@ const Favoritos = () => {
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
-      <IonContent className="custom-content">
+      <IonContent id="contentFavoritos">
         <h1 className="h1">Mis recetas favoritas</h1>
         {favoriteRecipesData.map((recipe) => (
           <RecipeCard

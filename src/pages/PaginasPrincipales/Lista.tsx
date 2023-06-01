@@ -169,7 +169,7 @@ const Lista = () => {
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
-      <IonContent className="custom-content">
+      <IonContent id="contentLista">
         <h1 className='texto-lista'>¡Crea tu propia lista de la compra!</h1>
         <div className="input-container">
           <input

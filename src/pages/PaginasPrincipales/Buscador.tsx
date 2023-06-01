@@ -145,7 +145,7 @@ const Buscador = () => {
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
-      <IonContent className="custom-content">
+      <IonContent id="contentBuscador">
         <h1 className='h1'>Busca tus recetas favoritas aún más rápido</h1>
         <div className='encabezado'>
           <IonIcon icon={filterOutline} onClick={handleFiltersClick} className='icono'></IonIcon>

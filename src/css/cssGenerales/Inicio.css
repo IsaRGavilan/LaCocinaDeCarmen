@@ -12,9 +12,13 @@
   --color: white;
 }
 
-.custom-content {
+#contentInicio{
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FGenerales%2Ffondo3.jpg?alt=media&token=4a5054a7-66ca-4f4a-b742-0018eecefb94&_gl=1*17sbacb*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2NDA4NjMuMC4wLjA.');
+  --background: var(--background);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  --background: linear-gradient(to bottom, #D9CCC5, #D9CCC5);
 }
 
 /* Estilos generales de la tabla */

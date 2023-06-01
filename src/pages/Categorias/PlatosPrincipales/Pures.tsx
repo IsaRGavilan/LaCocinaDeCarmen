@@ -43,7 +43,7 @@ const Pures = () => {
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
-      <IonContent className="custom-content">
+      <IonContent id="contentGeneral">
       {recipes.map((recipe) => (
           <RecipeCard
             key={recipe.id}

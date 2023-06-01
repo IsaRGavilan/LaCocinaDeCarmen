@@ -146,7 +146,7 @@ const Perfil: React.FC<PerfilProps> = ({ setIsAuthenticated }) => {
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
-      <IonContent className="custom-content">
+      <IonContent id="custom-content">
         <h1 className='titulo-perfil'>¡Completa tu perfil!</h1>
         <div className='avatar-container'>
         <IonImg src={selectedAvatar} className="avatar" id='perfil-avatar'/>

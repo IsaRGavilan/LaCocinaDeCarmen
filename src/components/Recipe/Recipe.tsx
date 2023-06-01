@@ -57,7 +57,7 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
   
   return (
 <IonPage>
-      <IonContent className='contentReceta'>
+      <IonContent id='contentReceta'>
         <IonIcon icon={arrowBackOutline} className='flecha' onClick={handleGoBack}/>
         <h1 className='nombreReceta'>{recipeData.nombre}</h1>
         <img src={recipeData.imagen} className='imagenReceta'/>

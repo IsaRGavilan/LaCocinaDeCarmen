@@ -17,7 +17,7 @@ const Inicio = () => {
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
-      <IonContent className="custom-content">
+      <IonContent id="contentGeneral">
         <h1 className='titulo-inicio'>Categorías</h1>
         <table>
           <tbody>

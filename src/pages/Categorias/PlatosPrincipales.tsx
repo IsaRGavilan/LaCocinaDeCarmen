@@ -15,11 +15,11 @@ const PlatosPrincipales = () => {
         <IonPage id="main-content" className="main-page">
           <IonHeader className="custom-header">
             <IonToolbar className="custom-toolbar">
-            <IonTitle className='title-card'>Platos principales</IonTitle>
+            <IonTitle className='main-title'>Platos principales</IonTitle>
               <IonMenuButton slot="start" />
             </IonToolbar>
           </IonHeader>
-          <IonContent className="custom-content">
+          <IonContent id="contentGeneral">
             <h1 className='titulo-platos'>Elige tu sección favorita...</h1>
           <table>
             <tbody>
