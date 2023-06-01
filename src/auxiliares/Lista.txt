@@ -9,7 +9,7 @@ import PDFDocument from 'pdf-lib/cjs/api/PDFDocument';
 import { rgb } from 'pdf-lib';
 
 const Lista = () => {
-  const [items, setItems] = useState<{ name: string, quantity: number }[]>([]);
+  const [items, setItems] = useState<string[]>([]);
   const [currentItem, setCurrentItem] = useState<string>('');
   const auth = getAuth(firebaseConfig.app);
   const user = auth.currentUser;
@@ -63,67 +63,34 @@ const Lista = () => {
 
   const handleAddItem = async () => {
     if (currentItem.trim() !== '') {
-      const newItem = { name: currentItem, quantity: 1 }; // Crear el objeto del nuevo elemento
-      const updatedItems = [...items, newItem]; // Agregar el nuevo elemento a la matriz
+      const updatedItems = [...items, currentItem];
       setItems(updatedItems);
       setCurrentItem('');
-  
+
       if (user) {
         try {
-          // Actualizar la lista en Firestore utilizando arrayUnion para agregar el nuevo elemento
-          await updateDoc(doc(firebaseConfig.firestore, 'users', user.uid), { lista: arrayUnion(newItem) });
+          // Actualiza la lista en Firestore utilizando arrayUnion para agregar el nuevo elemento
+          await updateDoc(doc(firebaseConfig.firestore, 'users', user.uid), { lista: arrayUnion(currentItem) });
         } catch (error) {
           console.error('Error updating shopping list:', error);
         }
       }
     }
-  };  
+  };
 
   const handleDeleteItem = async (index: number) => {
     const updatedItems = items.filter((_, i) => i !== index);
-  
-    if (user) {
-      try {
-        const userDocRef = doc(firebaseConfig.firestore, 'users', user.uid);
-        await updateDoc(userDocRef, { lista: updatedItems });
-        setItems(updatedItems);
-      } catch (error) {
-        console.error('Error updating shopping list:', error);
-      }
-    }
-  };  
-
-  const handleIncreaseQuantity = async (index: number) => {
-    const updatedItems = [...items];
-    updatedItems[index].quantity += 1;
     setItems(updatedItems);
-  
+
     if (user) {
       try {
-        const userDocRef = doc(firebaseConfig.firestore, 'users', user.uid);
-        await updateDoc(userDocRef, { lista: updatedItems });
+        // Actualiza la lista en Firestore utilizando arrayRemove para eliminar el elemento
+        await updateDoc(doc(firebaseConfig.firestore, 'users', user.uid), { lista: arrayRemove(items[index]) });
       } catch (error) {
         console.error('Error updating shopping list:', error);
       }
     }
-  };  
-  
-  const handleDecreaseQuantity = async (index: number) => {
-    const updatedItems = [...items];
-    if (updatedItems[index].quantity > 1) {
-      updatedItems[index].quantity -= 1;
-      setItems(updatedItems);
-  
-      if (user) {
-        try {
-          const userDocRef = doc(firebaseConfig.firestore, 'users', user.uid);
-          await updateDoc(userDocRef, { lista: updatedItems });
-        } catch (error) {
-          console.error('Error updating shopping list:', error);
-        }
-      }
-    }
-  };   
+  };
 
   const handleDownloadPDF = async () => {
     try {
@@ -135,8 +102,7 @@ const Lista = () => {
       let y = height - 50;
 
       for (const item of items) {
-        const formattedItem = `${item.name} - Cantidad: ${item.quantity}`;
-        page.drawText(formattedItem, { x: 50, y, size: 12, color: rgb(0, 0, 0) });
+        page.drawText(item, { x: 50, y, size: 12, color: rgb(0, 0, 0) });
         y -= 20;
       }
 
@@ -184,12 +150,9 @@ const Lista = () => {
         <IonList id='lista'>
           {items.map((item, index) => (
             <IonItem key={index} id='custom-item'>
-              <IonCheckbox slot="start" value={item.name} checked={false} aria-label={item.name} className="custom-checkbox" color={'secondary'}/>
-              <IonLabel id='custom-label'>{item.name}</IonLabel>
-              <IonButton onClick={() => handleDecreaseQuantity(index)} className='botonCantidad'>-</IonButton> {/* Botón de disminuir cantidad */}
-              <span>{item.quantity}</span> {/* Mostrar la cantidad */}
-              <IonButton onClick={() => handleIncreaseQuantity(index)} className='botonCantidad'>+</IonButton> {/* Botón de aumentar cantidad */}
-              <IonIcon slot="end" icon={trashOutline} onClick={() => handleDeleteItem(index)} className='iconTrash' />
+              <IonCheckbox slot="start" value={item} checked={false} aria-label={item} id='checkbox'/>
+              <IonLabel id='custom-label'>{item}</IonLabel>
+              <IonIcon slot="end" icon={trashOutline} onClick={() =>handleDeleteItem(index)} className='iconTrash'/>
             </IonItem>
           ))}
         </IonList>

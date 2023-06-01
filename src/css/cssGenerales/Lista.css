@@ -46,6 +46,7 @@
   --ion-color-primary: #74472f;
   margin-left: 40%;
   margin-top: 10%;
+  margin-bottom: 10%;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -75,6 +76,11 @@
   margin-top: 20px;
 }
 
-#custom-item #checkbox:checked + #custom-label {
-  color: #74472f !important;
+.botonCantidad{
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+  --background: #74472f;
+  margin-left: 10px;
+  margin-right: 10px;
 }
