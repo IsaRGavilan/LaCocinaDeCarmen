@@ -19,7 +19,7 @@ ion-menu {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("./assets/imagenesGenerales/menu.jpg");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FGenerales%2Fmenu.jpg?alt=media&token=c776d4b4-3be9-4b87-8487-c624c4fa9a82&_gl=1*v5dh8s*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzUwNjUuMC4wLjA.");
   background-size: cover;
   background-position: center;
   filter: blur(1px);
