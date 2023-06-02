@@ -18,7 +18,7 @@ const Rioja = () => {
         const querySnapshot = await getDocs(recipesRef);
         const recipesData = querySnapshot.docs
           .map((doc) => doc.data())
-          .filter((recipe) => recipe.categoria === "Rioja");
+          .filter((recipe) => recipe.provincia === "Rioja");
         setRecipes(recipesData);
       } catch (error) {
         console.log("Error al obtener los documentos:", error);

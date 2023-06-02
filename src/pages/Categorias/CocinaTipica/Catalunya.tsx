@@ -18,7 +18,7 @@ const Catalunya = () => {
         const querySnapshot = await getDocs(recipesRef);
         const recipesData = querySnapshot.docs
           .map((doc) => doc.data())
-          .filter((recipe) => recipe.categoria === "Catalunya");
+          .filter((recipe) => recipe.provincia === "Catalunya");
         setRecipes(recipesData);
       } catch (error) {
         console.log("Error al obtener los documentos:", error);

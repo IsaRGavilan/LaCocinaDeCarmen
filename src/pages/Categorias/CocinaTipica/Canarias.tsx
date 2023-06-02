@@ -18,7 +18,7 @@ const Canarias = () => {
         const querySnapshot = await getDocs(recipesRef);
         const recipesData = querySnapshot.docs
           .map((doc) => doc.data())
-          .filter((recipe) => recipe.categoria === "Canarias");
+          .filter((recipe) => recipe.provincia === "Canarias");
         setRecipes(recipesData);
       } catch (error) {
         console.log("Error al obtener los documentos:", error);

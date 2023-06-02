@@ -18,7 +18,7 @@ const CastillaLeon = () => {
         const querySnapshot = await getDocs(recipesRef);
         const recipesData = querySnapshot.docs
           .map((doc) => doc.data())
-          .filter((recipe) => recipe.categoria === "CastillaLeon");
+          .filter((recipe) => recipe.provincia === "CastillaLeon");
         setRecipes(recipesData);
       } catch (error) {
         console.log("Error al obtener los documentos:", error);

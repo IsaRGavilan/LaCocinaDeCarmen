@@ -18,7 +18,7 @@ const Madrid = () => {
         const querySnapshot = await getDocs(recipesRef);
         const recipesData = querySnapshot.docs
           .map((doc) => doc.data())
-          .filter((recipe) => recipe.categoria === "Madrid");
+          .filter((recipe) => recipe.provincia === "Madrid");
         setRecipes(recipesData);
       } catch (error) {
         console.log("Error al obtener los documentos:", error);

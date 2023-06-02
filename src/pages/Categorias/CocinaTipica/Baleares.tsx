@@ -18,7 +18,7 @@ const Baleares = () => {
         const querySnapshot = await getDocs(recipesRef);
         const recipesData = querySnapshot.docs
           .map((doc) => doc.data())
-          .filter((recipe) => recipe.categoria === "Baleares");
+          .filter((recipe) => recipe.provincia === "Baleares");
         setRecipes(recipesData);
       } catch (error) {
         console.log("Error al obtener los documentos:", error);
