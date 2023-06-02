@@ -194,7 +194,7 @@ const Lista = () => {
           ))}
         </IonList>
         <IonButton onClick={handleDownloadPDF} className='botonDescargarLista'>
-          <IonIcon icon={downloadOutline} className='icon'/>
+          <IonIcon icon={downloadOutline} className='iconList'/>
           Descargar lista
         </IonButton>
       </IonContent>

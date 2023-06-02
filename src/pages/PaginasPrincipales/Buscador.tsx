@@ -195,11 +195,11 @@ const Buscador = () => {
             <div className='subdesplegable'>
               <label>
               <IonCheckbox className='checkbox' slot='start' color='secondary' checked={checkboxes['platoFuerte'] || false} onIonChange={() => handleCheckboxChange('platoFuerte')}/>
-                Plato fuerte
+                Platos principales
               </label>
               <label>
               <IonCheckbox className='checkbox' slot='start' color='secondary' checked={checkboxes['aperitivo'] || false} onIonChange={() => handleCheckboxChange('aperitivo')}/>
-                Aperitivo
+                Aperitivos
               </label>
               <label>
               <IonCheckbox className='checkbox' slot='start' color='secondary' checked={checkboxes['dulce'] || false} onIonChange={() => handleCheckboxChange('dulce')}/>

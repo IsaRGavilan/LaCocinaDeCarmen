@@ -63,6 +63,12 @@
   color: #74472f;
 }
 
+.iconList{
+  color: white;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
 .custom-label{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
