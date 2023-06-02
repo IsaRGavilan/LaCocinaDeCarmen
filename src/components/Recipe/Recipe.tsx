@@ -18,6 +18,7 @@ interface RecipeProps {
     preparacion: string[];
     tiempo: number;
     tipo: string;
+    comensales: number;
   };
 }
 
@@ -77,6 +78,7 @@ const Recipe: React.FC<RecipeProps> = ({ recipe }) => {
         </h2>
         <h2 className='dificultad'>-Dificultad: {recipeData.dificultad}</h2>
         <h2 className='tiempo'>-Tiempo de preparación: {recipeData.tiempo} minutos</h2>
+        <h2 className='comensales'>-Número de comensales: {recipeData.comensales} personas. Ajustar ingredientes según comensales.</h2>
       </IonContent>
     </IonPage>
   );

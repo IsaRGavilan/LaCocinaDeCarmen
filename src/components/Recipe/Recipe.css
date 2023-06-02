@@ -63,8 +63,10 @@
 }
 
 /*Diseño de la dificultad y el tiempo*/
-.dificultad, .tiempo{
-    font-size: 25px;
+.dificultad, .tiempo, .comensales{
+    font-size: 23px;
     font-weight: bold;
     margin-left: 20px;
+    margin-bottom: -10px;
+    color: rgb(0, 0, 0);
 }

@@ -19,6 +19,7 @@ interface RecipeCardProps {
     preparacion: string[];
     tiempo: number;
     tipo: string;
+    comensales: number;
   };
   handleFavoriteChange: (recipeId: number, isFavorite: boolean) => void;
   isFavorite: boolean;
@@ -82,25 +83,114 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, handleFavoriteChange })
 
   const handleDownload = () => {
     const doc = new jsPDF();
+  
     const img = new Image();
     img.src = recipe.imagen;
-    // Genera el contenido del PDF utilizando los datos de la receta
-    doc.setFontSize(18);
-    doc.text(recipe.nombre, 10, 20);
+  
+    // Añadir color de fondo en cada página
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+  
+    // Función para añadir color de fondo en una página
+    const addPageWithBackground = () => {
+      doc.addPage();
+      doc.setFillColor("#F2ECEB");
+      doc.rect(0, 0, pageWidth, pageHeight, "F");
+    };
+  
+    // Mostrar título, imagen y otros detalles en la primera página
+    doc.setFillColor("#F2ECEB"); // Establecer color de fondo
+    doc.rect(0, 0, pageWidth, pageHeight, "F"); // Dibujar rectángulo de fondo
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    const title = recipe.nombre;
+    const titleWidth = doc.getTextWidth(title);
+    const titleX = (pageWidth - titleWidth) / 2; // Ajuste aquí
+    doc.text(title, titleX, 20);
+    doc.addImage(img, "JPEG", pageWidth / 2 - 40, 40, 80, 80);
+  
+    // Mostrar título de ingredientes
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text("INGREDIENTES:", 10, 150);
+  
+    // Mostrar los ingredientes uno bajo otro con guiones
+    doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
-    doc.text('INGREDIENTES:', 10, 90);
-    doc.text(recipe.ingredientes.join(', '), 10, 100);
-    doc.text('PREPARACIÓN:', 10, 120);
-    doc.text(recipe.preparacion.join('\n'), 10, 130);
-    doc.setFontSize(10);
-    doc.text(`Dificultad: ${recipe.dificultad}`, 10, 180);
-    doc.text(`Tiempo de preparación: ${recipe.tiempo} minutos`, 10, 190);
-    doc.addImage(img, 'JPEG', 10, 30, 50, 50);
-
-    // Descarga el archivo PDF
+    let ingredientsY = 160;
+    let ingredientsRemainingHeight = pageHeight - ingredientsY - 20; // Espacio restante en la página para los ingredientes
+    let ingredientsIndex = 0;
+    while (ingredientsIndex < recipe.ingredientes.length && ingredientsRemainingHeight > 10) {
+      const ingrediente = recipe.ingredientes[ingredientsIndex];
+      const lines = doc.splitTextToSize(`- ${ingrediente}`, pageWidth - 20);
+      const lineHeight = doc.getTextDimensions(lines[0]).h;
+      const linesHeight = lines.length * lineHeight;
+      if (linesHeight <= ingredientsRemainingHeight) {
+        doc.text(lines, 10, ingredientsY);
+        ingredientsY += linesHeight;
+        ingredientsRemainingHeight -= linesHeight;
+        ingredientsIndex++;
+      } else {
+        break;
+      }
+    }
+  
+    // Si quedan más ingredientes por mostrar, agregar una nueva página y continuar
+    if (ingredientsIndex < recipe.ingredientes.length) {
+      addPageWithBackground();
+      ingredientsY = 20;
+      while (ingredientsIndex < recipe.ingredientes.length) {
+        const ingrediente = recipe.ingredientes[ingredientsIndex];
+        const lines = doc.splitTextToSize(`- ${ingrediente}`, pageWidth - 20);
+        const lineHeight = doc.getTextDimensions(lines[0]).h;
+        const linesHeight = lines.length * lineHeight;
+        if (linesHeight <= pageHeight - 20) {
+          doc.text(lines, 10, ingredientsY);
+          ingredientsY += linesHeight;
+          ingredientsIndex++;
+        } else {
+          break;
+        }
+      }
+    }
+  
+    // Mostrar título de preparación
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text("PREPARACIÓN:", 10, ingredientsY + 10);
+  
+    // Mostrar los pasos de preparación enumerados
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(12);
+    let preparationY = ingredientsY + 20;
+    let stepIndex = 1;
+    const lineHeight = 8; // Ajusta este valor según tus necesidades
+    recipe.preparacion.forEach((paso) => {
+      const textLines = doc.splitTextToSize(`${stepIndex}. ${paso}`, pageWidth - 20);
+      const pageHeightLeft = pageHeight - preparationY;
+      const textHeight = textLines.length * lineHeight;
+      if (textHeight > pageHeightLeft) {
+        addPageWithBackground();
+        preparationY = 20;
+      }
+      doc.text(textLines, 10, preparationY);
+      preparationY += textHeight;
+      stepIndex++;
+    });
+  
+    // Mostrar tiempo, dificultad, comensales
+    const infoX = 10;
+    const infoY = preparationY + 20;
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14); // Ajusta el tamaño de fuente según tus necesidades
+    doc.text(`- Dificultad: ${recipe.dificultad}`, infoX, infoY);
+    doc.text(`- Tiempo de preparación: ${recipe.tiempo} minutos`, infoX, infoY + 14); // Ajusta el espacio vertical según el tamaño de fuente
+    doc.text(`- Comensales: ${recipe.comensales}`, infoX, infoY + 28); // Ajusta el espacio vertical según el tamaño de fuente
+  
+    // Descargar el archivo PDF
     doc.save(`${recipe.nombre}.pdf`);
-  };
-
+  };  
+  
   return (
     <div className='contenedor-tarjeta'>
     <IonCard className='tarjeta'>
