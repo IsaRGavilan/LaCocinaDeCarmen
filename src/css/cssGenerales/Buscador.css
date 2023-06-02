@@ -52,20 +52,29 @@
   color: #74472f;
 }
 
+.icon, .icon2{
+  font-size: 25px;
+  color: #74472f;
+  margin-right: 10px;
+}
+
+.icon3, .icon4{
+  font-size: 18px;
+  color: #74472f;
+  margin-right: 10px;
+}
+
 .filters-body {
   background-color: #D9CCC5;
   margin-left: 30px;
   border: 1px solid black;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   max-width: 190px;
-}
-
-.icon,
-.icon2 {
-  font-size: 20px;
-  vertical-align: middle;
-  margin-right: 10px;
-  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  text-align: initial;
 }
 
 .filtros {
@@ -80,9 +89,10 @@
 .subdesplegable {
   background-color: #D9CCC5;
   margin-left: 20px;
+  margin-bottom: 10px;
   border: 1px solid black;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  max-width: 150px;
+  width: 150px;
 }
 
 .subdesplegable label {

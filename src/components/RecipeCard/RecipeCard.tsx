@@ -119,7 +119,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, handleFavoriteChange })
           <IonButton className='botonDescarga' onClick={handleDownload}>
             <IonIcon
               icon={downloadOutline}
-              className='icon'
+              id='icon'
             />
           </IonButton>
         </div>

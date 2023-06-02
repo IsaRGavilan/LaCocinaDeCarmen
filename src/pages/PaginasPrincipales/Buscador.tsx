@@ -6,22 +6,6 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import firebaseConfig from '../../firebaseConfig';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 
-interface RecipeCardProps {
-  recipe: {
-    id: number;
-    imagen: string;
-    nombre: string;
-    categoria: string;
-    dificultad: string;
-    ingredientes: string[];
-    preparacion: string[];
-    tiempo: number;
-    tipo: string;
-  };
-  isFavorite: boolean;
-  handleFavoriteChange: (recipeId: number, isFavorite: boolean) => void;
-}
-
 const Buscador = () => {
   const [recipes, setRecipes] = useState<any[]>([]);
   const [filteredRecipes, setFilteredRecipes] = useState<any[]>([]);
@@ -181,9 +165,9 @@ const Buscador = () => {
           )}
    
           <p className="filtros" onClick={() => toggleDesplegable('dificultad')}>
-            <IonIcon icon={hammerOutline} className="icon" />
+            <IonIcon icon={hammerOutline} className="icon3" />
             Dificultad
-            <IonIcon icon={chevronForwardOutline} className="icon2" />
+            <IonIcon icon={chevronForwardOutline} className="icon4" />
           </p>
           {mostrarDificultad && (
             <div className='subdesplegable'>
