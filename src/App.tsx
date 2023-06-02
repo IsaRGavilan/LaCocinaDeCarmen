@@ -83,7 +83,7 @@ const App: React.FC = () => {
     // Simula un tiempo de carga de 4 segundos
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 4000);
   }, []);
 
   useEffect(() => {
