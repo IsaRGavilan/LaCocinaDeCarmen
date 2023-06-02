@@ -65,6 +65,7 @@ import Terminos from './pages/Identificacion/Terminos';
 import firebaseConfig from './firebaseConfig'; 
 import { getAuth, onAuthStateChanged } from '@firebase/auth';
 import { getFirestore, doc, onSnapshot } from 'firebase/firestore';
+import SplashScreen from './components/SplashScreen/SplashScreen';
 
 setupIonicReact();
 
@@ -76,6 +77,14 @@ const App: React.FC = () => {
   const [avatar, setAvatar] = useState('');
   const auth = getAuth(firebaseConfig.app);
   const user = auth.currentUser;
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simula un tiempo de carga de 4 segundos
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
 
   useEffect(() => {
     const auth = getAuth(firebaseConfig.app);
@@ -112,7 +121,10 @@ const App: React.FC = () => {
 
   return (
     <IonApp>
-      <IonReactRouter>
+      {loading ? (
+        <SplashScreen/>
+      ) : (
+<IonReactRouter>
         <IonSplitPane contentId="main">
         {isAuthenticated && (
           <IonMenu contentId="main" menuId="sidebar-menu" side="start" className='menu'>
@@ -210,6 +222,8 @@ const App: React.FC = () => {
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
+      )}
+      
     </IonApp>
   );
 };
