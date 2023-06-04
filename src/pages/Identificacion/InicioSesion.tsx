@@ -18,6 +18,7 @@ const InicioSesion: React.FC<InicioSesionProps> = ({ setIsAuthenticated }) => {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const logoGoogle = "https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FIdentificaci%C3%B3n%20y%20T%C3%A9rminos%2Fgoogle.png?alt=media&token=9c974a95-4ad4-48ac-9a8b-401a72f362fe&_gl=1*y3wrp4*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTg5OTY4OC4zNS4xLjE2ODU5MDE1NzMuMC4wLjA.";
 
   const handleRegistro = () => {
     history.push('/registro');
@@ -104,7 +105,7 @@ const InicioSesion: React.FC<InicioSesionProps> = ({ setIsAuthenticated }) => {
           <IonButton expand="full" className="boton" onClick={handleRegistro}>
             Registro
           </IonButton>
-          <img src={google} id="google" alt="Google" onClick={handleInicioSesionGoogle}></img>
+          <img src={logoGoogle} id="google" alt="Google" onClick={handleInicioSesionGoogle}></img>
           <IonButton expand="full" className="boton" onClick={handleResetPassword}>
             He olvidado la contraseña
           </IonButton>

@@ -19,7 +19,7 @@
 
 .terminos {
     --ion-background-color: transparent;
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FIdentificaci%C3%B3n%20y%20T%C3%A9rminos%2Ffondoterminos.jpg?alt=media&token=cf920d02-8a89-4d18-9630-53dd3deffee1&_gl=1*1xqm868*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzQ4MzUuMC4wLjA.");
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FIdentificaci%C3%B3n%20y%20T%C3%A9rminos%2Fterminos.jpg?alt=media&token=9fc9e97c-b892-47d2-b44b-861f82519e69&_gl=1*zx3il4*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTg5OTY4OC4zNS4xLjE2ODU4OTk4NjEuMC4wLjA.");
     background-size: cover;
     font-weight: bold;
   }
@@ -32,7 +32,7 @@
     right: 0;
     bottom: 0;
     z-index: -1;
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FIdentificaci%C3%B3n%20y%20T%C3%A9rminos%2Ffondoterminos.jpg?alt=media&token=cf920d02-8a89-4d18-9630-53dd3deffee1&_gl=1*1xqm868*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzQ4MzUuMC4wLjA.");
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FIdentificaci%C3%B3n%20y%20T%C3%A9rminos%2Fterminos.jpg?alt=media&token=9fc9e97c-b892-47d2-b44b-861f82519e69&_gl=1*zx3il4*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTg5OTY4OC4zNS4xLjE2ODU4OTk4NjEuMC4wLjA.");
     background-size: cover;
     filter: blur(2px);
   }
