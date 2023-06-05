@@ -1,3 +1,4 @@
+/*Estilos del contenedor principal*/
 .registro-container {
     display: flex;
     flex-direction: column;
@@ -21,7 +22,8 @@
     filter: blur(4px);
     z-index: -1;
   }
-  
+
+  /*Estilos del título*/
   .titulo {
     font-size: 28px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -31,12 +33,14 @@
     color: #BF7E04;
   }
   
+  /*Estilos del botón de iniciar sesión y registro*/
   .boton {
     width: 80%;
     max-width: 300px;
     margin-top: 20px;
-}
-  
+  }
+
+  /*Estilos de los campos de entrada*/
   #inputs {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 80%;
@@ -46,13 +50,7 @@
 
   }
   
-  #checkbox {
-    margin-bottom: -30px;
-    margin-left: 10px;
-    font-weight: bold;
-    color: #090703;
-  }
-  
+  /*Estilos de los textos de la pantalla*/
   #texto {
     font-size: 18px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -61,12 +59,22 @@
     font-weight: bold;
     color: #090703;
   }
+
+  /*Estilo del checkbox*/
+  #checkbox {
+    margin-bottom: -30px;
+    margin-left: 10px;
+    font-weight: bold;
+    color: #090703;
+  }
   
+  /*Estilo del botón de Google*/
   #google {
     height: 6vh;
     margin-top: 20px;
   }
   
+  /*Estilo de los textos y link de los términos*/
   .terms{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 17px;
