@@ -57,10 +57,6 @@
     --ion-color-primary-contrast: #f5e2d6;
 }
 
-.botonFavoritos.active ion-icon{
-    color: red;
-}
-
   /* Estilos del botón de favoritos */
   .botonFavoritos {
     background-color: #ffffff;
@@ -79,6 +75,7 @@
     margin-right: 5px;
   }  
 
+  /*Estilo del icono de descarga*/
   #icon{
     font-size: 23px;
   }
