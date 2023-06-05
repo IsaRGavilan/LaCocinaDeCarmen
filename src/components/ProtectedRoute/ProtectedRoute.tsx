@@ -1,5 +1,5 @@
-import { Route, Redirect, RouteProps } from 'react-router-dom'; //Importaciones de componentes necesarios de la librería react-router-dom
-import React, { ComponentType } from 'react'; //Importación módulo React y ComponentType para especificar el componente que se espera
+import { Route, Redirect, RouteProps } from 'react-router-dom'; //Importa componentes de la librería react-router-dom
+import React, { ComponentType } from 'react'; //Importación React y ComponentType para especificar el componente que se espera
 
 /*Define un tipo ProtectedRouteProps que extiende de RouteProps para agregar 
 la propiedad isAuthenticated y verificar que cuando el usuario acceda a una ruta
