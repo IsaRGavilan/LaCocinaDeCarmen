@@ -1,12 +1,13 @@
+//Importa componentes Ionic
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
-import React from 'react';
-import '../../css/cssGenerales/Inicio.css';
+import { Link } from 'react-router-dom'; //Link para crear enlaces a otras rutas dentro de la app
+//Importa componentes para trabajar con ellos
 import CocinaTipica from '../../assets/imagenesCategorias/CocinaTipica.jpg';
 import entrantes from '../../assets/imagenesCategorias/entrantes.jpg';
 import postres from '../../assets/imagenesCategorias/postres.jpg';
 import platosprincipales from '../../assets/imagenesCategorias/platosprincipales.jpg'
 import caldos from '../../assets/imagenesCategorias/caldos.jpg';
-import { Link } from 'react-router-dom';
+import '../../css/cssGenerales/Inicio.css'; //Importa archivo de estilos
 
 const Inicio = () => {
   return (

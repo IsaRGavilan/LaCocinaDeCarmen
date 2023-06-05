@@ -1,12 +1,13 @@
+import { useEffect, useState } from 'react'; //Importa el hook useEffect y useState de React
+//Importa componentes Ionic
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonButton, IonToast, IonIcon, IonInput, IonPopover, IonImg, IonCol, IonGrid, IonRow } from '@ionic/react';
-import '../../css/cssGenerales/Perfil.css';
-import { useEffect, useState } from 'react';
-import { getAuth, onAuthStateChanged, signOut } from '@firebase/auth';
-import firebaseConfig from '../../../src/firebaseConfig';
-import { Link, useHistory } from 'react-router-dom';
-import { pencilOutline } from 'ionicons/icons';
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import { getStorage, ref, listAll, getDownloadURL, getMetadata } from 'firebase/storage';
+import { Link, useHistory } from 'react-router-dom'; //Link para crear enlaces a otras rutas dentro de la app e useHistory para acceder a historial navegación
+import firebaseConfig from '../../../src/firebaseConfig'; //Importa la configuración de Firebase
+import { getAuth, onAuthStateChanged, signOut } from '@firebase/auth'; //Importa funciones de autenticación de Firebase
+import { doc, getDoc, updateDoc } from 'firebase/firestore'; //Importa funciones para manipular documentos de firestore
+import { getStorage, ref, listAll, getDownloadURL } from 'firebase/storage'; //Importa funciones para mostrar archivos del Storage de firebase
+import { pencilOutline } from 'ionicons/icons'; //Importa icono utilizado
+import '../../css/cssGenerales/Perfil.css'; //Importa archivo de estilos
 
 type PerfilProps = {
   setIsAuthenticated: (value: boolean) => void;

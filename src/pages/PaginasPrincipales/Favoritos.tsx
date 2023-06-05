@@ -1,10 +1,11 @@
+import { useEffect, useState } from 'react'; //Importa el hook useEffect y useState de React
+//Importa componentes Ionic
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton } from '@ionic/react';
-import React, { useEffect, useState } from 'react';
-import '../../css/cssGenerales/Favoritos.css';
-import { collection, getDocs, doc, getDoc, getFirestore } from 'firebase/firestore';
-import firebaseConfig from '../../firebaseConfig';
-import RecipeCard from '../../components/RecipeCard/RecipeCard';
-import { getAuth } from 'firebase/auth';
+import firebaseConfig from '../../firebaseConfig'; //Importa la configuración de Firebase
+import { collection, getDocs, doc, getDoc, getFirestore } from 'firebase/firestore'; //Importa funciones para manipular documentos de firestore
+import { getAuth } from 'firebase/auth'; //Importa función de autenticación de Firebase
+import RecipeCard from '../../components/RecipeCard/RecipeCard'; //Importa componente RecipeCard
+import '../../css/cssGenerales/Favoritos.css'; //Importa archivo de estilos
 
 const Favoritos = () => {
   const [favoriteRecipes, setFavoriteRecipes] = useState<number[]>([]);

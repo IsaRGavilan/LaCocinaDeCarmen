@@ -1,12 +1,13 @@
+import React, { useState, useEffect } from 'react'; //Importa el hook useEffect y useState de React y React
+//Importa componentes Ionic
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonList, IonItem, IonCheckbox, IonIcon, IonLabel, IonButton } from '@ionic/react';
-import React, { useState, useEffect } from 'react';
-import { downloadOutline, trashOutline } from 'ionicons/icons';
-import { getAuth } from 'firebase/auth';
-import { doc, getDoc, setDoc, onSnapshot, arrayUnion, arrayRemove, updateDoc } from 'firebase/firestore';
-import '../../css/cssGenerales/Lista.css';
-import firebaseConfig from '../../firebaseConfig';
-import PDFDocument from 'pdf-lib/cjs/api/PDFDocument';
-import { rgb } from 'pdf-lib';
+import firebaseConfig from '../../firebaseConfig'; //Importa la configuración de Firebase
+import { downloadOutline, trashOutline } from 'ionicons/icons'; //Importa iconos utilizados
+import { getAuth } from 'firebase/auth'; //Importa función de autenticación de Firebase
+import { doc, getDoc, setDoc, onSnapshot, arrayUnion, updateDoc } from 'firebase/firestore'; //Importa funciones para manipular documentos de firestore
+import PDFDocument from 'pdf-lib/cjs/api/PDFDocument'; //Importa función para crear y manipular documentos PDF
+import { rgb } from 'pdf-lib';  //Función para crear un objeto de color en el formato RGB 
+import '../../css/cssGenerales/Lista.css'; //Importa archivo de estilos
 
 const Lista = () => {
   const [items, setItems] = useState<{ name: string, quantity: number }[]>([]);

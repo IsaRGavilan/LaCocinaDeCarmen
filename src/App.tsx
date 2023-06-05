@@ -11,9 +11,18 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
-import { Route } from 'react-router-dom';
+import { useEffect, useState } from 'react'; //Importa el hook useEffect y useState de React
+//Importa componentes Ionic
 import { IonApp, IonAvatar, IonContent, IonIcon, IonImg, IonItem, IonLabel, IonList, IonMenu, IonMenuToggle, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { Route } from 'react-router-dom'; //Importa la clase Route del paquete react-router-dom
+import { IonReactRouter } from '@ionic/react-router'; //Importa el enrutador de React para Ionic
+import { home, heart, search, cart, person } from 'ionicons/icons'; //Importa iconos utilizados
+import { getAuth, onAuthStateChanged } from '@firebase/auth'; //Importa las funciones getAuth y onAuthStateChanged de auth
+import { getFirestore, doc, onSnapshot } from 'firebase/firestore'; //Importa las funciones getFirestore, doc y onSnapshot de firestore
+
+
+import './App.css'; //Importa archivo de estilos
+/*Importación de todos los componentes y páginas y de la app*/
 import Registro from './pages/Identificacion/Registro';
 import InicioSesion from './pages/Identificacion/InicioSesion';
 import Favoritos from './pages/PaginasPrincipales/Favoritos';
@@ -22,12 +31,6 @@ import Buscador from './pages/PaginasPrincipales/Buscador';
 import Lista from './pages/PaginasPrincipales/Lista';
 import Inicio from './pages/PaginasPrincipales/Inicio';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
-import { useEffect, useState } from 'react';
-import { home, heart, search, cart, person } from 'ionicons/icons';
-
-
-
-import './App.css';
 import PlatosPrincipales from './pages/Categorias/PlatosPrincipales';
 import Entrantes from './pages/Categorias/Entrantes';
 import Caldos from './pages/Categorias/Caldos';
@@ -60,22 +63,20 @@ import Valencia from './pages/Categorias/CocinaTipica/Valencia';
 import Recipe from './components/Recipe/Recipe';
 import Terminos from './pages/Identificacion/Terminos';
 import firebaseConfig from './firebaseConfig'; 
-import { getAuth, onAuthStateChanged } from '@firebase/auth';
-import { getFirestore, doc, onSnapshot } from 'firebase/firestore';
 import SplashScreen from './components/SplashScreen/SplashScreen';
 
-setupIonicReact();
+setupIonicReact(); //Usa la función para inicializar la integración de Ionic con React
 
 const App: React.FC = () => {
   
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false); //Estado para controlar si el usuario está autenticado
+  const [username, setUsername] = useState(''); //Estado para almacenar el nombre de usuario
+  const [avatar, setAvatar] = useState(''); //Estado para almacenar la URL del avatar del usuario
+  const auth = getAuth(firebaseConfig.app); //Obtiene la instancia del objeto de autenticación de Firebase
+  const user = auth.currentUser; //Obtiene el usuario actualmente autenticado
+  const [loading, setLoading] = useState(true); //Estado para controlar la carga inicial
 
-  const [username, setUsername] = useState('');
-  const [avatar, setAvatar] = useState('');
-  const auth = getAuth(firebaseConfig.app);
-  const user = auth.currentUser;
-  const [loading, setLoading] = useState(true);
-
+  //Efecto de carga inicial
   useEffect(() => {
     // Simula un tiempo de carga de 4 segundos
     setTimeout(() => {
@@ -84,27 +85,29 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const auth = getAuth(firebaseConfig.app);
-    const db = getFirestore(firebaseConfig.app);
+    const auth = getAuth(firebaseConfig.app); //Obtiene la instancia del objeto de autenticación de Firebase
+    const db = getFirestore(firebaseConfig.app); //Obtiene la instancia del objeto de Firestore de Firebase
     const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
       if (user) {
+        //Si el usuario está autenticado
         setIsAuthenticated(true);
-        setUsername(user.displayName || '');
-        setAvatar(user.photoURL || '');
+        setUsername(user.displayName || ''); //Actualiza el nombre de usuario
+        setAvatar(user.photoURL || ''); //Actualiza el avatar del usuario
 
-        const userDocRef = doc(db, 'users', user.uid);
+        const userDocRef = doc(db, 'users', user.uid); //Obtiene una referencia al documento del usuario en Firestore
         const unsubscribeUser = onSnapshot(userDocRef, (snapshot) => {
           if (snapshot.exists()) {
             const userData = snapshot.data();
-            setUsername(userData.username || '');
-            setAvatar(userData.avatar || '');
+            setUsername(userData.username || ''); //Actualiza el nombre de usuario con el valor almacenado en el documento de Firestore
+            setAvatar(userData.avatar || ''); //Actualiza el avatar con el valor almacenado en el documento de Firestore
           }
         });
 
         return () => {
-          unsubscribeUser();
+          unsubscribeUser(); //Cancela la suscripción al documento de usuario cuando el componente se desmonta
         };
       } else {
+        //Si el usuario no está autenticado
         setIsAuthenticated(false);
         setUsername('');
         setAvatar('');
@@ -112,62 +115,64 @@ const App: React.FC = () => {
     });
 
     return () => {
-      unsubscribeAuth();
+      unsubscribeAuth(); //Cancela la suscripción al estado de autenticación cuando el componente se desmonta
     };
   }, []);
 
   return (
     <IonApp>
       {loading ? (
-        <SplashScreen/>
+        <SplashScreen/> //Pantalla de carga mientras la aplicación se está cargando
       ) : (
-<IonReactRouter>
+      <IonReactRouter>
         <IonSplitPane contentId="main">
         {isAuthenticated && (
           <IonMenu contentId="main" menuId="sidebar-menu" side="start" className='menu'>
             <IonContent>
               <IonList className='menu-list'>
-              <IonItem className='itemHeader'>
-                  <IonAvatar slot="start">
-                    <IonImg src={avatar} id='avatarUser'/>
-                  </IonAvatar>
-                  <IonLabel id='username'>{username}</IonLabel>
-                </IonItem>
-              <IonMenuToggle defaultChecked={true}>
+              {/* Elementos del menú */}
+                  <IonItem className='itemHeader'>
+                      <IonAvatar slot="start">
+                        <IonImg src={avatar} id='avatarUser'/>
+                      </IonAvatar>
+                      <IonLabel id='username'>{username}</IonLabel>
+                  </IonItem>
+                <IonMenuToggle defaultChecked={true}>
                   <IonItem className='menu-item' routerLink="/inicio" routerDirection="none">
                     <IonIcon icon={home} className='menu-icon'/>
                     <IonLabel className='menu-label'>Inicio</IonLabel>
                   </IonItem>
-                  </IonMenuToggle>
-                  <IonMenuToggle defaultChecked={true}>
+                </IonMenuToggle>
+                <IonMenuToggle defaultChecked={true}>
                   <IonItem className='menu-item' routerLink="/favoritos" routerDirection="none">
                     <IonIcon icon={heart} className='menu-icon'/>
                     <IonLabel className='menu-label'>Favoritos</IonLabel>
                   </IonItem>
-                  </IonMenuToggle>
-                  <IonMenuToggle defaultChecked={true}>
+                </IonMenuToggle>
+                <IonMenuToggle defaultChecked={true}>
                   <IonItem className='menu-item' routerLink="/buscador" routerDirection="none">
                     <IonIcon icon={search} className='menu-icon'/>
                     <IonLabel className='menu-label'>Buscador</IonLabel>
                   </IonItem>
-                  </IonMenuToggle>
-                  <IonMenuToggle defaultChecked={true}>
+                </IonMenuToggle>
+                <IonMenuToggle defaultChecked={true}>
                   <IonItem className='menu-item' routerLink="/lista" routerDirection="none">
                     <IonIcon icon={cart} className='menu-icon'/>
                     <IonLabel className='menu-label'>Lista de la compra</IonLabel>
                   </IonItem>
-                  </IonMenuToggle>
-                  <IonMenuToggle defaultChecked={true}>
+                </IonMenuToggle>
+                <IonMenuToggle defaultChecked={true}>
                   <IonItem className='menu-item' routerLink="/perfil" routerDirection="none">
                     <IonIcon icon={person} className='menu-icon'/>
                     <IonLabel className='menu-label'>Perfil</IonLabel>
                   </IonItem>
-                  </IonMenuToggle>
+                </IonMenuToggle>
               </IonList>
             </IonContent>
           </IonMenu>
-          )}
+        )}
           <IonRouterOutlet id="main">
+            {/* Rutas y componentes */}
             <Route path="/inicioSesion">
               <InicioSesion setIsAuthenticated={setIsAuthenticated} />
             </Route>
@@ -220,7 +225,6 @@ const App: React.FC = () => {
         </IonSplitPane>
       </IonReactRouter>
       )}
-      
     </IonApp>
   );
 };

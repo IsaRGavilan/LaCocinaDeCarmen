@@ -1,21 +1,22 @@
+import { useEffect, useState } from 'react'; //Importa el hook useEffect y useState de React
+//Importa componentes Ionic
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonSearchbar, IonIcon, InputChangeEventDetail, IonCheckbox } from '@ionic/react';
-import React, { useEffect, useState } from 'react';
-import '../../css/cssGenerales/Buscador.css';
-import { chevronForwardOutline, fastFoodOutline, filterOutline, hammerOutline, timeOutline } from 'ionicons/icons';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import firebaseConfig from '../../firebaseConfig';
-import RecipeCard from '../../components/RecipeCard/RecipeCard';
+import { chevronForwardOutline, fastFoodOutline, filterOutline, hammerOutline, timeOutline } from 'ionicons/icons'; //Importa iconos utilizados
+import firebaseConfig from '../../firebaseConfig'; //Importa la configuración de Firebase
+import { getFirestore, collection, getDocs } from 'firebase/firestore'; //Importa funciones para manipular documentos de firestore
+import RecipeCard from '../../components/RecipeCard/RecipeCard'; //Importa componente RecipeCard
+import '../../css/cssGenerales/Buscador.css'; //Importa archivo de estilos
 
 const Buscador = () => {
-  const [recipes, setRecipes] = useState<any[]>([]);
-  const [filteredRecipes, setFilteredRecipes] = useState<any[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [favorites, setFavorites] = useState<{ [recipeId: string]: boolean }>({});
-  const [showFilters, setShowFilters] = useState(false);
-  const [mostrarTiempo, setMostrarTiempo] = useState(false);
-  const [mostrarDificultad, setMostrarDificultad] = useState(false);
-  const [mostrarTipoComida, setMostrarTipoComida] = useState(false);
-  const [checkboxes, setCheckboxes] = useState<{ [checkboxId: string]: boolean }>({
+  const [recipes, setRecipes] = useState<any[]>([]); //Almacena array de recetas y actualiza su estado
+  const [filteredRecipes, setFilteredRecipes] = useState<any[]>([]); //Almacena las recetas filtradas y actualiza su estado
+  const [searchTerm, setSearchTerm] = useState<string>(''); //Almacena la búsqueda y actualiza su estado
+  const [favorites, setFavorites] = useState<{ [recipeId: string]: boolean }>({}); //Almadena el id de las recetas favoritas y actualiza su estado
+  const [showFilters, setShowFilters] = useState(false); //Estado que indica si se deben mostrar los filtros y actualiza su estado
+  const [mostrarTiempo, setMostrarTiempo] = useState(false); //Si se debe mostrar el desplegable mostrarTiempo y actualiza su estado
+  const [mostrarDificultad, setMostrarDificultad] = useState(false); //Si se debe mostrar el desplegable mostrarDificultad y actualiza su estado
+  const [mostrarTipoComida, setMostrarTipoComida] = useState(false); //Si se debe mostrar el desplegable mostrarTipoComida y actualiza su estado
+  const [checkboxes, setCheckboxes] = useState<{ [checkboxId: string]: boolean }>({ //Almacena el estado de los diferentes checkboxes
     baja: false,
     media: false,
     alta: false,
@@ -26,8 +27,25 @@ const Buscador = () => {
     aperitivo: false,
     dulce: false,
   });
-  const [favoriteRecipes, setFavoriteRecipes] = useState<any[]>([]);
+  const [favoriteRecipes, setFavoriteRecipes] = useState<any[]>([]); //Almacena las recetas marcadas como favoritas y actualiza su estado
 
+    //Carga las recetas desde Firestore al montar el componente
+    useEffect(() => {
+      const fetchRecipes = async () => {
+        try {
+          const firestore = getFirestore(firebaseConfig.app);
+          const recipesRef = collection(firestore, "recipes");
+          const querySnapshot = await getDocs(recipesRef);
+          const recipesData = querySnapshot.docs.map((doc) => doc.data());
+          setRecipes(recipesData);
+        } catch (error) {
+          console.log("Error al obtener los documentos:", error);
+        }
+      };
+      fetchRecipes();
+    }, []);
+
+  //Función para alternar la visibilidad de los desplegables de filtros
   const toggleDesplegable = (desplegable: string) => {
     switch (desplegable) {
       case 'tiempo':
@@ -44,6 +62,7 @@ const Buscador = () => {
     }
   };
 
+  //Función para manejar el evento de búsqueda y filtra las recetas según el término de búsqueda
   const handleSearch = (event: CustomEvent<InputChangeEventDetail>) => {
     const searchTerm = event.detail.value?.toLowerCase() ?? '';
     setSearchTerm(searchTerm);
@@ -51,25 +70,12 @@ const Buscador = () => {
     setFilteredRecipes(filtered);
   };
 
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        const firestore = getFirestore(firebaseConfig.app);
-        const recipesRef = collection(firestore, "recipes");
-        const querySnapshot = await getDocs(recipesRef);
-        const recipesData = querySnapshot.docs.map((doc) => doc.data());
-        setRecipes(recipesData);
-      } catch (error) {
-        console.log("Error al obtener los documentos:", error);
-      }
-    };
-    fetchRecipes();
-  }, []);
-
+  //Maneja el evento de clic en los filtros y muestra/oculta los filtros
   const handleFiltersClick = () => {
     setShowFilters(prevShowFilters => !prevShowFilters);
   };
 
+  //Maneja los cambios en los checkboxes de filtros y filtra las recetas correspondientes
   const handleCheckboxChange = (checkboxId: string) => {
     setCheckboxes((prevCheckboxes) => ({
       ...prevCheckboxes,
@@ -77,6 +83,7 @@ const Buscador = () => {
     }));
   };
 
+  //Filtra las recetas según los filtros seleccionados y actualiza las recetas filtradas
   useEffect(() => {
     const filterRecipes = () => {
       let filtered = recipes;
@@ -113,6 +120,7 @@ const Buscador = () => {
     filterRecipes();
   }, [checkboxes, recipes]);
  
+  //Maneja los cambios en las recetas favoritas y actualiza la lista de recetas favoritas
   const handleFavoriteChange = (recipeId: number, isFavorite: boolean) => {
     setFavorites(prevFavorites => ({
       ...prevFavorites,
