@@ -39,7 +39,7 @@ const Legumbres = () => {
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header">
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Legumbres</IonTitle>
+          <IonTitle className="main-title">Legumbres y patatas</IonTitle>
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>

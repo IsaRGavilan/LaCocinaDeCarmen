@@ -39,7 +39,7 @@ const Pures = () => {
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header">
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Pures</IonTitle>
+          <IonTitle className="main-title">Purés y potajes</IonTitle>
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
