@@ -31,7 +31,7 @@
 #contentBaleares{
     height: 100%;
     width: 100%;
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fbaleares.jpg?alt=media&token=ce14b78c-b445-4672-b558-e6edc4badcad&_gl=1*pu4brj*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzIxNjcuMC4wLjA.');
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fbaleares.jpg?alt=media&token=372f4dc0-708e-49d7-9ebf-0e18e436f49b&_gl=1*1hyavaz*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NjA2NDM3OS40My4xLjE2ODYwNjUxMTcuMC4wLjA.');
     --background: var(--background);
     background-repeat: no-repeat;
     background-position: center center;

@@ -69,3 +69,14 @@ td {
 .imagen{
   border-bottom: #74472f solid 1px;
 }
+
+.header-title{
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#custom-title{
+  margin-bottom: 15px;
+}

@@ -7,6 +7,7 @@ import entrantes from '../../assets/imagenesCategorias/entrantes.jpg';
 import postres from '../../assets/imagenesCategorias/postres.jpg';
 import platosprincipales from '../../assets/imagenesCategorias/platosprincipales.jpg'
 import caldos from '../../assets/imagenesCategorias/caldos.jpg';
+import platoprincincipal from '../../assets/imagenesCategorias/platoprincipal.jpg';
 import '../../css/cssGenerales/Inicio.css'; //Importa archivo de estilos
 
 const Inicio = () => {
@@ -26,8 +27,8 @@ const Inicio = () => {
               <td>
               <Link to='/platosPrincipales' className='link'>
                 <IonCard className='card'>
-                <img alt="Platos principales" src={platosprincipales} className='imagen'/>
-                <IonCardHeader>
+                <img alt="Platos principales" src={platoprincincipal} className='imagen'/>
+                <IonCardHeader className='header-title'>
                   <IonCardTitle className='titulo-card'>Platos principales</IonCardTitle>
                 </IonCardHeader>
                 </IonCard>
@@ -37,7 +38,7 @@ const Inicio = () => {
               <Link to='/entrantes' className='link'>
               <IonCard className='card'>
                 <img alt="Entrantes y ensaladas" src={entrantes} className='imagen'/>
-                <IonCardHeader>
+                <IonCardHeader className='header-title'>
                   <IonCardTitle className='titulo-card'>Entrantes y ensaladas</IonCardTitle>
                 </IonCardHeader>
               </IonCard>
@@ -49,8 +50,8 @@ const Inicio = () => {
               <Link to='/caldos' className='link'>
               <IonCard className='card'>
                 <img alt="Caldos y salsas" src={caldos} className='imagen'/>
-                <IonCardHeader>
-                  <IonCardTitle>Caldos y salsas</IonCardTitle>
+                <IonCardHeader className='header-title'>
+                  <IonCardTitle id='custom-title'>Caldos y salsas</IonCardTitle>
                 </IonCardHeader>
               </IonCard>
               </Link>
@@ -59,8 +60,8 @@ const Inicio = () => {
               <Link to='/postres' className='link'>
               <IonCard className='card'>
                 <img alt="Postres" src={postres} className='imagen'/>
-                <IonCardHeader>
-                  <IonCardTitle>Postres</IonCardTitle>
+                <IonCardHeader className='header-title'>
+                  <IonCardTitle id='custom-title'>Postres</IonCardTitle>
                 </IonCardHeader>
               </IonCard>
               </Link>
