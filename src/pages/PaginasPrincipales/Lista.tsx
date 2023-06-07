@@ -53,8 +53,8 @@ const Lista = () => {
       return () => {
         unsubscribe(); //Se cancela la suscripción al salir del componente
       };
-    }
-  }, [user]); //Se ejecuta cuando cambia el usuario autenticado
+      }
+    }, [user]); //Se ejecuta cuando cambia el usuario autenticado
 
   //Función para actualizar el valor actual del input
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

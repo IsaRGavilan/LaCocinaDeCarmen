@@ -50,6 +50,11 @@
     margin-top: 30px;
   }
 
+  .input-lista:focus {
+    outline: none;
+    border-color: #74472f;
+  }
+
   /*Estilos del botón de añadir un elemento a la lista*/
   .botonLista{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
