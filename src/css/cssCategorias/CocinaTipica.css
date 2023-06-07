@@ -1,4 +1,4 @@
-#contentAndalucia{
+#contentAndalucia{ /*Estilos Andalucía*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fandalucia.jpg?alt=media&token=b0fa93c1-d69d-451d-b180-9aef0701ed1c&_gl=1*1hxjdtf*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzIxNDAuMC4wLjA.');
@@ -8,7 +8,7 @@
     background-size: cover;
 }
 
-#contentAragon{
+#contentAragon{ /*Estilos Aragón*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Faragon.jpg?alt=media&token=3395995e-d7dd-4507-a760-40b1a1f862e4&_gl=1*1pz4ag1*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzIyMzkuMC4wLjA.');
@@ -18,7 +18,7 @@
     background-size: cover;
 }
 
-#contentAsturias{
+#contentAsturias{ /*Estilos Asturias*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fasturias.jpg?alt=media&token=7a43cb86-c9ab-4250-87bc-7a091e4b9d5a&_gl=1*wwiak6*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzIxNTMuMC4wLjA.');
@@ -28,7 +28,7 @@
     background-size: cover;
 }
 
-#contentBaleares{
+#contentBaleares{ /*Estilos Islas Baleares*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fbaleares.jpg?alt=media&token=372f4dc0-708e-49d7-9ebf-0e18e436f49b&_gl=1*1hyavaz*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NjA2NDM3OS40My4xLjE2ODYwNjUxMTcuMC4wLjA.');
@@ -38,7 +38,7 @@
     background-size: cover;
 }
 
-#contentCanarias{
+#contentCanarias{ /*Estilos Islas Canarias*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fcanarias.jpg?alt=media&token=c999d82d-015b-4a76-9e9d-2792a4e8dcfb&_gl=1*oys5p8*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzIxODAuMC4wLjA.');
@@ -48,7 +48,7 @@
     background-size: cover;
 }
 
-#contentCantabria{
+#contentCantabria{ /*Estilos Cantabria*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fcantabria.jpg?alt=media&token=a2f45f39-65ef-4e33-9e9c-d33bad7f5aea&_gl=1*1yq69v1*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzIxOTEuMC4wLjA.');
@@ -58,7 +58,7 @@
     background-size: cover;
 }
 
-#contentCastillaLeon{
+#contentCastillaLeon{ /*Estilos Castilla y León*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fcastillaleon.jpg?alt=media&token=0d79b5ad-a945-4eae-9cab-5c66d697b058&_gl=1*16kvmqx*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzI4MjQuMC4wLjA.');
@@ -68,7 +68,7 @@
     background-size: cover;
 }
 
-#contentCastillaMancha{
+#contentCastillaMancha{ /*Estilos Castilla-La Mancha*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fcastillamancha.jpg?alt=media&token=8ba44f30-4eed-4ee3-a368-a247fa2cf34a&_gl=1*gph2x9*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzI5NDYuMC4wLjA.');
@@ -78,7 +78,7 @@
     background-size: cover;
 }
 
-#contentCatalunya{
+#contentCatalunya{ /*Estilos Cataluña*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fcatalunya.jpg?alt=media&token=391bc013-4234-4a87-8760-b5235487f498&_gl=1*1egl9vb*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzMxMjMuMC4wLjA.');
@@ -88,7 +88,7 @@
     background-size: cover;
 }
 
-#contentExtremadura{
+#contentExtremadura{ /*Estilos Extremadura*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fextremadura.jpeg?alt=media&token=8e655a20-3884-40ca-8e6a-f6a3a8333ab9&_gl=1*1reirq0*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzM0NzkuMC4wLjA.');
@@ -98,7 +98,7 @@
     background-size: cover;
 }
 
-#contentGalicia{
+#contentGalicia{ /*Estilos Galicia*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fgalicia.jpg?alt=media&token=bc515780-f277-4132-98f3-82b93153a487&_gl=1*9ba0l2*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzM1NjguMC4wLjA.');
@@ -108,7 +108,7 @@
     background-size: cover;
 }
 
-#contentMadrid{
+#contentMadrid{ /*Estilos Madrid*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fmadrid.jpg?alt=media&token=845a917c-1780-4206-b3f6-d62f3140f463&_gl=1*1i0zk3y*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzM2NDcuMC4wLjA.');
@@ -118,7 +118,7 @@
     background-size: cover;
 }
 
-#contentMurcia{
+#contentMurcia{ /*Estilos Murcia*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fmurcia.jpg?alt=media&token=19b3d8c4-295c-4ffc-a787-ee2afaca9eb7&_gl=1*1dbfor6*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzM4MDQuMC4wLjA.');
@@ -128,7 +128,7 @@
     background-size: cover;
 }
 
-#contentNavarra{
+#contentNavarra{ /*Estilos Navarra*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fnavarra.jpg?alt=media&token=de253c2f-7596-4d69-8e9d-b547a408b5be&_gl=1*1brab2h*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzM5MjQuMC4wLjA.');
@@ -138,7 +138,7 @@
     background-size: cover;
 }
 
-#contentPaisVasco{
+#contentPaisVasco{ /*Estilos País Vasco*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fpaisvasco.jpg?alt=media&token=b2b2b18d-47b0-4e45-af1c-184b58e23e29&_gl=1*oslqz6*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzQwNDcuMC4wLjA.');
@@ -148,7 +148,7 @@
     background-size: cover;
 }
 
-#contentRioja{
+#contentRioja{ /*Estilos La Rioja*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Frioja.jpg?alt=media&token=92ac0051-74db-497b-aeeb-ee05d3e3947c&_gl=1*1nos21w*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzQzOTYuMC4wLjA.');
@@ -158,7 +158,7 @@
     background-size: cover;
 }
 
-#contentValencia{
+#contentValencia{ /*Estilos Valencia*/
     height: 100%;
     width: 100%;
     background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FProvincias%2Fvalencia.jpg?alt=media&token=a30ae72f-4b12-4650-9f0d-c6e89e596f61&_gl=1*1s03a6n*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2MzQ1NDMuMC4wLjA.');

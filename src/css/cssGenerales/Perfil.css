@@ -1,118 +1,134 @@
-.main-title {
-    color: white;
-    align-items: center;
-    text-align: center;
-    font-size: 28px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+  /*Estilos del título del componente*/
+  .main-title {
+      color: white;
+      align-items: center;
+      text-align: center;
+      font-size: 28px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
 
-.custom-header {
+  /*Estilos del header del componente*/
+  .custom-header {
     background-color: #74472f;
     border-bottom: 1px solid #ccc;
     padding: 10px;
   }
 
-.custom-toolbar {
-    --background: #74472f; /* Cambia el color de fondo del toolbar */
-    --color: white; /* Cambia el color del texto del toolbar */
-}
+  /*Estilos del toolbar que contiene el menú*/
+  .custom-toolbar {
+      --background: #74472f; /* Cambia el color de fondo del toolbar */
+      --color: white; /* Cambia el color del texto del toolbar */
+  }
 
-#custom-content{
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FGenerales%2Ffondo3.jpg?alt=media&token=4a5054a7-66ca-4f4a-b742-0018eecefb94&_gl=1*17sbacb*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2NDA4NjMuMC4wLjA.');
-  --background: var(--background);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+  /*Estilos propios del content del componente*/
+  #custom-content{
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FGenerales%2Ffondo3.jpg?alt=media&token=4a5054a7-66ca-4f4a-b742-0018eecefb94&_gl=1*17sbacb*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2NDA4NjMuMC4wLjA.');
+    --background: var(--background);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
 
-.botonLogout {
-  --ion-color-primary: #74472f;
-  --ion-color-primary-contrast: #f5e2d6;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  margin-bottom: 60px;
-}
+  /*Estilos del botón de cerrar sesión*/
+  .botonLogout {
+    --ion-color-primary: #74472f;
+    --ion-color-primary-contrast: #f5e2d6;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    margin-bottom: 60px;
+  }
 
-.botonGuardar {
-  --ion-color-primary: #74472f;
-  --ion-color-primary-contrast: #f5e2d6;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 9999;
-  margin-bottom: 60px;
-}
+  /*Estilos del botón de guardar cambios*/
+  .botonGuardar {
+    --ion-color-primary: #74472f;
+    --ion-color-primary-contrast: #f5e2d6;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    margin-bottom: 60px;
+  }
 
-.avatar-container {
-  margin-left: 30%;
-  margin-top: -5%;
-  width: 150px;
-  height: 145px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1px solid #74472f;
-}
+  /*Estilos del container de avatares*/
+  .avatar-container {
+    margin-left: 30%;
+    margin-top: -5%;
+    width: 150px;
+    height: 145px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #74472f;
+  }
 
-.avatar {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  /*Estilos de la imagen de avatares*/
+  .avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-.iconoAvatar{
-  font-size: 20px;
-  margin-left: 250px;
-}
+  /*Estilos del icono de avatares*/
+  .iconoAvatar{
+    font-size: 20px;
+    margin-left: 250px;
+  }
 
-.campos{
-  margin-left: 13%;
-  font-size: large;
-  margin-top: 8%;
-}
+  /*Estilos del avatar seleccionado*/
+  .avatar-option {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 5px;
+    overflow: hidden;
+    border: 1px solid #74472f;
+  }
+  
+  /*Estilos del grid de avatares*/
+  .grid{
+    background-color: #e0e0e0;
+  }
 
-.texto{
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  margin-bottom: -3%;
-}
+  /*Estilos del container de campos*/
+  .campos{
+    margin-left: 13%;
+    font-size: large;
+    margin-top: 8%;
+  }
 
-.titulo-perfil{
-  color: #74472f;
-  font-size: 35px;
-  text-align: center;
-  margin-bottom: 12%;
-}
+  /*Estilos del texto de campos*/
+  .texto{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: -3%;
+  }
 
-.avatar-option {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin: 5px;
-  overflow: hidden;
-  border: 1px solid #74472f;
-}
+  /*Estilos del título*/
+  .titulo-perfil{
+    color: #74472f;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 12%;
+  }
 
-.grid{
-  background-color: #e0e0e0;
-}
+  /*Estilos de los términos*/
+  .terminosPerfil {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    text-decoration: underline #74472f;
+  }
 
-.terminosPerfil {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 15px;
-  text-align: center;
-  text-decoration: underline #74472f;
-}
-
-.terminosPerfil span {
-  color: #74472f;
-  font-size: 18px;
-}
+  /*Estilos de los términos*/
+  .terminosPerfil span {
+    color: #74472f;
+    font-size: 18px;
+  }

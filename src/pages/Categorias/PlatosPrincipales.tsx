@@ -13,9 +13,9 @@ import '../../css/cssCategorias/PlatosPrincipales.css'; //Importa archivo de est
 const PlatosPrincipales = () => {
   return (
         <IonPage id="main-content" className="main-page">
-          <IonHeader className="custom-header">
+          <IonHeader className="custom-header"> {/*Header del componente que incluye el menú desplegable*/}
             <IonToolbar className="custom-toolbar">
-            <IonTitle className='main-title'>Platos principales</IonTitle>
+            <IonTitle className='main-title'>Platos principales</IonTitle> {/*Título del componente*/}
               <IonMenuButton slot="start" />
             </IonToolbar>
           </IonHeader>
@@ -25,6 +25,7 @@ const PlatosPrincipales = () => {
             <tbody>
             <tr>
               <td>
+              {/*Card que redirige al componente Carnes*/}
               <Link to='/carnes' className='link'>
                 <IonCard className='card'>
                 <img alt="Carnes" src={carnes} className='image'/>
@@ -35,6 +36,7 @@ const PlatosPrincipales = () => {
               </Link>
               </td>
               <td>
+              {/*Card que redirige al componente Pescados*/}
               <Link to='/pescados' className='link'>
               <IonCard className='card'>
                 <img alt="Pescados" src={pescados} className='image'/>
@@ -47,6 +49,7 @@ const PlatosPrincipales = () => {
             </tr>
             <tr>
               <td>
+              {/*Card que redirige al componente Legumbres*/}
               <Link to='/legumbres' className='link'>
               <IonCard className='card'>
                 <img alt="Legumbres y patatas" src={legumbres} className='image'/>
@@ -57,6 +60,7 @@ const PlatosPrincipales = () => {
               </Link>
               </td>
               <td>
+              {/*Card que redirige al componente Pastas*/}
               <Link to='/pastas' className='link'>
               <IonCard className='card'>
                 <img alt="Pastas y arroces" src={pasta} className='image'/>
@@ -69,6 +73,7 @@ const PlatosPrincipales = () => {
             </tr>
             <tr>
               <td>
+              {/*Card que redirige al componente Pures*/}
               <Link to='/pures' className='link'>
               <IonCard className='card'>
                 <img alt="Pures y potajes" src={pure} className='image'/>
@@ -79,6 +84,7 @@ const PlatosPrincipales = () => {
               </Link>
               </td>
               <td>
+              {/*Card que redirige al componente Sopas*/}
               <Link to='/sopas' className='link'>
               <IonCard className='card'>
                 <img alt="Sopas y cremas" src={sopas} className='image'/>
@@ -90,7 +96,8 @@ const PlatosPrincipales = () => {
               </td>
             </tr>
             <tr>
-            <td>
+              <td>
+              {/*Card que redirige al componente Verduras*/}
               <Link to='/verduras' className='link'>
               <IonCard className='card'>
                 <img alt="Verduras" src={verduras} className='image'/>
@@ -101,8 +108,8 @@ const PlatosPrincipales = () => {
               </Link>
               </td>
             </tr>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
           </IonContent>
         </IonPage>
   );

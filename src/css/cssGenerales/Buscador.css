@@ -1,121 +1,134 @@
-.main-title {
-    color: white;
-    align-items: center;
-    text-align: center;
-    font-size: 28px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
+  /*Estilos del título del componente*/
+  .main-title {
+      color: white;
+      align-items: center;
+      text-align: center;
+      font-size: 28px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  /*Estilos del header del componente*/
   .custom-header {
     background-color: #74472f;
     border-bottom: 1px solid #ccc;
     padding: 10px;
   }
 
+  /*Estilos del toolbar que contiene el menú*/
   .custom-toolbar {
-    --background: #74472f; /* Cambia el color de fondo del toolbar */
-    --color: white; /* Cambia el color del texto del toolbar */
-}
+    --background: #74472f;
+    --color: white;
+  }
 
-#contentBuscador{
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FGenerales%2Ffondo3.jpg?alt=media&token=4a5054a7-66ca-4f4a-b742-0018eecefb94&_gl=1*17sbacb*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2NDA4NjMuMC4wLjA.');
-  --background: var(--background);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+  /*Estilos propios del content del componente*/
+  #contentBuscador{
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FGenerales%2Ffondo3.jpg?alt=media&token=4a5054a7-66ca-4f4a-b742-0018eecefb94&_gl=1*17sbacb*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2NDA4NjMuMC4wLjA.');
+    --background: var(--background);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
 
-.searchBar{
-  margin-top: 20px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+  /*Estilos de la barra de búsqueda*/
+  .searchBar{
+    margin-top: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
 
-.h1{
-  font-size: 30px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color: #74472f;
-  text-align: center;
-}
+  /*Estilos del subtítulo*/
+  .h1{
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #74472f;
+    text-align: center;
+  }
 
-.encabezado {
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-}
+  /*Estilos del encabezado que contiene icono y searchbar*/
+  .encabezado {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
 
-.icono{
-  font-size: 24px;
-  margin-top: 20px;
-  margin-right: 10px;
-  margin-left: 10px;
-  color: #74472f;
-}
+  /*Estilos del icono desplegable*/
+  .icono{
+    font-size: 24px;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #74472f;
+  }
 
-.icon, .icon2{
-  font-size: 25px;
-  color: #74472f;
-  margin-right: 10px;
-}
+  /*Estilos de los subiconos 1 y 2 del desplegable*/
+  .icon, .icon2{
+    font-size: 25px;
+    color: #74472f;
+    margin-right: 10px;
+  }
 
-.icon3, .icon4{
-  font-size: 18px;
-  color: #74472f;
-  margin-right: 10px;
-}
+  /*Estilos de los subiconos 3 y 4 del desplegable*/
+  .icon3, .icon4{
+    font-size: 18px;
+    color: #74472f;
+    margin-right: 10px;
+  }
 
-.filters-body {
-  background-color: #D9CCC5;
-  margin-left: 30px;
-  border: 1px solid black;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  max-width: 190px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 10px;
-  text-align: initial;
-}
+  /*Estilos del contenedor que contiene los filtros*/
+  .filters-body {
+    background-color: #D9CCC5;
+    margin-left: 30px;
+    border: 1px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    text-align: initial;
+  }
 
-.filtros {
-  display: flex;
-  align-items: center;
-  margin: 10px;
-  border-bottom: 1px solid black;
-  padding-bottom: 10px;
-  margin-right: 300px;
-}
+  /*Estilos de los filtros subdesplegables*/
+  .filtros {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    margin-right: 300px;
+  }
 
-.subdesplegable {
-  background-color: #D9CCC5;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  border: 1px solid black;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  width: 150px;
-}
+  /*Estilos del contenedor de los subdesplegables*/
+  .subdesplegable {
+    background-color: #D9CCC5;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 150px;
+  }
 
-.subdesplegable label {
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  border-bottom: 1px solid black;
-  padding-bottom: 10px;
-}
+  .subdesplegable label {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+  }
 
-.subdesplegable label input[type="checkbox"] {
-  margin-right: 8px;
-}
+  .subdesplegable label input[type="checkbox"] {
+    margin-right: 8px;
+  }
 
-.subdesplegable label span {
-  display: inline-block;
-  padding: 2px 4px;
-  background-color: transparent;
-  transition: background-color 0.3s ease-in-out;
-}
+  .subdesplegable label span {
+    display: inline-block;
+    padding: 2px 4px;
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
+  }
 
-.checkbox{
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-}
+  /*Estilos de los checkbox*/
+  .checkbox{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }

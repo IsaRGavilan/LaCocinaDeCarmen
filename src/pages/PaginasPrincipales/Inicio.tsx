@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'; //Link para crear enlaces a otras rutas
 import CocinaTipica from '../../assets/imagenesCategorias/CocinaTipica.jpg';
 import entrantes from '../../assets/imagenesCategorias/entrantes.jpg';
 import postres from '../../assets/imagenesCategorias/postres.jpg';
-import platosprincipales from '../../assets/imagenesCategorias/platosprincipales.jpg'
 import caldos from '../../assets/imagenesCategorias/caldos.jpg';
 import platoprincincipal from '../../assets/imagenesCategorias/platoprincipal.jpg';
 import '../../css/cssGenerales/Inicio.css'; //Importa archivo de estilos
@@ -13,9 +12,9 @@ import '../../css/cssGenerales/Inicio.css'; //Importa archivo de estilos
 const Inicio = () => {
   return (
     <IonPage id="main-content" className="main-page">
-      <IonHeader className="custom-header">
+      <IonHeader className="custom-header">{/*Header del componente que incluye el menú desplegable*/}
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Inicio</IonTitle>
+          <IonTitle className="main-title">Inicio</IonTitle>{/*Título del componente*/}
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
@@ -25,6 +24,7 @@ const Inicio = () => {
           <tbody>
             <tr>
               <td>
+              {/*Card que redirige al componente PlatosPrincipales*/}
               <Link to='/platosPrincipales' className='link'>
                 <IonCard className='card'>
                 <img alt="Platos principales" src={platoprincincipal} className='imagen'/>
@@ -35,6 +35,7 @@ const Inicio = () => {
               </Link>
               </td>
               <td>
+              {/*Card que redirige al componente Entrantes*/}
               <Link to='/entrantes' className='link'>
               <IonCard className='card'>
                 <img alt="Entrantes y ensaladas" src={entrantes} className='imagen'/>
@@ -47,6 +48,7 @@ const Inicio = () => {
             </tr>
             <tr>
               <td>
+              {/*Card que redirige al componente Caldos*/}
               <Link to='/caldos' className='link'>
               <IonCard className='card'>
                 <img alt="Caldos y salsas" src={caldos} className='imagen'/>
@@ -57,6 +59,7 @@ const Inicio = () => {
               </Link>
               </td>
               <td>
+              {/*Card que redirige al componente Postres*/}
               <Link to='/postres' className='link'>
               <IonCard className='card'>
                 <img alt="Postres" src={postres} className='imagen'/>
@@ -69,6 +72,7 @@ const Inicio = () => {
             </tr>
             <tr>
               <td colSpan={2} style={{ textAlign: 'center' }}>
+              {/*Card que redirige al componente CocinaTipica*/}
               <Link to='/cocinaTipica' className='link'>
               <IonCard className='ultimaCarta'>
                 <img alt="Cocina tipica española" src={CocinaTipica} className='imagen'/>

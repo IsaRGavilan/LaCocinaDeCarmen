@@ -1,82 +1,91 @@
-/* Estilos generales */
-.main-title {
-  color: white;
-  align-items: center;
-  text-align: center;
-  font-size: 28px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+  /*Estilos del título del componente*/
+  .main-title {
+    color: white;
+    align-items: center;
+    text-align: center;
+    font-size: 28px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
 
-.custom-toolbar {
-  --background: #74472f;
-  --color: white;
-}
+  /*Estilos del toolbar que contiene el menú*/
+  .custom-toolbar {
+    --background: #74472f;
+    --color: white;
+  }
 
-#contentInicio{
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FGenerales%2Ffondo3.jpg?alt=media&token=4a5054a7-66ca-4f4a-b742-0018eecefb94&_gl=1*17sbacb*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2NDA4NjMuMC4wLjA.');
-  --background: var(--background);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+    /*Estilos propios del content del componente*/
+  #contentInicio{
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FGenerales%2Ffondo3.jpg?alt=media&token=4a5054a7-66ca-4f4a-b742-0018eecefb94&_gl=1*17sbacb*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2NDA4NjMuMC4wLjA.');
+    --background: var(--background);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
 
-/* Estilos generales de la tabla */
-table {
-  width: 100%;
-}
+  /*Estilos generales de la tabla*/
+  table {
+    width: 100%;
+  }
 
-td {
-  text-align: center;
-}
+  td {
+    text-align: center;
+  }
 
-.titulo-inicio{
-  font-size: 35px;
-  color: #74472f;
-  text-align: center;
-}
+  /*Estilos del título*/
+  .titulo-inicio{
+    font-size: 35px;
+    color: #74472f;
+    text-align: center;
+  }
 
-.card{
-  height:22.5vh;
-  width: 90%;
-  border: solid #74472f 1.5px;
-  transition: transform 0.4s ease;
-}
+  /*Estilos del contenedor header de la tarjeta*/
+  .header-title{
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-.card:hover,
-.card:focus {
-  transform: scale(0.95);
-}
+  /*Estilo del título texto de las tarjetas*/
+  #custom-title{
+    margin-bottom: 15px;
+  }
 
-.ultimaCarta{
-  border: solid #74472f 1.5px;
-  transition: transform 0.4s ease;
-}
+  /*Estilos de las tarjetas*/
+  .card{
+    height:22.5vh;
+    width: 90%;
+    border: solid #74472f 1.5px;
+    transition: transform 0.4s ease;
+  }
 
-.ultimaCarta:hover,
-.ultimaCarta:focus {
-  transform: scale(0.95);
-}
+  .card:hover,
+  .card:focus {
+    transform: scale(0.95);
+  }
 
-.titulo-card{
-  margin-top: -9%;
-}
+  .ultimaCarta{
+    border: solid #74472f 1.5px;
+    transition: transform 0.4s ease;
+  }
 
-.link{
-  text-decoration: none;
-}
+  .ultimaCarta:hover,
+  .ultimaCarta:focus {
+    transform: scale(0.95);
+  }
 
-.imagen{
-  border-bottom: #74472f solid 1px;
-}
+  /*Estilo del título de la tarjeta para ajustarlo*/
+  .titulo-card{
+    margin-top: -9%;
+  }
 
-.header-title{
-  height: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  /*Estilo del enlace para que no aparezca subrayado*/
+  .link{
+    text-decoration: none;
+  }
 
-#custom-title{
-  margin-bottom: 15px;
-}
+  /*Estilo de la imagen para darle un borde de color abajo*/
+  .imagen{
+    border-bottom: #74472f solid 1px;
+  }

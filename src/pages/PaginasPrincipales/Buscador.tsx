@@ -11,7 +11,7 @@ const Buscador = () => {
   const [recipes, setRecipes] = useState<any[]>([]); //Almacena array de recetas y actualiza su estado
   const [filteredRecipes, setFilteredRecipes] = useState<any[]>([]); //Almacena las recetas filtradas y actualiza su estado
   const [searchTerm, setSearchTerm] = useState<string>(''); //Almacena la búsqueda y actualiza su estado
-  const [favorites, setFavorites] = useState<{ [recipeId: string]: boolean }>({}); //Almadena el id de las recetas favoritas y actualiza su estado
+  const [favorites, setFavorites] = useState<{ [recipeId: string]: boolean }>({}); //Almacena el id de las recetas favoritas y actualiza su estado
   const [showFilters, setShowFilters] = useState(false); //Estado que indica si se deben mostrar los filtros y actualiza su estado
   const [mostrarTiempo, setMostrarTiempo] = useState(false); //Si se debe mostrar el desplegable mostrarTiempo y actualiza su estado
   const [mostrarDificultad, setMostrarDificultad] = useState(false); //Si se debe mostrar el desplegable mostrarDificultad y actualiza su estado
@@ -33,11 +33,11 @@ const Buscador = () => {
     useEffect(() => {
       const fetchRecipes = async () => {
         try {
-          const firestore = getFirestore(firebaseConfig.app);
-          const recipesRef = collection(firestore, "recipes");
-          const querySnapshot = await getDocs(recipesRef);
-          const recipesData = querySnapshot.docs.map((doc) => doc.data());
-          setRecipes(recipesData);
+          const firestore = getFirestore(firebaseConfig.app); //Obtiene la instancia de autenticación de Firebase
+          const recipesRef = collection(firestore, "recipes"); //Obtiene la instancia de la colección recipes de Firestore
+          const querySnapshot = await getDocs(recipesRef); //Obtiene el documento del usuario
+          const recipesData = querySnapshot.docs.map((doc) => doc.data()); //Obtiene los datos del documento del usuario
+          setRecipes(recipesData); //Devuelve los datos del documento
         } catch (error) {
           console.log("Error al obtener los documentos:", error);
         }
@@ -131,16 +131,17 @@ const Buscador = () => {
  
   return (
     <IonPage id="main-content" className="main-page">
-      <IonHeader className="custom-header">
+      <IonHeader className="custom-header"> {/*Header del componente que incluye el menú desplegable*/}
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Buscador</IonTitle>
+          <IonTitle className="main-title">Buscador</IonTitle> {/*Título del componente*/}
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
-      <IonContent id="contentBuscador">
+      <IonContent id="contentBuscador">{/*Icono con el desplegable*/}
         <h1 className='h1'>Busca tus recetas favoritas aún más rápido</h1>
         <div className='encabezado'>
           <IonIcon icon={filterOutline} onClick={handleFiltersClick} className='icono'></IonIcon>
+          {/*Buscador que filtra por nombre*/}
           <IonSearchbar
             placeholder="Bizcocho de chocolate..."
             className='searchBar'
@@ -148,15 +149,17 @@ const Buscador = () => {
             value={searchTerm}
           ></IonSearchbar>
         </div>
+        {/*Se abre el desplegable*/}
         {showFilters && (
           <div className="filters-body">
-          <p className="filtros" onClick={() => toggleDesplegable('tiempo')}>
+          <p className="filtros" onClick={() => toggleDesplegable('tiempo')}> {/*Para abrir el desplegable del tiempo*/}
             <IonIcon icon={timeOutline} className="icon"/>
             Tiempo de preparación
             <IonIcon icon={chevronForwardOutline} className="icon2" />
           </p>
+          {/*Se abre el subdesplegable del tiempo*/}
           {mostrarTiempo && (
-            <div className='subdesplegable'>
+            <div className='subdesplegable'>{/*Se muestran los checkbox correspondientes*/}
               <label>
                 <IonCheckbox className='checkbox' slot='start' color='secondary'checked={checkboxes['menosDeMediaHora'] || false} onIonChange={() => handleCheckboxChange('menosDeMediaHora')}/>
                 Menos de 1/2 hora
@@ -172,13 +175,14 @@ const Buscador = () => {
             </div>
           )}
    
-          <p className="filtros" onClick={() => toggleDesplegable('dificultad')}>
+          <p className="filtros" onClick={() => toggleDesplegable('dificultad')}>{/*Para abrir el desplegable de la dificultad*/}
             <IonIcon icon={hammerOutline} className="icon3" />
             Dificultad
             <IonIcon icon={chevronForwardOutline} className="icon4" />
           </p>
+          {/*Se abre el subdesplegable de la dificultad*/}
           {mostrarDificultad && (
-            <div className='subdesplegable'>
+            <div className='subdesplegable'>{/*Se muestran los checkbox correspondientes*/}
               <label>
               <IonCheckbox className='checkbox' slot='start' color='secondary' checked={checkboxes['baja'] || false} onIonChange={() => handleCheckboxChange('baja')}/>
                 Baja
@@ -194,13 +198,14 @@ const Buscador = () => {
             </div>
           )}
    
-          <p className="filtros" onClick={() => toggleDesplegable('tipoComida')}>
+          <p className="filtros" onClick={() => toggleDesplegable('tipoComida')}>{/*Para abrir el desplegable del tipo de comida*/}
             <IonIcon icon={fastFoodOutline} className="icon" />
             Tipo de comida
             <IonIcon icon={chevronForwardOutline} className="icon2" />
           </p>
+          {/*Se abre el subdesplegable del tipo de comida*/}
           {mostrarTipoComida && (
-            <div className='subdesplegable'>
+            <div className='subdesplegable'>{/*Se muestran los checkbox correspondientes*/}
               <label>
               <IonCheckbox className='checkbox' slot='start' color='secondary' checked={checkboxes['platoFuerte'] || false} onIonChange={() => handleCheckboxChange('platoFuerte')}/>
                 Platos principales
@@ -218,6 +223,7 @@ const Buscador = () => {
         </div>
       )}
 
+  {/*Busca y filtra las recetas a mostrar según el checkbox seleccionado*/}
   {(searchTerm === '' ? filteredRecipes : filteredRecipes.filter(recipe => {
           if (checkboxes.baja && recipe.dificultad !== 'Baja') {
             return false;
@@ -247,7 +253,8 @@ const Buscador = () => {
             return false;
           }
           return true;
-        })).map(recipe => (
+          {/*Muestra un map de las recetas que coincidan con el filtro seleccionado*/}
+        })).map(recipe => ( 
           <RecipeCard
             key={recipe.id}
             recipe={recipe}
