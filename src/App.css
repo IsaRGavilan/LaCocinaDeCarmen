@@ -1,7 +1,9 @@
+/*Ajuste del ancho del menú*/
 ion-menu {
   width: auto;
 }
 
+/*Estilos del menú*/
 .menu-list {
   position: relative;
   height: 100%;
@@ -55,6 +57,7 @@ ion-menu {
   --background: transparent;
 }
 
+/*Estilo del avatar del usuario que se muestra en el menú*/
 #avatarUser {
   width: 50px;
   height: 50px;
@@ -62,6 +65,7 @@ ion-menu {
   border-radius: 20px;
 }
 
+/*Estilo del nombre de usuario que se muestra en el menú*/
 #username {
   color: white;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -70,6 +74,7 @@ ion-menu {
   margin-left: 25px;
 }
 
+/*Estilos del contenido de fondo en general, imagen, tipo de letra*/
 #contentGeneral{
   background-image: url('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/fondos%2FGenerales%2Ffondo3.jpg?alt=media&token=4a5054a7-66ca-4f4a-b742-0018eecefb94&_gl=1*17sbacb*_ga*NTE5ODQ3NjM2LjE2ODQ2NzkwMTU.*_ga_CW55HF8NVT*MTY4NTYzMTk3Ny4yOS4xLjE2ODU2NDA4NjMuMC4wLjA.');
   --background: var(--background);

@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import '../../../css/cssCategorias/cssCocinaTipica/CocinaTipica.css';
+import '../../../css/cssCategorias/CocinaTipica.css';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import firebaseConfig from '../../../firebaseConfig';
 import RecipeCard from '../../../components/RecipeCard/RecipeCard';

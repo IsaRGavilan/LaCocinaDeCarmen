@@ -1,7 +1,6 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonCard, IonCardHeader, IonCardTitle } from '@ionic/react';
-import React from 'react';
-import '../../css/cssCategorias/PlatosPrincipales.css';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; //Link para crear enlaces a otras rutas dentro de la app
+//Importaciones de las imágenes de cada categoría
 import pescados from '../../assets/imagenesPlatosPrincipales/pescados.jpg';
 import pure from '../../assets/imagenesPlatosPrincipales/pure.jpg';
 import legumbres from '../../assets/imagenesPlatosPrincipales/legumbres.jpg';
@@ -9,6 +8,7 @@ import pasta from '../../assets/imagenesPlatosPrincipales/pasta.jpg';
 import sopas from '../../assets/imagenesPlatosPrincipales/sopas.jpg';
 import verduras from '../../assets/imagenesPlatosPrincipales/verduras.jpg';
 import carnes from '../../assets/imagenesPlatosPrincipales/carnes.jpg';
+import '../../css/cssCategorias/PlatosPrincipales.css'; //Importa archivo de estilos
 
 const PlatosPrincipales = () => {
   return (
