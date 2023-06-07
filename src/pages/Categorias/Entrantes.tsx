@@ -40,7 +40,7 @@ const Entrantes = () => {
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header">{/*Header del componente que incluye el menú desplegable*/}
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Entrantes y ensaladas</IonTitle>
+          <IonTitle className="main-title">Entrantes y ensaladas</IonTitle> {/*Título del componente*/}
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>

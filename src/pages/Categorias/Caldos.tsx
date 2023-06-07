@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'; //Importa el hook useEffect y useState de React
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton } from '@ionic/react'; //Importa componentes Ionic
-import firebaseConfig from '../../firebaseConfig';//Importa la configuración de Firebase
+import firebaseConfig from '../../firebaseConfig'; //Importa la configuración de Firebase
 import { getFirestore, collection, getDocs } from 'firebase/firestore'; //Importa funciones para manipular documentos de firestore
 import RecipeCard from '../../components/RecipeCard/RecipeCard'; //Importa componente RecipeCard
 
@@ -40,7 +40,7 @@ const Caldos = () => {
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header">{/*Header del componente que incluye el menú desplegable*/}
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Caldos y salsas</IonTitle>
+          <IonTitle className="main-title">Caldos y salsas</IonTitle>{/*Título del componente*/}
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
