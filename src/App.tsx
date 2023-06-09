@@ -112,7 +112,6 @@ const App: React.FC = () => {
         setAvatar('');
       }
     });
-
     return () => {
       unsubscribeAuth(); //Cancela la suscripción al estado de autenticación cuando el componente se desmonta
     };
@@ -181,13 +180,14 @@ const App: React.FC = () => {
             <Route exact path="/">
               {isAuthenticated ? <Inicio /> : <InicioSesion setIsAuthenticated={setIsAuthenticated} />}
             </Route>
+            <Route exact path="/terminos" component={Terminos}/>
+            
             <ProtectedRoute exact path="/inicio" component={Inicio} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/favoritos" component={Favoritos} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/buscador" component={Buscador} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/lista" component={Lista} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/perfil" component={Perfil} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/receta/:id" component={Recipe} isAuthenticated={isAuthenticated}/>
-            <Route exact path="/terminos" component={Terminos}/>
             
             <ProtectedRoute exact path="/platosPrincipales" component={PlatosPrincipales} isAuthenticated={isAuthenticated} />
             <ProtectedRoute exact path="/entrantes" component={Entrantes} isAuthenticated={isAuthenticated} />
