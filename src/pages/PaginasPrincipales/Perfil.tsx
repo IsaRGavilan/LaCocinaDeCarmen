@@ -61,22 +61,6 @@ const Perfil: React.FC<PerfilProps> = ({ setIsAuthenticated }) => {
       setSelectedAvatar('https://firebasestorage.googleapis.com/v0/b/lacocinadecarmen-irg.appspot.com/o/avatares%2Favatardefecto.png?alt=media&token=bff9a490-bcf0-44cb-9f58-e0ed4b5b2eff'); // Establecer el avatar por defecto para el nuevo usuario
     }
   };
-  
-  //Efecto que se ejecuta al cargar el componente y al cambiar el historial de navegación
-  useEffect(() => {
-    const auth = getAuth(firebaseConfig.app);
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setEmail(user.email ?? ''); //Obtener el correo electrónico del usuario autenticado
-        getProfileData(user.uid); //Obtener los datos del perfil del usuario autenticado
-      } else {
-        history.push('/inicioSesion'); //Redireccionar al inicio de sesión si no hay usuario autenticado
-      }
-    });
-    return () => { //Función de limpieza del efecto
-      unsubscribe(); //Desuscribirse del cambio de estado de autenticación
-    };
-  }, [history]);
 
   //Función para guardar los cambios en el perfil del usuario  
   const guardarCambios = async () => {

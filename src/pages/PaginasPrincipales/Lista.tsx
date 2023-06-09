@@ -37,7 +37,6 @@ const Lista = () => {
           console.error('Error al obtener la lista de la compra:', error);
         }
       };
-
       fetchItems();
 
       //Escucha los cambios en la lista de la compra del usuario
@@ -54,7 +53,7 @@ const Lista = () => {
         unsubscribe(); //Se cancela la suscripción al salir del componente
       };
       }
-    }, [user]); //Se ejecuta cuando cambia el usuario autenticado
+      }, [user]); //Se ejecuta cuando cambia el usuario autenticado
 
   //Función para actualizar el valor actual del input
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
