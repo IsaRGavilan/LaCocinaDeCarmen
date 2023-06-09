@@ -19,9 +19,8 @@ import { IonReactRouter } from '@ionic/react-router'; //Importa el enrutador de 
 import { home, heart, search, cart, person } from 'ionicons/icons'; //Importa iconos utilizados
 import { getAuth, onAuthStateChanged } from '@firebase/auth'; //Importa las funciones getAuth y onAuthStateChanged de auth
 import { getFirestore, doc, onSnapshot } from 'firebase/firestore'; //Importa las funciones getFirestore, doc y onSnapshot de firestore
-
-
 import './App.css'; //Importa archivo de estilos
+
 /*Importación de todos los componentes y páginas y de la app*/
 import Registro from './pages/Identificacion/Registro';
 import InicioSesion from './pages/Identificacion/InicioSesion';
