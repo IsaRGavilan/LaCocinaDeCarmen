@@ -19,7 +19,7 @@ const Cantabria = () => {
         const querySnapshot = await getDocs(recipesRef); //Obtener los documentos de la colección
         const recipesData = querySnapshot.docs
           .map((doc) => doc.data()) //Obtener los datos de los documentos
-          .filter((recipe) => recipe.provincia === "Cantabria"); //Filtrar las recetas por categoría
+          .filter((recipe) => recipe.provincia === "Cantabria"); //Filtrar las recetas por provincia
         setRecipes(recipesData); //Actualizar el estado con las recetas obtenidas
       } catch (error) {
         console.log("Error al obtener los documentos:", error);
