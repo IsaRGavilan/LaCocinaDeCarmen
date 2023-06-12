@@ -36,9 +36,10 @@
   /*Estilos del botón de iniciar sesión y registro*/
   .boton {
     width: 80%;
-    max-width: 300px;
-    margin-top: 20px;
-}
+    bottom: 0;
+    z-index: 1;
+    left: 0;
+  }
 
   /*Estilos de los campos de entrada*/
   #inputs {
@@ -47,7 +48,6 @@
     max-width: 300px;
     margin-bottom: 15px;
     border: solid bl;
-
   }
   
   /*Estilos de los textos de la pantalla*/
@@ -63,5 +63,5 @@
   /*Estilo del botón de Google*/
   #google {
     height: 6vh;
-    margin-top: 20px;
+    margin-top: 5%;
   }

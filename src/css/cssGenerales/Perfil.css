@@ -37,10 +37,9 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 10%;
+    right: 6%;
     z-index: 9999;
-    margin-bottom: 60px;
   }
 
   /*Estilos del botón de guardar cambios*/
@@ -50,10 +49,9 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     position: fixed;
-    bottom: 20px;
-    left: 20px;
+    bottom: 10%;
+    left: 6%;
     z-index: 9999;
-    margin-bottom: 60px;
   }
 
   /*Estilos del container de avatares*/
@@ -101,6 +99,8 @@
     margin-left: 13%;
     font-size: large;
     margin-top: 8%;
+    max-height: calc(100vh - 200px);
+    margin-bottom: 100px;
   }
 
   /*Estilos del texto de campos*/
@@ -120,9 +120,10 @@
   /*Estilos de los términos*/
   .terminosPerfil {
     position: fixed;
-    bottom: 0;
+    bottom: 1%;
+    top: 90%;
     width: 100%;
-    padding: 15px;
+    padding: 5%;
     text-align: center;
     text-decoration: underline #74472f;
   }

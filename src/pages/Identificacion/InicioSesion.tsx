@@ -107,18 +107,18 @@ const InicioSesion: React.FC<InicioSesionProps> = ({ setIsAuthenticated }) => {
             value={password}
             onIonChange={(e) => setPassword(e.detail.value!)}
           />
-          {/*Botón para iniciar sesión*/}
-          <IonButton expand="full" className="boton" onClick={handleInicioSesion} disabled={isLoading}>
-          {isLoading ? 'Iniciando sesión...' : 'Iniciar sesión'}{/*Texto que cambia según el estado de carga*/}
-          </IonButton>
-          <h3 id="texto">¿Aún no tienes cuenta? ¡Regístrate!</h3>{/*Texto y botón para ir al registro*/}
-          <IonButton expand="full" className="boton" onClick={handleRegistro}>
-            Registro
-          </IonButton>
-          <img src={logoGoogle} id="google" alt="Google" onClick={handleInicioSesionGoogle}/>{/*Imagen clicable para iniciar sesión con Google*/}
-          <IonButton expand="full" className="boton" onClick={handleResetPassword}>{/*Botón para restablecer contraseña*/}
-            He olvidado la contraseña
-          </IonButton>
+            {/*Botón para iniciar sesión*/}
+            <IonButton expand="full" className="boton" onClick={handleInicioSesion} disabled={isLoading}>
+            {isLoading ? 'Iniciando sesión...' : 'Iniciar sesión'}{/*Texto que cambia según el estado de carga*/}
+            </IonButton>
+            <h3 id="texto">¿Aún no tienes cuenta? ¡Regístrate!</h3>{/*Texto y botón para ir al registro*/}
+            <IonButton expand="full" className="boton" onClick={handleRegistro}>
+              Registro
+            </IonButton>
+            <img src={logoGoogle} id="google" alt="Google" onClick={handleInicioSesionGoogle}/>{/*Imagen clicable para iniciar sesión con Google*/}
+            <IonButton expand="full" className="boton" onClick={handleResetPassword}>{/*Botón para restablecer contraseña*/}
+              He olvidado la contraseña
+            </IonButton>
         </div>
       </IonContent>
       {/*Componente de notificación para mostrar los mensajes durante 3 segundos*/}

@@ -135,7 +135,7 @@ const CocinaTipica = () => {
               <IonCard className='card'>
                 <img alt="catalunya" src={catalunya} className='image'/>
                 <IonCardHeader>
-                  <IonCardTitle className='title'>Castaluña</IonCardTitle>
+                  <IonCardTitle className='title'>Cataluña</IonCardTitle>
                 </IonCardHeader>
               </IonCard>
               </Link>
