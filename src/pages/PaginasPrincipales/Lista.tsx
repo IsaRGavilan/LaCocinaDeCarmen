@@ -7,7 +7,10 @@ import { getAuth } from 'firebase/auth'; //Importa función de autenticación de
 import { doc, getDoc, setDoc, onSnapshot, arrayUnion, updateDoc } from 'firebase/firestore'; //Importa funciones para manipular documentos de firestore
 import { PDFDocument, rgb } from 'pdf-lib';
 import '../../css/cssGenerales/Lista.css'; //Importa archivo de estilos
-import { Browser } from '@capacitor/browser';
+import { Filesystem, FilesystemDirectory } from '@capacitor/filesystem'; //Importa funciones para descargar la lista en PDF
+import { Capacitor, Plugins } from '@capacitor/core'; //Importa funciones para pasar la app a Android
+const { Toast } = Plugins;
+
 
 const Lista = () => {
   const [items, setItems] = useState<{ name: string, quantity: number, checked: boolean }[]>([]); //Almacena un array de elementos (productos) y actualiza su estado
@@ -130,15 +133,16 @@ const Lista = () => {
     }
   };  
 
+  //Función para controlar el cambmio de los checkbox
   const handleCheckboxChange = async (index: number) => {
     const updatedItems = [...items];
-    updatedItems[index].checked = !updatedItems[index].checked;
-    setItems(updatedItems);
+    updatedItems[index].checked = !updatedItems[index].checked; //Cambia el valor de checked si el checkbox está marcado
+    setItems(updatedItems); //Actualiza el estado de los items
   
     if (user) {
       try {
-        const userDocRef = doc(firebaseConfig.firestore, 'users', user.uid);
-        await updateDoc(userDocRef, { lista: updatedItems });
+        const userDocRef = doc(firebaseConfig.firestore, 'users', user.uid); //Obtiene referencia del documento del usuario autenticado
+        await updateDoc(userDocRef, { lista: updatedItems }); //Actualiza el documento
       } catch (error) {
         console.error('Error al actualizar la lista de la compra:', error);
       }
@@ -147,30 +151,68 @@ const Lista = () => {
 
   const handleDownloadPDF = async () => {
     try {
+      //Crear un nuevo documento PDF
       const pdfDoc = await PDFDocument.create();
       const page = pdfDoc.addPage();
-      const { width, height } = page.getSize();
   
-      let y = height - 50; // Posición inicial del texto en la página PDF
+      //Escribir los elementos de la lista en el PDF
+      const yStart = page.getHeight() - 50; //Posición vertical inicial para escribir los elementos
+      const fontSize = 12;
+      const lineHeight = fontSize + 5;
   
-      for (const item of items) {
-        const formattedItem = `${item.name} - Cantidad: ${item.quantity}`;
-        page.drawText(formattedItem, { x: 50, y, size: 12, color: rgb(0, 0, 0) });
-        y -= 20; // Actualiza la posición Y para el siguiente elemento
-      }
+      items.forEach((item, index) => {
+        const y = yStart - index * lineHeight;
+        page.drawText(`${item.name} - Cantidad: ${item.quantity}`, {
+          x: 50,
+          y,
+          size: fontSize,
+          color: rgb(0, 0, 0), //Color de texto en negro
+        });
+      });
   
+      //Generar el contenido del PDF
       const pdfBytes = await pdfDoc.save();
   
-      // Crear un blob con los bytes del PDF
-      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      //Nombre del archivo PDF
+      const fileName = 'lista_compra.pdf';
   
-      // Crear una URL a partir del blob
-      const url = URL.createObjectURL(blob);
+      if (Capacitor.isNative) {
+        //Descargar en dispositivos móviles con Capacitor
+        const base64Data = btoa(String.fromCharCode(...new Uint8Array(pdfBytes)));
   
-      // Abrir el PDF en una nueva ventana utilizando el plugin @capacitor/browser
-      await Browser.open({ url });
+        //Guardar el archivo en la carpeta de descargas del dispositivo
+        const savedFile = await Filesystem.writeFile({
+          path: fileName,
+          data: base64Data,
+          directory: FilesystemDirectory.Documents,
+        });
+  
+        //Mostrar una notificación o mensaje al usuario de que se descargó el archivo
+        await Toast.show({
+          text: 'Lista de la compra descargada correctamente',
+          duration: 'short',
+        });
+
+      console.log('Archivo PDF descargado:', savedFile.uri);
+      } else {
+        //Descargar en la versión web
+        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+  
+        //Crear un objeto URL para el blob
+        const url = window.URL.createObjectURL(blob);
+  
+        //Crear un enlace temporal y hacer clic en él para descargar el archivo
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = fileName;
+        link.target = '_blank';
+        link.click();
+  
+        //Limpiar el objeto URL después de la descarga
+        window.URL.revokeObjectURL(url);
+      }
     } catch (error) {
-      console.error('Error al generar el PDF:', error);
+      console.error('Error al descargar el PDF:', error);
     }
   };
   
@@ -178,7 +220,7 @@ const Lista = () => {
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header"> {/*Header del componente que incluye el menú desplegable*/}
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Lista de la compra</IonTitle> {/*Título del componente*/}
+          <IonTitle className="main-title">Lista de la compra act</IonTitle> {/*Título del componente*/}
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>

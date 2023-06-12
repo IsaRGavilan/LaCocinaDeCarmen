@@ -8,6 +8,9 @@ import { getAuth } from 'firebase/auth'; // Importa la función para obtener la 
 import { doc, updateDoc, getDoc } from 'firebase/firestore'; // Importa funciones para trabajar con Firestore
 import jsPDF from 'jspdf'; // Importa la librería jsPDF para generar documentos PDF
 import './RecipeCard.css'; // Importa archivo de estilos
+import { Capacitor } from '@capacitor/core';
+import { Filesystem, Directory } from '@capacitor/filesystem';
+import { Toast } from '@capacitor/toast';
 
 /*Definición de la interfaz RecipeCardProps para especificar
 las propiedades esperadas de la tarjeta*/
@@ -89,11 +92,9 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, handleFavoriteChange })
   };
 
   //Función para manejar la descarga del PDF de la receta
-  const handleDownload = () => {
+  const handleDownload = async() => {
     const doc = new jsPDF(); //Crear instancia de jsPDF
-    const img = new Image(); //Crear instancia de Image
-    img.src = recipe.imagen; //Crear una imagen tomándola de la URL de la receta
-  
+
     //Obtener ancho y alto de la página
     const pageWidth = doc.internal.pageSize.getWidth();
     const pageHeight = doc.internal.pageSize.getHeight();
@@ -105,7 +106,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, handleFavoriteChange })
       doc.rect(0, 0, pageWidth, pageHeight, "F");
     };
   
-    //Mostrar título, imagen y otros detalles en la primera página
+    //Mostrar título y otros detalles en la primera página
     doc.setFillColor("#F2ECEB"); //Establecer color de fondo
     doc.rect(0, 0, pageWidth, pageHeight, "F");
     doc.setFont("helvetica", "bold");
@@ -114,17 +115,16 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, handleFavoriteChange })
     const titleWidth = doc.getTextWidth(title);
     const titleX = (pageWidth - titleWidth) / 2;
     doc.text(title, titleX, 20);
-    doc.addImage(img, "JPEG", pageWidth / 2 - 40, 40, 80, 80);
   
     //Mostrar título de ingredientes
     doc.setFont("helvetica", "bold");
     doc.setFontSize(16);
-    doc.text("INGREDIENTES:", 10, 150);
+    doc.text("INGREDIENTES:", 10, 40);
   
     //Mostrar los ingredientes uno bajo otro con guiones
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
-    let ingredientsY = 160;
+    let ingredientsY = 50;
     let ingredientsRemainingHeight = pageHeight - ingredientsY - 20; //Espacio restante en la página para los ingredientes
     let ingredientsIndex = 0;
     while (ingredientsIndex < recipe.ingredientes.length && ingredientsRemainingHeight > 10) {
@@ -194,8 +194,37 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, handleFavoriteChange })
     doc.text(`- Tiempo de preparación: ${recipe.tiempo} minutos`, infoX, infoY + 14); //Ajusta el espacio vertical según el tamaño de fuente
     doc.text(`- Comensales: ${recipe.comensales}`, infoX, infoY + 28); //Ajusta el espacio vertical según el tamaño de fuente
   
-    //Descargar el archivo PDF
-    doc.save(`${recipe.nombre}.pdf`);
+    const fileName = `${recipe.nombre}.pdf`;
+    const pdfBytes = doc.output("arraybuffer");
+    if (Capacitor.isNative) {
+      try {
+        const base64Data = btoa(String.fromCharCode(...new Uint8Array(pdfBytes)));
+  
+        const savedFile = await Filesystem.writeFile({
+          path: fileName,
+          data: base64Data,
+          directory: Directory.Documents,
+        });
+  
+        await Toast.show({
+          text: 'Receta descargada correctamente',
+          duration: 'short',
+        });
+  
+        console.log('Archivo PDF descargado:', savedFile.uri);
+      } catch (error) {
+        console.error('Error al descargar el PDF:', error);
+      }
+    } else {
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = fileName;
+      link.target = '_blank';
+      link.click();
+      window.URL.revokeObjectURL(url);
+    }
   };  
   
   return (
