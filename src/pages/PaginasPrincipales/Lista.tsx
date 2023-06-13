@@ -220,7 +220,7 @@ const Lista = () => {
     <IonPage id="main-content" className="main-page">
       <IonHeader className="custom-header"> {/*Header del componente que incluye el menú desplegable*/}
         <IonToolbar className="custom-toolbar">
-          <IonTitle className="main-title">Lista de la compra act</IonTitle> {/*Título del componente*/}
+          <IonTitle className="main-title">Lista de la compra</IonTitle> {/*Título del componente*/}
           <IonMenuButton slot="start" />
         </IonToolbar>
       </IonHeader>
